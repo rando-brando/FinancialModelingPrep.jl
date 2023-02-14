@@ -1,6 +1,6 @@
 name = "FinancialModelingPrep"
 uuid = "cfa96e45-7952-4214-b401-70d7ad14aa2f"
-authors = ["Unknown "]
+authors = ["rando-brando"]
 version = "0.1.0"
 
 [deps]

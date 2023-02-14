@@ -32,7 +32,7 @@ Returns a vector of income statements by period for the specified symbol. Each e
 fmp = FMP()
 
 # get the last 10 quarterly statments for AAPL
-data =income_statements(fmp, "AAPL", period = "quarter", limit = 10)
+data = income_statements(fmp, "AAPL", period = "quarter", limit = 10)
 
 # get the last 5 annual statements as reported for AAPL
 data = income_statements(fmp, "AAPL", limit = 5, reported = true)

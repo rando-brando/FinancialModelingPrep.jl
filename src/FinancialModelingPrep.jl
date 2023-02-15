@@ -1,7 +1,8 @@
 module FinancialModelingPrep
 
+import .Handler
 import Base: @kwdef
-import HTTP, JSON
+
 export FMP
 
 # exports from stockfundamentals.jl
@@ -48,6 +49,7 @@ fmp = FMP(api_key = my_key)
     headers::Dict{String, String} = Dict{String, String}("Upgrade-Insecure-Requests" => "1")
 end
 
+include("Handler.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
 include("stockstatistics.jl")

@@ -5,26 +5,31 @@ Returns a vector of symbols which have financial statements. Each element is a s
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
+
+See [Financial-Statements-List](https://site.financialmodelingprep.com/developer/docs#Financial-Statements-List) for more details.  
 """
 function symbols_with_financials(fmp::FMP)::Vector{String}
     endpoint = "api/v3/financial-statement-symbol-lists"
-    query::Vector{Tuple{String, Any}} = [("apikey", fmp.api_key)]
-    response = HTTP.get(fmp.base_url * endpoint, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}("apikey" => fmp.api_key)
+    url = fmp.base_url * endpoint
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
 """
-    income_statements(fmp, symbol, period = "annual", limit = 30, reported = false)
+    income_statements(fmp, symbol, reported = false, params...)
 
-Returns a vector of income statements by period for the specified symbol. Each element is a dictionary.
+Returns a vector of income statements for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- period::String: Either "annual" or "quarter".
-- limit::Integer: The number of periods to return.
 - reported::Bool: Return the reported or normalized statements.
+- params...: Additional keyword query params.
+
+See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -35,31 +40,32 @@ fmp = FMP()
 data = income_statements(fmp, "AAPL", period = "quarter", limit = 10)
 
 # get the last 5 annual statements as reported for AAPL
-data = income_statements(fmp, "AAPL", limit = 5, reported = true)
+data = income_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
-function income_statements(fmp::FMP, symbol::String;  period::String = "annual", limit::Integer = 30, reported::Bool = false)
-    endpoint = "api/v3/" * if reported "income-statement-as-reported/" else "income-statement/" end
-    query::Vector{Tuple{String, Any}} = [("limit", limit), ("apikey", fmp.api_key)]
-    if period == "quarter"
-        pushfirst!(query, ("period", period))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
-    return data
+function income_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
+    endpoint = "api/v3/" * (reported ? "income-statement-as-reported/" : "income-statement/")
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
+    return data 
 end
 
 """
-    balance_sheet_statements(fmp, symbol, period = "annual", limit = 30, reported = false)
+    balance_sheet_statements(fmp, symbol, reported = false, params...)
 
-Returns a vector of balance sheet statements by period for the specified symbol. Each element is a dictionary.
+Returns a vector of balance sheet statements for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- period::String: Either "annual" or "quarter".
-- limit::Integer: The number of periods to return.
 - reported::Bool: Return the reported or normalized statements.
+- params...: Additional keyword query params.
+
+See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -70,31 +76,32 @@ fmp = FMP()
 data = balance_sheet_statements(fmp, "AAPL", period = "quarter", limit = 10)
 
 # get the last 5 annual statements as reported for AAPL
-data = balance_sheet_statements(fmp, "AAPL", limit = 5, reported = true)
+data = balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
-function balance_sheet_statements(fmp::FMP, symbol::String;  period::String = "annual", limit::Integer = 30, reported::Bool = false)
-    endpoint = "api/v3/" * if reported "balance-sheet-statement-as-reported/" else "balance-sheet-statement/" end
-    query::Vector{Tuple{String, Any}} = [("limit", limit), ("apikey", fmp.api_key)]
-    if period == "quarter"
-        pushfirst!(query, ("period", period))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+function balance_sheet_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
+    endpoint = "api/v3/" * (reported ? "balance-sheet-statement-as-reported/" : "balance-sheet-statement/")
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
 """
-    cash_flow_statements(fmp, symbol, period = "annual", limit = 30, reported = false)
+    cash_flow_statements(fmp, symbol, reported = false, params...)
 
-Returns a vector of cash flow statements by period for the specified symbol. Each element is a dictionary.
+Returns a vector of cash flow statements for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- period::String: Either "annual" or "quarter".
-- limit::Integer: The number of periods to return.
 - reported::Bool: Return the reported or normalized statements.
+- params...: Additional keyword query params.
+
+See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -105,29 +112,30 @@ fmp = FMP()
 data = cash_flow_statements(fmp, "AAPL", period = "quarter", limit = 10)
 
 # get the last 5 annual statements as reported for AAPL
-data = cash_flow_statements(fmp, "AAPL", limit = 5, reported = true)
+data = cash_flow_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
-function cash_flow_statements(fmp::FMP, symbol::String; period::String = "annual", limit::Integer = 30, reported::Bool = false)
-    endpoint = "api/v3/" * if reported "cash-flow-statement-as-reported/" else "cash-flow-statement/" end
-    query::Vector{Tuple{String, Any}} = [("limit", limit), ("apikey", fmp.api_key)]
-    if period == "quarter"
-        pushfirst!(query, ("period", period))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+function cash_flow_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
+    endpoint = "api/v3/" * (reported ? "cash-flow-statement-as-reported/" : "cash-flow-statement/")
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
 """
-    financial_statements(fmp, symbol, period = "annual")
+    financial_statements(fmp, symbol, params...)
 
 Returns a vector of financial statements by period for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- period::String: Either "annual" or "quarter".
+- params...: Additional keyword query params.
+
+See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -138,14 +146,13 @@ fmp = FMP()
 data = financial_statements(fmp, "AAPL", period = "quarter")
 ```
 """
-function financial_statements(fmp::FMP, symbol::String; period::String = "annual")
+function financial_statements(fmp::FMP, symbol::String; param...)::Vector{Any}
     endpoint = "api/v3/financial-statement-full-as-reported/"
-    query::Vector{Tuple{String, Any}} = [("apikey", fmp.api_key)]
-    if period == "quarter"
-        pushfirst!(query, ("period", period))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
@@ -160,6 +167,9 @@ Returns a dictionary with the financial report for the specified symbol, year an
 - year::Integer: The financial statement year.
 - period::String: One of "FY", "Q1", "Q2", "Q3" or "Q4".
 
+See [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) for more details.
+See [Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/developer/docs/#Quarterly-Earnings-Reports) for more details.
+
 # Examples
 ``` julia
 # create a FMP API instance
@@ -172,11 +182,12 @@ data = financial_reports(fmp, "AAPL", year = 2022, period = "FY")
 data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")
 ```
 """
-function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")
+function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")::Vector{Any}
     endpoint = "api/v4/financial-reports-json/"
-    query::Vector{Tuple{String, Any}} = [("symbol", symbol), ("year", year), ("period", period), ("apikey", fmp.api_key)]
-    response = HTTP.get(fmp.base_url * endpoint, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}("symbol" => symbol, "year" => year, "period" => period)
+    url = fmp.base_url * endpoint
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
@@ -187,26 +198,33 @@ Returns a vector of shares float statistics for one or all symbols. Each element
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol or "all" if not provided.
+- symbol::String: A stock symbol or all symbols if not provided.
+
+See [Shares-Float](https://site.financialmodelingprep.com/developer/docs/#Shares-Float) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
+# get shares float for all symbols
+data = shares_float(fmp)
+
 # get shares float for AAPL
 data = shares_float(fmp, "AAPL")
 ```
 """
-function shares_float(fmp::FMP; symbol::String = "all")
+function shares_float(fmp::FMP; symbol::String = "all")::Vector{Any}
     endpoint = "api/v4/shares_float/"
-    query::Vector{Tuple{String, Any}} = [("apikey", fmp.api_key)]
-    if period != "all"
-        pushfirst!(query, ("symbol", symbol))
-        symbol = "" # drop symbol since its a query instead
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}("apikey" => fmp.api_key)
+    if symbol == "all"
+        endpoint *= symbol
+    else
+        query["symbol"] = symbol
+    end 
+    url = fmp.base_url * endpoint
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
@@ -218,8 +236,9 @@ Returns a vector of earnings call transcripts for a specified symbols. Each elem
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol or "all" if not provided.
-- year::Integer: The transcript year.
-- quarter::Integer: One of 1, 2, 3, or 4.
+- params...: Additional keyword query params.
+
+See [Earnings-Call-Transcript](https://site.financialmodelingprep.com/developer/docs/#Earning-Call-Transcript) for more details.
 
 # Examples
 ``` julia
@@ -230,17 +249,13 @@ fmp = FMP()
 data = earnings_call_transcript(fmp, "AAPL", year = 2022)
 ```
 """
-function earnings_call_transcripts(fmp::FMP, symbol::String; year::Integer = 0, quarter::Integer = 0)
+function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "api/v3/earnings_call_transcript/"
-    query::Vector{Tuple{String, Any}} = [("apikey", fmp.api_key)]
-    if year != 0 
-        pushfirst!(query, ("year", year))
-    end
-    if quarter != 0
-        pushfirst!(query, ("quarter", quarter))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end
 
@@ -252,6 +267,9 @@ Returns a vector of sec filings for a specified symbols. Each element is a dicti
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol or "all" if not provided.
+- params...: Additional keyword query params.
+
+See [SEC-Filings](https://site.financialmodelingprep.com/developer/docs/#SEC-Filings) for more details.
 
 # Examples
 ``` julia
@@ -262,13 +280,12 @@ fmp = FMP()
 data = sec_filings(fmp, "AAPL", type = "10-K", page = 2)
 ```
 """
-function sec_filings(fmp::FMP, symbol::String; type::String = "", page::Integer = 0)
+function sec_filings(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "api/v4/sec_filings/"
-    query::Vector{Tuple{String, Any}} = [("page", page), ("apikey", fmp.api_key)]
-    if type != ""
-        pushfirst!(query, ("type", type))
-    end
-    response = HTTP.get(fmp.base_url * endpoint * symbol, query = query)
-    data = JSON.parse(String(response.body))
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["apikey"] = fmp.api_key
+    url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
     return data
 end

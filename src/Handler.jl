@@ -2,6 +2,15 @@ module Handler
 
 import HTTP, JSON
 
+"""
+    make_request(url, query)
+
+Handles and returns the response of a HTTP request.
+
+# Arguments
+- url::String: A url to make a request to.
+- query::Dict{String, Any}: Additional query parameters for the request.
+"""
 function make_request(url::String, query::Dict{String, Any})::HTTP.Messages.Response
     response = HTTP.get(url, query = query)
     
@@ -13,6 +22,14 @@ function make_request(url::String, query::Dict{String, Any})::HTTP.Messages.Resp
     return response
 end
 
+"""
+    parse_response(response)
+
+Handles and returns the result of parsing a response.
+
+# Arguments
+- response::HTTP.Messages.Response: An HTTP response object.
+"""
 function parse_response(response::HTTP.Messages.Response)::Vector{Any}
     result = JSON.parse(String(response.body))
     

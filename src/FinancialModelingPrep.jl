@@ -1,8 +1,13 @@
 module FinancialModelingPrep
 
-import .Handler
-import Base: @kwdef
+include("Client.jl")
 
+import .Client
+import .Client.FMP
+
+export FMP_ENDPOINTS
+
+# exports from Client module in Client.jl
 export FMP
 
 # exports from stockfundamentals.jl
@@ -17,44 +22,39 @@ export
     earnings_call_transcripts,
     sec_filings
 
+# exports from stockfundamentalsanalysis.jl
+export
+    financial_ratios,
+    financial_scores,
+    owners_earnings,
+    enterprise_values,
+    income_statements_growth,
+    balance_sheet_statements_growth,
+    cash_flow_statements_growth,
+    financial_statements_growth,
+    key_metrics,
+    current_rating,
+    historical_ratings,
+    discounted_cash_flows,
+    historical_discounted_cash_flows
+
 # exports from stockstatistics.jl
 export
     earnings_surprises,
     analyst_estimates
 
+# exports from companyinformation.jl
+export
+    company_profile
+
 # exports from stockfundamentalsanalysis.jl
 
-    """
-    FMP(api_key, base_url, headers)
-
-Creates a FMP instance for interacting with the Financial Modeling Prep API endpoints.
-
-# Arguments
-- api_key::String
-- base_url::String
-- headers::Dict{String, String}
-
-# Examples
-``` julia
-# load your FMP API key
-my_key = ENV("FMP_API_KEY")
-
-# create a new FMP instance, passing the API key by name
-fmp = FMP(api_key = my_key)
-```
-"""
-@kwdef struct FMP
-    api_key::String = "demo"
-    base_url::String = "https://financialmodelingprep.com/"
-    headers::Dict{String, String} = Dict{String, String}("Upgrade-Insecure-Requests" => "1")
-end
-
-REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # report period options
+REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
 
-include("Handler.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
 include("stockstatistics.jl")
+include("companyinformation.jl")
 
 end # module FinancialModelingPrep

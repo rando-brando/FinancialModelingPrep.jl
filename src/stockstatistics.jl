@@ -19,11 +19,10 @@ data = earnings_surprises(fmp, "AAPL")
 ```
 """
 function earnings_surprises(fmp::FMP, symbol::String)::Vector{Any}
-    endpoint = "api/v3/earnings-surprises/" 
-    query = Dict{String, Any}("apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "earnings-surprises/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -49,11 +48,9 @@ data = analyst_estimates(fmp, "AAPL", period = "quarter", limit = 4)
 ```  
 """
 function analyst_estimates(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/analyst-estimates/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "analyst-estimates/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end

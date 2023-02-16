@@ -20,12 +20,10 @@ data = financial_ratios(fmp, "AAPL", period = "quarter", limit = 30)
 ```
 """
 function financial_ratios(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/ratios/" 
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "ratios/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -50,11 +48,10 @@ data = financial_scores(fmp, "AAPL")
 ```
 """
 function financial_scores(fmp::FMP, symbol::String)::Vector{Any}
-    endpoint = "api/v3/ratios/" 
-    query = Dict{String, Any}("symbol" => symbol, "apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "score"
+    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -79,11 +76,10 @@ data = owners_earnings(fmp, "AAPL")
 ```
 """
 function owners_earnings(fmp::FMP, symbol::String)::Vector{Any}
-    endpoint = "api/v3/owners-earnings/" 
-    query = Dict{String, Any}("symbol" => symbol, "apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "owners-earnings" 
+    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -109,12 +105,10 @@ data = enterprise_values(fmp, "AAPL", period = "quarter", limit = 30)
 ```
 """
 function enterprise_values(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/enterprise-values/" 
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "enterprise-values/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -140,12 +134,10 @@ data = income_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
 function income_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/income-statement-growth/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "income-statement-growth/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -171,12 +163,10 @@ data = balance_sheet_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
 function balance_sheet_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/balance_sheet_statement_growth/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "balance_sheet_statement_growth/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -202,12 +192,10 @@ data = cash_flow_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
 function cash_flow_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/cash-flow-statement-growth/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "cash-flow-statement-growth/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -233,12 +221,10 @@ data = financial_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
 function financial_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/financial-growth/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "financial-growth/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -266,17 +252,16 @@ data = key_metrics(fmp, "AAPL", period = "ttm", limit = 30)
 """
 function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual, params...)::Vector{Any}
     if !(period in REPORTING_PERIODS)
-        error("Invalid period value. Allowed values are $(REPORTING_PERIODS). You can add a missing period by modifying this variable.")
+        error("Invalid period value. Allowed values are $(REPORTING_PERIODS). Modify REPORTING_PERIODS to override behavior.")
     end
-    endpoint = "api/v3/key-metrics/" * period ^ (period == REPORTING_PERIODS.ttm)
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    endpoint = "key-metrics" * ("-$(period)" ^ (period == REPORTING_PERIODS.ttm)) * "/$(symbol)"
     if period == REPORTING_PERIODS.quarter
-        query["period"] = REPORTING_PERIODS.quarter
+        url, query = Client.make_url_v3(fmp, endpoint, period = period, params...)
+    else
+        url, query = Client.make_url_v3(fmp, endpoint, params...)
     end
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -301,11 +286,10 @@ data = company_rating(fmp, "AAPL")
 ```
 """
 function current_rating(fmp::FMP, symbol::String)::Vector{Any}
-    endpoint = "api/v3/rating/"
-    query = Dict{String, Any}("apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "rating/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -331,12 +315,10 @@ data = historical_ratings(fmp, "AAPL", limit = 100)
 ```
 """
 function historical_ratings(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/historical-rating/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "historical-rating/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -362,14 +344,15 @@ data = discounted_cash_flows(fmp, "AAPL", with_wacc = true)
 ```
 """
 function discounted_cash_flows(fmp::FMP, symbol::String; with_wacc::Bool = false)::Vector{Any}
-    endpoint = with_wacc ? "api/v4/advanced_discounted_cash_flow" : "api/v3/discounted-cash-flow/" * symbol
-    query = Dict{String, Any}("apikey" => fmp.api_key)
     if with_wacc
-        query["symbol"] = symbol
+        endpoint = "advanced_discounted_cash_flow"
+        url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+    else
+        endpoint = "discounted-cash-flow/$(symbol)"
+        url, query = Client.make_url_v3(fmp, endpoint, params...)
     end
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -395,11 +378,9 @@ data = historical_discounted_cash_flows(fmp, "AAPL", period = "quarter", limit =
 ```
 """
 function historical_discounted_cash_flows(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/historical-discounted-cash-flow/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "historical-discounted-cash-flow/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end

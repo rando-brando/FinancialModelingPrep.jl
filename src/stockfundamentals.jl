@@ -9,11 +9,10 @@ Returns a vector of symbols which have financial statements. Each element is a s
 See [Financial-Statements-List](https://site.financialmodelingprep.com/developer/docs#Financial-Statements-List) for more details.  
 """
 function symbols_with_financials(fmp::FMP)::Vector{String}
-    endpoint = "api/v3/financial-statement-symbol-lists"
-    query = Dict{String, Any}("apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "financial-statement-symbol-lists"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -44,12 +43,10 @@ data = income_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
 function income_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
-    endpoint = "api/v3/" * (reported ? "income-statement-as-reported/" : "income-statement/")
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = (reported ? "income-statement-as-reported" : "income-statement") * "/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data 
 end
 
@@ -80,12 +77,10 @@ data = balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
 function balance_sheet_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
-    endpoint = "api/v3/" * (reported ? "balance-sheet-statement-as-reported/" : "balance-sheet-statement/")
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = (reported ? "balance-sheet-statement-as-reported" : "balance-sheet-statement") * "/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -116,12 +111,10 @@ data = cash_flow_statements(fmp, "AAPL", reported = true, limit = 5)
 ```
 """
 function cash_flow_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
-    endpoint = "api/v3/" * (reported ? "cash-flow-statement-as-reported/" : "cash-flow-statement/")
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = (reported ? "cash-flow-statement-as-reported" : "cash-flow-statement") * "/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -146,13 +139,11 @@ fmp = FMP()
 data = financial_statements(fmp, "AAPL", period = "quarter")
 ```
 """
-function financial_statements(fmp::FMP, symbol::String; param...)::Vector{Any}
-    endpoint = "api/v3/financial-statement-full-as-reported/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+function financial_statements(fmp::FMP, symbol::String; params...)::Vector{Any}
+    endpoint = "financial-statement-full-as-reported/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -183,11 +174,10 @@ data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")
 ```
 """
 function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")::Vector{Any}
-    endpoint = "api/v4/financial-reports-json/"
-    query = Dict{String, Any}("symbol" => symbol, "year" => year, "period" => period, "apikey" => fmp.api_key)
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "financial-reports-json"
+    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, year = year, period = period)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -216,15 +206,12 @@ data = revenue_segments(fmp, "AAPL", segment = "product", period = "quarter")
 """
 function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...)::Vector{Any}
     if !(segment in REVENUE_SEGMENTS)
-        error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). You can add a missing segment by modifying this variable.")
+        error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). Modify REVENUE_SEGMENTS to override behavior.")
     end
-    endpoint = "api/v4/revenue-" * segment * "-segmentation/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["symbol"] = symbol
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "revenue-$(segment)-segmentation"
+    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -252,16 +239,14 @@ data = shares_float(fmp, "AAPL")
 ```
 """
 function shares_float(fmp::FMP; symbol::String = "all")::Vector{Any}
-    endpoint = "api/v4/shares_float/"
-    query = Dict{String, Any}("apikey" => fmp.api_key)
+    endpoint = "shares_float"
     if symbol == "all"
-        endpoint *= symbol
+        url, query = Client.make_url_v4(fmp, endpoint * "/$(symbol)")
     else
-        query["symbol"] = symbol
+        url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     end 
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -287,12 +272,10 @@ data = earnings_call_transcript(fmp, "AAPL", year = 2022)
 ```
 """
 function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v3/earnings_call_transcript/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "earnings_call_transcript/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
@@ -318,17 +301,15 @@ data = sec_filings(fmp, "AAPL", type = "10-K", page = 2)
 ```
 """
 function sec_filings(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v4/sec_filings/"
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = fmp.base_url * endpoint * symbol
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+    endpoint = "sec_filings/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end
 
 """
-    notes_due(fmp, symbol)
+company_notes(fmp, symbol)
 
 Returns a vector of notes due for a specified symbols. Each element is a dictionary.
 
@@ -344,14 +325,13 @@ See [Company-Notes-Due](https://site.financialmodelingprep.com/developer/docs/#C
 fmp = FMP()
 
 # get all notes due for AAPL
-data = notes_due(fmp, "AAPL")
+data = company_notes(fmp, "AAPL")
 ```
 """
-function notes_due(fmp::FMP, symbol::String; params...)::Vector{Any}
-    endpoint = "api/v4/company-notes/"
-    query = Dict{String, Any}("symbol" => symbol, "apikey", fmp.api_key)
-    url = fmp.base_url * endpoint
-    response = Handler.make_request(url, query)
-    data = Handler.parse_response(response)
+function company_notes(fmp::FMP, symbol::String; params...)::Vector{Any}
+    endpoint = "company-notes"
+    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+    response = Client.make_request(url, query)
+    data = Client.parse_response(response)
     return data
 end

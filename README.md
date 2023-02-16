@@ -1,6 +1,6 @@
 # FinancialModelingPrep
 
-*Financial Modeling Prep API wrapper for for Julia*
+*Financial Modeling Prep API wrapper for Julia*
 
 ## Installation
 ``` julia

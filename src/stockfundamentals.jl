@@ -1,3 +1,5 @@
+REVENUE_SEGMENTS = ("geographic", "product") # revenue segment options
+
 """
     symbols_with_financials(fmp)
 
@@ -184,7 +186,44 @@ data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")
 """
 function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")::Vector{Any}
     endpoint = "api/v4/financial-reports-json/"
-    query = Dict{String, Any}("symbol" => symbol, "year" => year, "period" => period)
+    query = Dict{String, Any}("symbol" => symbol, "year" => year, "period" => period, "apikey" => fmp.api_key)
+    url = fmp.base_url * endpoint
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
+    return data
+end
+
+"""
+    revenue_segments(fmp, symbol, params...)
+
+Returns a dictionary with the revenue segments for the specified symbol.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- symbol::String: A stock symbol.
+- segment::String: The name of a revenue segment provided by REVENUE_SEGMENTS.
+- params...: Additional keyword query params.
+
+See [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) for more details.
+See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/developer/docs/#Revenue-Geographic-by-Segments) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get all quarterly product revenue segments for AAPL
+data = revenue_segments(fmp, "AAPL", segment = "product", period = "quarter")
+```
+"""
+function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS[1], params...)::Vector{Any}
+    if !(segment in REVENUE_SEGMENTS)
+        error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). You can add a missing segment by modifying this variable.")
+    end
+    endpoint = "api/v4/revenue-" * segment * "-segmentation/"
+    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query["symbol"] = symbol
+    query["apikey"] = fmp.api_key
     url = fmp.base_url * endpoint
     response = Handler.make_request(url, query)
     data = Handler.parse_response(response)
@@ -229,7 +268,7 @@ function shares_float(fmp::FMP; symbol::String = "all")::Vector{Any}
 end
 
 """
-    earnings_call_transcript(fmp, symbol, year = 0, quarter = 0)
+    earnings_call_transcript(fmp, symbol)
 
 Returns a vector of earnings call transcripts for a specified symbols. Each element is a dictionary.
 
@@ -260,7 +299,7 @@ function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{
 end
 
 """
-    sec_filings(fmp, symbol, type = nothing, page = 0)
+    sec_filings(fmp, symbol)
 
 Returns a vector of sec filings for a specified symbols. Each element is a dictionary.
 
@@ -285,6 +324,35 @@ function sec_filings(fmp::FMP, symbol::String; params...)::Vector{Any}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
     query["apikey"] = fmp.api_key
     url = fmp.base_url * endpoint * symbol
+    response = Handler.make_request(url, query)
+    data = Handler.parse_response(response)
+    return data
+end
+
+"""
+    notes_due(fmp, symbol)
+
+Returns a vector of notes due for a specified symbols. Each element is a dictionary.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- symbol::String: A stock symbol.
+
+See [Company-Notes-Due](https://site.financialmodelingprep.com/developer/docs/#Company-Notes-due) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get all notes due for AAPL
+data = notes_due(fmp, "AAPL")
+```
+"""
+function notes_due(fmp::FMP, symbol::String; params...)::Vector{Any}
+    endpoint = "api/v4/company-notes/"
+    query = Dict{String, Any}("symbol" => symbol, "apikey", fmp.api_key)
+    url = fmp.base_url * endpoint
     response = Handler.make_request(url, query)
     data = Handler.parse_response(response)
     return data

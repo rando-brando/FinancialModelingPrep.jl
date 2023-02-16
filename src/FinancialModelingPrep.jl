@@ -49,6 +49,9 @@ fmp = FMP(api_key = my_key)
     headers::Dict{String, String} = Dict{String, String}("Upgrade-Insecure-Requests" => "1")
 end
 
+REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # report period options
+REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
+
 include("Handler.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")

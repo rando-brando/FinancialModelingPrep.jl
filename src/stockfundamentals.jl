@@ -1,5 +1,3 @@
-REVENUE_SEGMENTS = ("geographic", "product") # revenue segment options
-
 """
     symbols_with_financials(fmp)
 
@@ -201,7 +199,7 @@ Returns a dictionary with the revenue segments for the specified symbol.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- segment::String: The name of a revenue segment provided by REVENUE_SEGMENTS.
+- segment::String: A `REVENUE_SEGMENTS` option.
 - params...: Additional keyword query params.
 
 See [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) for more details.
@@ -216,7 +214,7 @@ fmp = FMP()
 data = revenue_segments(fmp, "AAPL", segment = "product", period = "quarter")
 ```
 """
-function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS[1], params...)::Vector{Any}
+function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...)::Vector{Any}
     if !(segment in REVENUE_SEGMENTS)
         error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). You can add a missing segment by modifying this variable.")
     end

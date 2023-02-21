@@ -155,7 +155,7 @@ Returns a vector with the financial report for the specified symbol, year and pe
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- year::Integer: The financial statement year.
+- year::Integer: A calendar year.
 - period::String: One of "FY", "Q1", "Q2", "Q3" or "Q4".
 
 See [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) for more details.

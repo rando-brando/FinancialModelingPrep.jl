@@ -163,7 +163,7 @@ Returns a vector containing mergers and acquisitions search results. Each elemen
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [MERGER-AND-ACQUISITION](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
+See [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
 
 # Examples
 ``` julia

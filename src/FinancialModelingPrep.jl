@@ -5,6 +5,11 @@ include("Client.jl")
 import .Client
 import .Client.FMP
 
+# export preset variables
+export 
+    REPORTING_PERIODS,
+    REVENUE_SEGMENTS
+
 # exports from Client module
 export FMP
 
@@ -36,6 +41,12 @@ export
     discounted_cash_flows,
     historical_discounted_cash_flows
 
+# exports from esgscore.jl
+export
+    esg_scores,
+    esg_ratings,
+    esg_score_benchmarks
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -56,13 +67,12 @@ export
     symbol_changes,
     company_information
 
-# exports from stockfundamentalsanalysis.jl
-
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
 
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
+include("esgscore.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 

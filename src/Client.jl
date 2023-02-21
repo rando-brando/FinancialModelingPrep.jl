@@ -59,7 +59,7 @@ function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
     query["apikey"] = fmp.api_key
     url = "$(fmp.base_url)/api/v4/$(endpoint)"
-    return url
+    return url, query
 end
 
 """
@@ -76,7 +76,7 @@ function make_get_request(url::String, query::Dict{String, Any})::HTTP.Messages.
     
     # only response status 200 contains usable data
     if response.status != 200
-        error("HTTP request returned status code $(response.status)")
+        error("HTTP request returned status code $(response.status).")
     end
     
     return response

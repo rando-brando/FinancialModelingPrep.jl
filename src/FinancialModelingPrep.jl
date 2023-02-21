@@ -47,6 +47,15 @@ export
     esg_ratings,
     esg_score_benchmarks
 
+# exports from pricetarget.jl
+export
+    price_targets,
+    price_targets_by_analyst,
+    price_targets_by_company,
+    price_targets_summary,
+    price_targets_consensus,
+    price_targets_feed
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -73,6 +82,7 @@ REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue se
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
 include("esgscore.jl")
+include("pricetarget.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 

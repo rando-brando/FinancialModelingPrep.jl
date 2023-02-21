@@ -129,7 +129,7 @@ end
 """
     mergers_and_acquisitions_feed(fmp, params...)
 
-Returns a vector containing the mergers and acquisitions feed. Each element is a dictionary.
+Returns a vector containing the mergers and acquisitions feed results. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.

@@ -22,8 +22,8 @@ data = financial_ratios(fmp, "AAPL", period = "quarter", limit = 30)
 function financial_ratios(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "ratios/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -50,8 +50,8 @@ data = financial_scores(fmp, "AAPL")
 function financial_scores(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "score"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -78,8 +78,8 @@ data = owners_earnings(fmp, "AAPL")
 function owners_earnings(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "owners-earnings" 
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -107,8 +107,8 @@ data = enterprise_values(fmp, "AAPL", period = "quarter", limit = 30)
 function enterprise_values(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "enterprise-values/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -136,8 +136,8 @@ data = income_statements_growth(fmp, "AAPL", limit = 5)
 function income_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "income-statement-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -165,8 +165,8 @@ data = balance_sheet_statements_growth(fmp, "AAPL", limit = 5)
 function balance_sheet_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "balance_sheet_statement_growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -194,8 +194,8 @@ data = cash_flow_statements_growth(fmp, "AAPL", limit = 5)
 function cash_flow_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "cash-flow-statement-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -223,8 +223,8 @@ data = financial_statements_growth(fmp, "AAPL", limit = 5)
 function financial_statements_growth(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "financial-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -260,8 +260,8 @@ function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIOD
     else
         url, query = Client.make_url_v3(fmp, endpoint, params...)
     end
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -288,8 +288,8 @@ data = company_rating(fmp, "AAPL")
 function current_rating(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "rating/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -317,8 +317,8 @@ data = historical_ratings(fmp, "AAPL", limit = 100)
 function historical_ratings(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "historical-rating/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data
 end
 
@@ -351,8 +351,8 @@ function discounted_cash_flows(fmp::FMP, symbol::String; with_wacc::Bool = false
         endpoint = "discounted-cash-flow/$(symbol)"
         url, query = Client.make_url_v3(fmp, endpoint, params...)
     end
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end
 
@@ -380,7 +380,7 @@ data = historical_discounted_cash_flows(fmp, "AAPL", period = "quarter", limit =
 function historical_discounted_cash_flows(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "historical-discounted-cash-flow/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, params...)
-    response = Client.make_request(url, query)
-    data = Client.parse_response(response)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
     return data 
 end

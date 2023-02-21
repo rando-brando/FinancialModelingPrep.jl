@@ -5,9 +5,7 @@ include("Client.jl")
 import .Client
 import .Client.FMP
 
-export FMP_ENDPOINTS
-
-# exports from Client module in Client.jl
+# exports from Client module
 export FMP
 
 # exports from stockfundamentals.jl
@@ -40,12 +38,23 @@ export
 
 # exports from stockstatistics.jl
 export
+    social_sentiment,
+    stock_grades,
     earnings_surprises,
-    analyst_estimates
+    analyst_estimates,
+    mergers_and_acquisitions_feed,
+    mergers_and_acquisitions_search
 
 # exports from companyinformation.jl
 export
-    company_profile
+    company_profile,
+    key_executives,
+    company_outlook,
+    stock_peers,
+    nyse_schedule,
+    delisted_companies,
+    symbol_changes,
+    company_information
 
 # exports from stockfundamentalsanalysis.jl
 

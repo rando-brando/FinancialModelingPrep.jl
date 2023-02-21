@@ -6,7 +6,7 @@ import Base: @kwdef
 """
 FMP(api_key, base_url, headers)
 
-Creates a FMP instance for interacting with the Financial Modeling Prep API endpoints.
+Creates a Financial Modeling Prep instance for interacting with the API server endpoints.
 
 # Arguments
 - api_key::String
@@ -31,14 +31,14 @@ end
 """
     make_url_v3(fmp, endpoint, params...)
 
-Creates an API version 3 url.
+Creates a Financial Modeling Prep API version 3 URL.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - endpoint::String: The api endpoint
 - params...: Additional keyword query params.
 """
-function make_url_v3(fmp::FMP, endpoint::String; params...)
+function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
     query["apikey"] = fmp.api_key
     url = "$(fmp.base_url)/api/v3/$(endpoint)"
@@ -48,14 +48,14 @@ end
 """
     make_url_v4(fmp, endpoint, params...)
 
-Creates an API version 4 url.
+Creates a Financial Modeling Prep API version 4 URL.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - endpoint::String: The api endpoint
 - params...: Additional keyword query params.
 """
-function make_url_v4(fmp::FMP, endpoint::String; params...)
+function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
     query["apikey"] = fmp.api_key
     url = "$(fmp.base_url)/api/v4/$(endpoint)"
@@ -63,15 +63,15 @@ function make_url_v4(fmp::FMP, endpoint::String; params...)
 end
 
 """
-    make_request(url, query)
+    make_get_request(url, query)
 
-Handles and returns the response of a HTTP request.
+Makes a GET request to the Financial Modeling Prep API server.
 
 # Arguments
 - url::String: A url to make a request to.
 - query::Dict{String, Any}: Additional query parameters for the request.
 """
-function make_request(url::String, query::Dict{String, Any})::HTTP.Messages.Response
+function make_get_request(url::String, query::Dict{String, Any})::HTTP.Messages.Response
     response = HTTP.get(url, query = query)
     
     # only response status 200 contains usable data
@@ -83,14 +83,14 @@ function make_request(url::String, query::Dict{String, Any})::HTTP.Messages.Resp
 end
 
 """
-    parse_response(response)
+    parse_json_response(response)
 
-Handles and returns the result of parsing a response.
+Parses a JSON response from the Financial Modeling Prep API server.
 
 # Arguments
 - response::HTTP.Messages.Response: An HTTP response object.
 """
-function parse_response(response::HTTP.Messages.Response)::Vector{Any}
+function parse_json_response(response::HTTP.Messages.Response)::Vector{Any}
     result = JSON.parse(String(response.body))
     
     # raise error when the API response does

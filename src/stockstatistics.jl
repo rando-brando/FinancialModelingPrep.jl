@@ -135,7 +135,7 @@ Returns a vector containing the mergers and acquisitions feed results. Each elem
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [MERGER-AND-ACQUISITION](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
+See [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
 
 # Examples
 ``` julia

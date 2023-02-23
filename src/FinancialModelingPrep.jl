@@ -56,6 +56,12 @@ export
     price_targets_consensus,
     price_targets_feed
 
+export
+    upgrades_and_downgrades,
+    upgrades_and_downgrades_feed
+    upgrades_and_downgrades_consensus,
+    upgrades_and_downgrades_by_company
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -83,6 +89,7 @@ include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
 include("esgscore.jl")
 include("pricetarget.jl")
+include("upgradesdowngrades.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 

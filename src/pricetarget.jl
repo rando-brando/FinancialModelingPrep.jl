@@ -119,7 +119,7 @@ Returns a vector of the price targets consensus for the specified symbol. Each e
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Price-Target-Consensus(https://site.financialmodelingprep.com/developer/docs/#Price-Target-Consensus) for more details.
+See [Price-Target-Consensus](https://site.financialmodelingprep.com/developer/docs/#Price-Target-Consensus) for more details.
 
 # Examples
 ``` julia

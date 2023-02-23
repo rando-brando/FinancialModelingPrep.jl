@@ -1,6 +1,9 @@
 # FinancialModelingPrep
 
-*Financial Modeling Prep API wrapper for Julia*
+*Financial Modeling Prep API wrapper with Julia*
+
+## Disclaimer
+Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
 
 ## Installation
 ``` julia
@@ -24,5 +27,151 @@ fmp = FMP(api_key = FMP_API_KEY)
 data = income_statements(fmp, "AAPL")
 ```
 
-## Disclaimer
-Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
+## Stock Fundamentals
+| Function | Endpoint(s) |
+|----------|----------|
+| symbols_with_financials | [Financial-Statements-List](https://site.financialmodelingprep.com/developer/docs#Financial-Statements-List) |
+| income_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| balance_sheet_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/> [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| cash_flow_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| financial_statements | [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| financial_reports | [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) <br/>[Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/developer/docs/#Quarterly-Earnings-Reports) |
+| revenue_segments | [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) <br/> [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/developer/docs/#Revenue-Geographic-by-Segments)
+| shares_float | [Shares-Float](https://site.financialmodelingprep.com/developer/docs/#Shares-Float) |
+| earnings_call_transcripts | [Earnings-Call-Transcript](https://site.financialmodelingprep.com/developer/docs/#Earning-Call-Transcript) |
+| sec_filings | [SEC-Filings](https://site.financialmodelingprep.com/developer/docs/#SEC-Filings) |
+| company_notes | [Company-Notes-Due](https://site.financialmodelingprep.com/developer/docs/#Company-Notes-due) |
+
+## Stock Fundamentals Analysis
+| Function | Endpoint(s) |
+|----------|----------|
+| financial_ratios | [Company-Financial-Ratios](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) |
+| financial_scores | [Stock-Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
+| owners_earnings | [Stock-Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
+| enterprise_values | [Company-Enterprise-Value](https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) |
+| income_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| balance_sheet_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| cash_flow_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| financial_statements_growth | [Company-Financial-Growth](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) |
+| key_metrics | [Company-Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) |
+| company_rating | [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
+| historical_ratings | [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
+| discounted_cash_flows | [Company-Discounted-cash-flow-value](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
+| historical_discounted_cash_flows | [Company-Discounted-cash-flow-value](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
+
+## Institutional Stock Ownership
+| Function | Endpoint(s) |
+|----------|----------|
+
+## ESG Score
+| Function | Endpoint(s) |
+|----------|----------|
+| esg_scores | [ESG-Score](https://site.financialmodelingprep.com/developer/docs/#ESG-SCORE) |
+| esg_ratings | [ESG-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-ESG-Risk-Ratings) |
+| esg_score_benchmarks | [ESG-Benchmarking](https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) |
+
+## Private Companies Fundraising Data
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Price Target
+| Function | Endpoint(s) |
+|----------|----------|
+| price_targets | [Price-Target](https://site.financialmodelingprep.com/developer/docs/#Price-Target)|
+| price_targets_by_analyst | [Price-Target-by-Analyst-Name](https://site.financialmodelingprep.com/developer/docs/#Price-Target-By-Analyst-Name) |
+| price_targets_by_company | [Price-Target-by-Analyst-Company](https://site.financialmodelingprep.com/developer/docs/#Price-Target-by-Analyst-Company) |
+| price_targets_summary | [Price-Target-Summary](https://site.financialmodelingprep.com/developer/docs/#Price-target-Summary) |
+| price_targets_consensus | [Price-Target-Consensus](https://site.financialmodelingprep.com/developer/docs/#Price-Target-Consensus) |
+| price_targets_feed | [Price-Target-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Price-Target-RSS-Feed) |
+
+## Upgrades & Downgrades
+| Function | Endpoint(s) |
+|----------|----------|
+| upgrades_and_downgrades | [Upgrades-&-Downgrades](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades) |
+| upgrades_and_downgrades_feed | [Upgrades-&-Downgrades-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-RSS-Feed) |
+| upgrades_and_downgrades_consensus | [Upgrades-&-Downgrades-Consensus](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-Consensus) |
+| upgrades_and_downgrades_by_company | [Upgrades-&-Downgrades-By-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) |
+
+## Historical ETF and Mutual Fund Holdings
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Executive Compensation
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Individual Beneficial Ownership
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock Calendars
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock Look Up Tool
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Company Information
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock News
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Market Performance
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Advanced Data
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock Statistics
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Insider Trading
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Senate Trading
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Economics
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock Price
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Fund Holdings
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Stock List
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Bulk and Batch
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Market Indexes
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Euronext
+| Function | Endpoint(s) |
+|----------|----------|
+
+## TSX
+| Function | Endpoint(s) |
+|----------|----------|
+
+## Crypto, Forex, and Commodities
+| Function | Endpoint(s) |
+|----------|----------|

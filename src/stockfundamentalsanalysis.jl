@@ -239,7 +239,7 @@ Returns a vector of key metrics for the specified symbol. Each element is a dict
 - period::String: A `REPORTING_PERIODS` option.
 - params...: Additional keyword query params.
 
-See [Company-Enterprise-Value](https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) for more details.
+See [Company-Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) for more details.
 
 # Examples
 ``` julia
@@ -281,11 +281,11 @@ See [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Comp
 # create a FMP API instance
 fmp = FMP()
 
-# get the curren rating for AAPL 
+# get the company rating for AAPL 
 data = company_rating(fmp, "AAPL")
 ```
 """
-function current_rating(fmp::FMP, symbol::String)::Vector{Any}
+function company_rating(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "rating/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)

@@ -193,6 +193,9 @@ df[1:5, 1:4]
 ## Stock List
 | Function | Endpoint(s) |
 |----------|----------|
+| available_symbols | [Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Symbols-List) |
+| tradeable_symbols | [Tradeable-Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Tradable-Symbols-List) |
+| etf_symbols | [ETF-Symbols](https://site.financialmodelingprep.com/developer/docs/#ETF-List) |
 
 ## Bulk and Batch
 | Function | Endpoint(s) |

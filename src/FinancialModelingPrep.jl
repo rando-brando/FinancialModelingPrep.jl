@@ -56,6 +56,7 @@ export
     price_targets_consensus,
     price_targets_feed
 
+# exports from upgradesdowngrades.jl
 export
     upgrades_and_downgrades,
     upgrades_and_downgrades_feed
@@ -82,6 +83,12 @@ export
     symbol_changes,
     company_information
 
+# exports from stocklist.jl
+export
+    available_symbols,
+    tradeable_symbols,
+    etf_symbols
+
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
 
@@ -92,5 +99,6 @@ include("pricetarget.jl")
 include("upgradesdowngrades.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
+include("stocklist.jl")
 
 end # module FinancialModelingPrep

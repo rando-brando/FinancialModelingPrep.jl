@@ -3,6 +3,9 @@
 
 Returns a vector of all available symbols in the API. Each element is a dictionary.
 
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+
 See [Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Symbols-List) for more details.
 
 # Examples
@@ -27,6 +30,9 @@ end
 
 Returns a vector of all tradeable symbols in the API. Each element is a dictionary.
 
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+
 See [Tradeable-Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Tradable-Symbols-List) for more details.
 
 # Examples
@@ -50,6 +56,9 @@ end
     etf_symbols(fmp)
 
 Returns a vector of all tradeable symbols in the API. Each element is a dictionary.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
 
 See [ETF-Symbols](https://site.financialmodelingprep.com/developer/docs/#ETF-List) for more details.
 

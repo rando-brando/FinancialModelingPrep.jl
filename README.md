@@ -5,6 +5,8 @@
 ## Disclaimer
 Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
 
+Not all endpoints may be covered by this package. Endpoints which are covered are listed in the sections below.
+
 ## Installation
 ``` julia
 pkg> add FinancialModelingPrep
@@ -136,6 +138,14 @@ df[1:5, 1:4]
 ## Company Information
 | Function | Endpoint(s) |
 |----------|----------|
+| company_profile | [Company-Profile](https://site.financialmodelingprep.com/developer/docs/#Company-Profile) |
+| key_executives | [Key-Executives](https://site.financialmodelingprep.com/developer/docs/#Key-Executives) |
+| company_outlook | [Company-Outlook](https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) |
+| stock_peers | [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) |
+| nyse_schedule | [NYSE-Holidays-and-Trading-Hours](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) |
+| delisted_companies | [Delisted-Companies](https://site.financialmodelingprep.com/developer/docs/#Delisted-Companies) |
+| symbol_changes | [Symbol-Change](https://site.financialmodelingprep.com/developer/docs/#Symbol-Change) |
+| company_information | [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) |
 
 ## Stock News
 | Function | Endpoint(s) |
@@ -152,6 +162,13 @@ df[1:5, 1:4]
 ## Stock Statistics
 | Function | Endpoint(s) |
 |----------|----------|
+| social_sentiment | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
+| stock_grades | [Stock-Grade](https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) |
+| earnings_surprises | [Earnings-Surprises](https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) |
+| analyst_estimates | [Analyst-Estimates](https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) |
+| mergers_and_acquisitions_feed | [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) |
+| mergers_and_acquisitions_search | [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) |
+
 
 ## Insider Trading
 | Function | Endpoint(s) |

@@ -204,6 +204,10 @@ df[1:5, 1:4]
 ## Market Indexes
 | Function | Endpoint(s) |
 |----------|----------|
+| available_indexes | [Available-Indexes](https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) |
+| sp500_companies | [List-of-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) </br> [Historical-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-S&P-500) |
+| nasdaq_companies | [List-of-Nasdaq-100-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Nasdaq-100-companies) |
+| dowjones_companies | [List-of-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) </br> [Historical-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-Dow-Jones) |
 
 ## Euronext
 | Function | Endpoint(s) |

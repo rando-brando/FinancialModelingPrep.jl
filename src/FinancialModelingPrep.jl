@@ -89,6 +89,13 @@ export
     tradeable_symbols,
     etf_symbols
 
+# exports from marketindexes.jl
+export
+    available_indexes,
+    sp500_companies,
+    nasdaq_companies,
+    dowjones_companies
+
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
 
@@ -100,5 +107,6 @@ include("upgradesdowngrades.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 include("stocklist.jl")
+include("marketindexes.jl")
 
 end # module FinancialModelingPrep

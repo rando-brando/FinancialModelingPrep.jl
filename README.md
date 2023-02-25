@@ -149,6 +149,9 @@ df[1:5, 1:4]
 ## Stock Look Up Tool
 | Function | Endpoint(s) |
 |----------|----------|
+| search_symbol | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
+| search_name | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
+| stock_screener | [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) |
 
 ## Company Information
 | Function | Endpoint(s) |

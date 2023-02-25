@@ -75,6 +75,12 @@ export
     historical_dividends,
     economic_calendar
 
+# exports from stockscreener.jl
+export
+    search_symbol,
+    search_name,
+    stock_screener
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -133,6 +139,7 @@ include("esgscore.jl")
 include("pricetarget.jl")
 include("upgradesdowngrades.jl")
 include("stockcalendars.jl")
+include("stockscreener.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 include("fundholdings.jl")

@@ -5,7 +5,7 @@
 ## Disclaimer
 Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
 
-Not all endpoints may be covered by this package. Endpoints which are covered are listed in the sections below.
+Only endpoints available with a starter plan have been implemented. Function-to-endpoint mappings are provided below.
 
 ## Installation
 ``` julia
@@ -83,6 +83,7 @@ df[1:5, 1:4]
 | historical_discounted_cash_flows | [Company-Discounted-cash-flow-value](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
 
 ## Institutional Stock Ownership
+*Skipped: Stock ownership endpoints require an enterprise plan.*
 | Function | Endpoint(s) |
 |----------|----------|
 
@@ -94,6 +95,7 @@ df[1:5, 1:4]
 | esg_score_benchmarks | [ESG-Benchmarking](https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) |
 
 ## Private Companies Fundraising Data
+*Skipped.*
 | Function | Endpoint(s) |
 |----------|----------|
 
@@ -116,14 +118,17 @@ df[1:5, 1:4]
 | upgrades_and_downgrades_by_company | [Upgrades-&-Downgrades-By-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) |
 
 ## Historical ETF and Mutual Fund Holdings
+*Skipped: Fund holdings endpoints require a professional plan.*
 | Function | Endpoint(s) |
 |----------|----------|
 
 ## Executive Compensation
+*Skipped: Fund holdings endpoints require a professional plan.*
 | Function | Endpoint(s) |
 |----------|----------|
 
 ## Individual Beneficial Ownership
+*Skipped: Fund holdings endpoints require a professional plan.*
 | Function | Endpoint(s) |
 |----------|----------|
 
@@ -189,6 +194,19 @@ df[1:5, 1:4]
 ## Fund Holdings
 | Function | Endpoint(s) |
 |----------|----------|
+| etf_holders | [ETF-Holders](https://site.financialmodelingprep.com/developer/docs/#ETF-Holders) |
+| etf_summary | [ETF-Info](https://site.financialmodelingprep.com/developer/docs/#ETF-Expense-ratio) |
+| institutional_holders | [Institutional-Holders](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders) |
+| mutual_fund_holders | [Mutual-Fund-Holders](https://site.financialmodelingprep.com/developer/docs/#Mutual-Fund-Holders) |
+| etf_sector_weightings | [ETF-Sector-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Sector-Weightings) |
+| etf_country_weightings | [ETF-Country-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Country-Weightings) |
+| etf_exposure | [ETF-Stock-Exposure](https://site.financialmodelingprep.com/developer/docs/#ETF-Stock-Exposure) |
+| cik_list | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| cik_search | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| cik_names | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| forms_13f | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| filing_dates | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| cusip_mapping | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 
 ## Stock List
 | Function | Endpoint(s) |
@@ -198,6 +216,7 @@ df[1:5, 1:4]
 | etf_symbols | [ETF-Symbols](https://site.financialmodelingprep.com/developer/docs/#ETF-List) |
 
 ## Bulk and Batch
+*Skipped: Fund holdings endpoints require a professional plan.*
 | Function | Endpoint(s) |
 |----------|----------|
 

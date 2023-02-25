@@ -83,6 +83,22 @@ export
     symbol_changes,
     company_information
 
+# exports from fundholdings.jl
+export
+    etf_holders,
+    etf_summary,
+    institutional_holders,
+    mutual_fund_holders,
+    etf_country_weightings,
+    etf_country_weightings,
+    etf_exposure,
+    cik_list,
+    cik_search,
+    cik_names,
+    forms_13f,
+    filing_dates,
+    cusip_mapping
+
 # exports from stocklist.jl
 export
     available_symbols,
@@ -106,6 +122,7 @@ include("pricetarget.jl")
 include("upgradesdowngrades.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
+include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")
 

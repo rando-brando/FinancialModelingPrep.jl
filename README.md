@@ -84,8 +84,6 @@ df[1:5, 1:4]
 
 ## Institutional Stock Ownership
 *Skipped: Stock ownership endpoints require an enterprise plan.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## ESG Score
 | Function | Endpoint(s) |
@@ -96,8 +94,6 @@ df[1:5, 1:4]
 
 ## Private Companies Fundraising Data
 *Skipped.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## Price Target
 | Function | Endpoint(s) |
@@ -119,18 +115,12 @@ df[1:5, 1:4]
 
 ## Historical ETF and Mutual Fund Holdings
 *Skipped: Fund holdings endpoints require a professional plan.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## Executive Compensation
 *Skipped: Fund holdings endpoints require a professional plan.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## Individual Beneficial Ownership
 *Skipped: Fund holdings endpoints require a professional plan.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## Stock Calendars
 | Function | Endpoint(s) |
@@ -230,8 +220,6 @@ df[1:5, 1:4]
 
 ## Bulk and Batch
 *Skipped: Fund holdings endpoints require a professional plan.*
-| Function | Endpoint(s) |
-|----------|----------|
 
 ## Market Indexes
 | Function | Endpoint(s) |

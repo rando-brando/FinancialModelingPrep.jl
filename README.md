@@ -135,6 +135,16 @@ df[1:5, 1:4]
 ## Stock Calendars
 | Function | Endpoint(s) |
 |----------|----------|
+| earnings_calendar | [Earnings-Calendar](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) |
+| earnings_calendar_confirmed | [Earnings-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) |
+| ipo_calendar | [IPO-Calendar](https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) |
+| ipo_calendar_with_prospectus | [IPO-Calendar-with-Prospectus](https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-with-prospectus) |
+| ipo_calendar_confirmed | [IPO-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-Confirmed) |
+| stock_split_calendar | [Stock-Split-Calendar](https://site.financialmodelingprep.com/developer/docs/#Stock-Split-Calendar) |
+| dividend_calendar | [Dividend-Calendar](https://site.financialmodelingprep.com/developer/docs/#Dividend-Calendar) |
+| historical_dividends | [Historical-Dividends](https://site.financialmodelingprep.com/developer/docs/#Historical-Dividends) |
+| economic_calendar | [Economic-Calendar](https://site.financialmodelingprep.com/developer/docs/#Economic-Calendar) |
+
 
 ## Stock Look Up Tool
 | Function | Endpoint(s) |

@@ -63,6 +63,18 @@ export
     upgrades_and_downgrades_consensus,
     upgrades_and_downgrades_by_company
 
+# exports from stockcalendars.jl
+export
+    earnings_calendar,
+    earnings_calendar_confirmed,
+    ipo_calendar,
+    ipo_calendar_prospectus,
+    ipo_calendar_confirmed,
+    stock_split_calendar,
+    dividend_calendar,
+    historical_dividends,
+    economic_calendar
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -120,6 +132,7 @@ include("stockfundamentalsanalysis.jl")
 include("esgscore.jl")
 include("pricetarget.jl")
 include("upgradesdowngrades.jl")
+include("stockcalendars.jl")
 include("stockstatistics.jl")
 include("companyinformation.jl")
 include("fundholdings.jl")

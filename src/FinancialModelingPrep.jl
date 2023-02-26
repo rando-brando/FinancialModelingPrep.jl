@@ -102,6 +102,16 @@ export
     general_news,
     press_releases
 
+# exports from marketperformance.jl
+export
+    sector_pe_ratios,
+    industry_pe_ratios,
+    sector_performances,
+    historical_sector_performances,
+    gainers,
+    losers,
+    most_active
+
 # exports from stockstatistics.jl
 export
     social_sentiment,
@@ -152,6 +162,7 @@ include("stockcalendars.jl")
 include("stockscreener.jl")
 include("companyinformation.jl")
 include("stocknews.jl")
+include("marketperformance.jl")
 include("stockstatistics.jl")
 include("fundholdings.jl")
 include("stocklist.jl")

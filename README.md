@@ -5,7 +5,7 @@
 ## Disclaimer
 Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
 
-Only endpoints available with a starter plan have been implemented. Function-to-endpoint mappings are provided below.
+Only endpoints available with a starter plan have been implemented. Function to endpoint mappings are provided below.
 
 ## Installation
 ``` julia
@@ -169,6 +169,13 @@ df[1:5, 1:4]
 ## Market Performance
 | Function | Endpoint(s) |
 |----------|----------|
+| sector_pe_ratios | [Sectors-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Sectors-PE-Ratio) |
+| industry_pe_ratios | [Industries-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Industries-PE-Ratio) |
+| sector_performances | [Sectors-Performance](https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) |
+| historical_sector_performances | [Sectors-Performance](https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) |
+| gainers | [Most-Gainer](https://site.financialmodelingprep.com/developer/docs/#Most-Gainer-Stock-Companies) |
+| losers | [Most-Loser](https://site.financialmodelingprep.com/developer/docs/#Most-Loser-Stock-Companies) |
+| most_active | [Most-Active](https://site.financialmodelingprep.com/developer/docs/#Most-Active-Stock-Companies) |
 
 ## Advanced Data
 | Function | Endpoint(s) |

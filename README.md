@@ -206,6 +206,9 @@ df[1:5, 1:4]
 ## Economics
 | Function | Endpoint(s) |
 |----------|----------|
+| market_risk_premium | [Market-Risk-Premium](https://site.financialmodelingprep.com/developer/docs/#Market-Risk-Premium) |
+| treasury_rates | [Treasury-Rates](https://site.financialmodelingprep.com/developer/docs/#Treasury-Rates) |
+| economic_indicator | [Economic-Indicator](https://site.financialmodelingprep.com/developer/docs/#Economic-Indicator) |
 
 ## Stock Price
 | Function | Endpoint(s) |

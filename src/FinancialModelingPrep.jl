@@ -128,6 +128,12 @@ export
     senate_disclosures,
     senate_disclosure_feed
 
+# exports from economics.jl
+export
+    market_risk_premiums,
+    treasury_rates,
+    economic_indicator
+
 # exports from fundholdings.jl
 export
     etf_holders,
@@ -172,6 +178,7 @@ include("stocknews.jl")
 include("marketperformance.jl")
 include("stockstatistics.jl")
 include("senatetrading.jl")
+include("economics.jl")
 include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")

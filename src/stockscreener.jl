@@ -21,7 +21,7 @@ data = search_symbol(fmp, "AA", limit = 10, exchange = "NASDAQ")
 """
 function search_symbol(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "search-ticker"
-    url, query = Client.make_url_v3(fmp, endpoint, query = symbol, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; query = symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -50,7 +50,7 @@ data = search_name(fmp, "Meta", limit = 10, exchange = "NASDAQ")
 """
 function search_name(fmp::FMP, name::String; params...)::Vector{Any}
     endpoint = "search-namer"
-    url, query = Client.make_url_v3(fmp, endpoint, query = name, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; query = name, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -81,7 +81,7 @@ data = stock_screener(fmp, country = "CA", priceMoreThan = 100, limit = 100)
 """
 function stock_screener(fmp::FMP; params...)::Vector{Any}
     endpoint = "stock-screener"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

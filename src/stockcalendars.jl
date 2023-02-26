@@ -25,7 +25,7 @@ data = earnings_calendar(fmp, "AAPL", limit = 50)
 """
 function earnings_calendar(fmp::FMP; params...)::Vector{Any}
     endpoint = "earning_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -61,7 +61,7 @@ data = earnings_calendar_confirmed(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function earnings_calendar_confirmed(fmp::FMP; params...)::Vector{Any}
     endpoint = "earning-calendar-confirmed"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -89,7 +89,7 @@ data = ipo_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function ipo_calendar(fmp::FMP; params...)::Vector{Any}
     endpoint = "ipo_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -117,7 +117,7 @@ data = ipo_calendar_prospectus(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function ipo_calendar_prospectus(fmp::FMP; params...)::Vector{Any}
     endpoint = "ipo-calendar-prospectus"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -145,7 +145,7 @@ data = ipo_calendar_confirmed(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function ipo_calendar_confirmed(fmp::FMP; params...)::Vector{Any}
     endpoint = "ipo-calendar-confirmed"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -173,7 +173,7 @@ data = stock_split_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function stock_split_calendar(fmp::FMP; params...)::Vector{Any}
     endpoint = "stock_split_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -201,7 +201,7 @@ data = dividend_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function dividend_calendar(fmp::FMP; params...)::Vector{Any}
     endpoint = "stock_dividend_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -258,7 +258,7 @@ data = economic_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
 """
 function economic_calendar(fmp::FMP; params...)::Vector{Any}
     endpoint = "economic_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

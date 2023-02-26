@@ -160,7 +160,7 @@ data = price_targets_feed(fmp, "AAPL")
 """
 function price_targets_feed(fmp::FMP; params...)::Vector{Any}
     endpoint = "price-target-rss-feed"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

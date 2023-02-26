@@ -26,7 +26,7 @@ data = social_sentiment(fmp, type = "trending", type = "bullish", source = "stoc
 """
 function social_sentiment(fmp::FMP; type::String = "trending", params...)::Vector{Any}
     endpoint = "social-sentiment/$(type)"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -34,7 +34,7 @@ end
 
 function social_sentiment(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "historical/social-sentiment"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -63,7 +63,7 @@ data = stock_grades(fmp, "AAPL", limit = 100)
 """
 function stock_grades(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "grade/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -120,7 +120,7 @@ data = analyst_estimates(fmp, "AAPL", period = "quarter", limit = 4)
 """
 function analyst_estimates(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "analyst-estimates/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -148,7 +148,7 @@ data = mergers_and_acquisitions_feed(fmp, page = 0)
 """
 function mergers_and_acquisitions_feed(fmp::FMP; params...)::Vector{Any}
     endpoint = "mergers-acquisitions-rss-feed"
-    url, query = Client.make_url_v4(fmp, endpoint)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -176,7 +176,7 @@ data = mergers_and_acquisitions_search(fmp, name = "Syros")
 """
 function mergers_and_acquisitions_search(fmp::FMP; params...)::Vector{Any}
     endpoint = "mergers-acquisitions/search"
-    url, query = Client.make_url_v4(fmp, endpoint)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

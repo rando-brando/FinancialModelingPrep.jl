@@ -256,9 +256,9 @@ function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIOD
     end
     endpoint = "key-metrics" * ("-$(period)" ^ (period == REPORTING_PERIODS.ttm)) * "/$(symbol)"
     if period == REPORTING_PERIODS.quarter
-        url, query = Client.make_url_v3(fmp, endpoint, period = period, params...)
+        url, query = Client.make_url_v3(fmp, endpoint; period = period, params...)
     else
-        url, query = Client.make_url_v3(fmp, endpoint, params...)
+        url, query = Client.make_url_v3(fmp, endpoint; params...)
     end
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
@@ -316,7 +316,7 @@ data = historical_ratings(fmp, "AAPL", limit = 100)
 """
 function historical_ratings(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "historical-rating/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -346,10 +346,10 @@ data = discounted_cash_flows(fmp, "AAPL", with_wacc = true)
 function discounted_cash_flows(fmp::FMP, symbol::String; with_wacc::Bool = false)::Vector{Any}
     if with_wacc
         endpoint = "advanced_discounted_cash_flow"
-        url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+        url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
     else
         endpoint = "discounted-cash-flow/$(symbol)"
-        url, query = Client.make_url_v3(fmp, endpoint, params...)
+        url, query = Client.make_url_v3(fmp, endpoint; params...)
     end
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
@@ -379,7 +379,7 @@ data = historical_discounted_cash_flows(fmp, "AAPL", period = "quarter", limit =
 """
 function historical_discounted_cash_flows(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "historical-discounted-cash-flow/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data 

@@ -182,7 +182,7 @@ function financial_reports(fmp::FMP, symbol::String, year::Integer; period::Stri
 end
 
 """
-    revenue_segments(fmp, symbol, params...)
+    revenue_segments(fmp, symbol, segment = REVENUE_SEGMENTS.product, params...)
 
 Returns a dictionary with the revenue segments for the specified symbol.
 
@@ -201,7 +201,7 @@ See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/deve
 fmp = FMP()
 
 # get all quarterly product revenue segments for AAPL
-data = revenue_segments(fmp, "AAPL", segment = "product", period = "quarter")
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter")
 ```
 """
 function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...)::Vector{Any}

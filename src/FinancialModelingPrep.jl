@@ -59,7 +59,7 @@ export
 # exports from upgradesdowngrades.jl
 export
     upgrades_and_downgrades,
-    upgrades_and_downgrades_feed
+    upgrades_and_downgrades_feed,
     upgrades_and_downgrades_consensus,
     upgrades_and_downgrades_by_company
 
@@ -81,15 +81,6 @@ export
     search_name,
     stock_screener
 
-# exports from stockstatistics.jl
-export
-    social_sentiment,
-    stock_grades,
-    earnings_surprises,
-    analyst_estimates,
-    mergers_and_acquisitions_feed,
-    mergers_and_acquisitions_search
-
 # exports from companyinformation.jl
 export
     company_profile,
@@ -100,6 +91,25 @@ export
     delisted_companies,
     symbol_changes,
     company_information
+
+# exports from stocknews.jl
+export
+    fmp_articles,
+    stock_news,
+    stock_news_sentiment_feed,
+    crypto_news,
+    forex_news,
+    general_news,
+    press_releases
+
+# exports from stockstatistics.jl
+export
+    social_sentiment,
+    stock_grades,
+    earnings_surprises,
+    analyst_estimates,
+    mergers_and_acquisitions_feed,
+    mergers_and_acquisitions_search
 
 # exports from fundholdings.jl
 export
@@ -140,8 +150,9 @@ include("pricetarget.jl")
 include("upgradesdowngrades.jl")
 include("stockcalendars.jl")
 include("stockscreener.jl")
-include("stockstatistics.jl")
 include("companyinformation.jl")
+include("stocknews.jl")
+include("stockstatistics.jl")
 include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")

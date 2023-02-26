@@ -158,6 +158,13 @@ df[1:5, 1:4]
 ## Stock News
 | Function | Endpoint(s) |
 |----------|----------|
+| fmp_articles | [FMP-Articles](https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) |
+| stock_news | [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
+| stock_news_sentiment_feed | [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
+| crypto_news | [Crypto-News](https://site.financialmodelingprep.com/developer/docs/#Crypto-news) |
+| forex_news | [Forex-News](https://site.financialmodelingprep.com/developer/docs/#Forex-news) |
+| general_news | [General-News](https://site.financialmodelingprep.com/developer/docs/#General-news) |
+| press_releases | [Press-Releases](https://site.financialmodelingprep.com/developer/docs/#Press-Releases) |
 
 ## Market Performance
 | Function | Endpoint(s) |

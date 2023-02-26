@@ -54,10 +54,10 @@ df[1:5, 1:4]
 | Function | Endpoint(s) |
 |----------|----------|
 | symbols_with_financials | [Financial-Statements-List](https://site.financialmodelingprep.com/developer/docs#Financial-Statements-List) |
-| income_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
-| balance_sheet_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/> [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
-| cash_flow_statements | [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
-| financial_statements | [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| income_statements | [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Income-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| balance_sheet_statements | [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/> [Balance-Sheet-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| cash_flow_statements | [Cash-Flow-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Cash-Flow-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
+| financial_statements | [Full-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
 | financial_reports | [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) <br/>[Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/developer/docs/#Quarterly-Earnings-Reports) |
 | revenue_segments | [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) <br/> [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/developer/docs/#Revenue-Geographic-by-Segments)
 | shares_float | [Shares-Float](https://site.financialmodelingprep.com/developer/docs/#Shares-Float) |
@@ -68,19 +68,19 @@ df[1:5, 1:4]
 ## Stock Fundamentals Analysis
 | Function | Endpoint(s) |
 |----------|----------|
-| financial_ratios | [Company-Financial-Ratios](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) |
-| financial_scores | [Stock-Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
-| owners_earnings | [Stock-Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
-| enterprise_values | [Company-Enterprise-Value](https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) |
-| income_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
-| balance_sheet_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
-| cash_flow_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
-| financial_statements_growth | [Company-Financial-Growth](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) |
-| key_metrics | [Company-Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) |
+| financial_ratios | [Financial-Ratios](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) |
+| financial_scores | [Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
+| owners_earnings | [Owners-Earnings](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
+| enterprise_values | [Enterprise-Value](https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) |
+| income_statements_growth | [Income-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| balance_sheet_statements_growth | [Balance-Sheet-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| cash_flow_statements_growth | [Cash-Flow-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) |
+| financial_statements_growth | [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) |
+| key_metrics | [Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) |
 | company_rating | [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
-| historical_ratings | [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
-| discounted_cash_flows | [Company-Discounted-cash-flow-value](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
-| historical_discounted_cash_flows | [Company-Discounted-cash-flow-value](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
+| historical_ratings | [Historical-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
+| discounted_cash_flows | [Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
+| historical_discounted_cash_flows | [Historical-Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
 
 ## Institutional Stock Ownership
 *Skipped: Stock ownership endpoints require an enterprise plan.*
@@ -111,7 +111,7 @@ df[1:5, 1:4]
 | upgrades_and_downgrades | [Upgrades-&-Downgrades](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades) |
 | upgrades_and_downgrades_feed | [Upgrades-&-Downgrades-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-RSS-Feed) |
 | upgrades_and_downgrades_consensus | [Upgrades-&-Downgrades-Consensus](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-Consensus) |
-| upgrades_and_downgrades_by_company | [Upgrades-&-Downgrades-By-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) |
+| upgrades_and_downgrades_by_company | [Upgrades-&-Downgrades-by-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) |
 
 ## Historical ETF and Mutual Fund Holdings
 *Skipped: Fund holdings endpoints require a professional plan.*
@@ -140,7 +140,7 @@ df[1:5, 1:4]
 | Function | Endpoint(s) |
 |----------|----------|
 | search_symbol | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
-| search_name | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
+| search_name | [Name-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
 | stock_screener | [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) |
 
 ## Company Information
@@ -150,7 +150,7 @@ df[1:5, 1:4]
 | key_executives | [Key-Executives](https://site.financialmodelingprep.com/developer/docs/#Key-Executives) |
 | company_outlook | [Company-Outlook](https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) |
 | stock_peers | [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) |
-| nyse_schedule | [NYSE-Holidays-and-Trading-Hours](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) |
+| nyse_schedule | [NYSE-Schedule](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) |
 | delisted_companies | [Delisted-Companies](https://site.financialmodelingprep.com/developer/docs/#Delisted-Companies) |
 | symbol_changes | [Symbol-Change](https://site.financialmodelingprep.com/developer/docs/#Symbol-Change) |
 | company_information | [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) |
@@ -160,7 +160,7 @@ df[1:5, 1:4]
 |----------|----------|
 | fmp_articles | [FMP-Articles](https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) |
 | stock_news | [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
-| stock_news_sentiment_feed | [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
+| stock_news_sentiment_feed | [Stock-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
 | crypto_news | [Crypto-News](https://site.financialmodelingprep.com/developer/docs/#Crypto-news) |
 | forex_news | [Forex-News](https://site.financialmodelingprep.com/developer/docs/#Forex-news) |
 | general_news | [General-News](https://site.financialmodelingprep.com/developer/docs/#General-news) |
@@ -187,7 +187,7 @@ df[1:5, 1:4]
 | stock_grades | [Stock-Grade](https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) |
 | earnings_surprises | [Earnings-Surprises](https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) |
 | analyst_estimates | [Analyst-Estimates](https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) |
-| mergers_and_acquisitions_feed | [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) |
+| mergers_and_acquisitions_feed | [Mergers-and-Acquisitions-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) |
 | mergers_and_acquisitions_search | [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) |
 
 
@@ -197,20 +197,20 @@ df[1:5, 1:4]
 | insider_trading_types | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades_feed | [Insider-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Insider-Trading-RSS-Feed) |
-| cik_list | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| cik_from_name | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| cik_from_symbol | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| insider_roster | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| insider_roster_statistics | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| fails_to_deliver | [fail-to-deliver](https://site.financialmodelingprep.com/developer/docs/#Fail-to-deliver) |
+| cik_list | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| cik_from_name | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| cik_from_symbol | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_roster | [Insider-Roster](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_roster_statistics | [Insider-Roster-Statistics](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| fails_to_deliver | [Fails-to-Deliver](https://site.financialmodelingprep.com/developer/docs/#Fail-to-deliver) |
 
 ## Senate Trading
 | Function | Endpoint(s) |
 |----------|----------|
 | senate_trades | [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
-| senate_trades_feed | [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
+| senate_trades_feed | [Senate-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
 | senate_disclosures | [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
-| senate_disclosures_feed | [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
+| senate_disclosures_feed | [Senate-Disclosure-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
 
 ## Economics
 | Function | Endpoint(s) |
@@ -233,12 +233,12 @@ df[1:5, 1:4]
 | etf_sector_weightings | [ETF-Sector-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Sector-Weightings) |
 | etf_country_weightings | [ETF-Country-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Country-Weightings) |
 | etf_exposure | [ETF-Stock-Exposure](https://site.financialmodelingprep.com/developer/docs/#ETF-Stock-Exposure) |
-| institutions_list | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| cik_search | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| company_from_cik | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| institutions_list | [Institutions-List](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| cik_search | [Form-13F-Search](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| company_from_cik | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 | forms_13f | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| filing_dates | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| company_from_cusip | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| filing_dates | [Form-13F-Filing-Dates](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| company_from_cusip | [Cusip-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 
 ## Stock List
 | Function | Endpoint(s) |

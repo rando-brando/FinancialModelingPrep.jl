@@ -37,7 +37,7 @@ Returns a list of search results for the specified name and filters. Each elemen
 - name::String: A company name.
 - params...: Additional keyword query params.
 
-See [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
+See [Name-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
 
 # Examples
 ``` julia

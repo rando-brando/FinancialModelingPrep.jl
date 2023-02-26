@@ -118,7 +118,7 @@ Returns the NYSE schedule including market hours and market holidays.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [NYSE-Holidays-and-Trading-Hours](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
+See [NYSE-Schedule](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
 
 # Examples
 ``` julia

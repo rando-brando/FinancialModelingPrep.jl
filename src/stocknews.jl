@@ -63,7 +63,7 @@ Returns a list of stock news article sentiment. Each element is a dictionary.
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
+See [Stock-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
 
 # Examples
 ``` julia

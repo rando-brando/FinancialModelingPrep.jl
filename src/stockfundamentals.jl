@@ -27,8 +27,8 @@ Returns a vector of income statements for the specified symbol. Each element is 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Income-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -61,8 +61,8 @@ Returns a vector of balance sheet statements for the specified symbol. Each elem
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Balance-Sheet-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -95,8 +95,8 @@ Returns a vector of cash flow statements for the specified symbol. Each element 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Cash-Flow-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Cash-Flow-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -121,14 +121,14 @@ end
 """
     financial_statements(fmp, symbol, params...)
 
-Returns a vector of financial statements by period for the specified symbol. Each element is a dictionary.
+Returns a vector of financial statements as reported for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Full-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia

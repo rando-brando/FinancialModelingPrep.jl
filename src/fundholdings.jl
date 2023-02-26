@@ -202,7 +202,7 @@ Returns a list of all companies by CIK. Each element is a dictionary.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Institutions-List](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -230,7 +230,7 @@ Returns a list of all company CIKs matching the specified name. Each element is 
 - fmp::FMP: A Financial Modeling Prep instance.
 - name::String: A complete or partial institutional investment manager name.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Form-13F-Search](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -258,7 +258,7 @@ Returns a list of all company names matching the specified CIK. Each element is 
 - fmp::FMP: A Financial Modeling Prep instance.
 - cik::String: A CIK.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -315,7 +315,7 @@ Returns a list of all form 13F filing dates matching the specified CIK. Each ele
 - fmp::FMP: A Financial Modeling Prep instance.
 - cik::String: A CIK.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Form-13F-Filing-Dates](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -343,7 +343,7 @@ Returns a list of all companies matching the specified cusip. Each element is a 
 - fmp::FMP: A Financial Modeling Prep instance.
 - cusip::String: A cusip.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Cusip-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia

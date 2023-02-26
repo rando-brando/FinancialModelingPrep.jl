@@ -29,20 +29,20 @@ end
 """
     senate_trades_feed(fmp, params...)
 
-Returns a vector of senate trades from the rss feed. Each element is a dictionary.
+Returns a vector of senate trades from the RSS feed. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
+See [Senate-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
-# get the first page of senate trades from the rss feed
+# get the first page of senate trades from the RSS feed
 data = senate_trades_feed(fmp, page = 0)
 ```
 """
@@ -85,20 +85,20 @@ end
 """
     senate_disclosure_feed(fmp, params...)
 
-Returns a vector of senate disclosures from the rss feed. Each element is a dictionary.
+Returns a vector of senate disclosures from the RSS feed. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
+See [Senate-Disclosure-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
-# get the first page of senate disclosures from the rss feed
+# get the first page of senate disclosures from the RSS feed
 data = senate_disclosure_feed(fmp, page = 0)
 ```
 """

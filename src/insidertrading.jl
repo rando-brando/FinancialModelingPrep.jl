@@ -93,7 +93,7 @@ Returns a list of all CIKs matching the specified parameters. Each element is a 
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
+See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
 
 # Examples
 ``` julia
@@ -121,7 +121,7 @@ Returns a list of all CIKs matching the specified name. Each element is a dictio
 - fmp::FMP: A Financial Modeling Prep instance.
 - name::String: A name.
 
-See [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
+See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
 
 # Examples
 ``` julia
@@ -149,7 +149,7 @@ Returns a list of all CIKs matching the specified symbol. Each element is a dict
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::symbol: A stock symbol.
 
-See [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
+See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
 
 # Examples
 ``` julia
@@ -177,7 +177,7 @@ Returns a list with the insider roster for the specified symbol. Each element is
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::symbol: A stock symbol.
 
-See [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
+See [Insider-Roster](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
 
 # Examples
 ``` julia
@@ -205,7 +205,7 @@ Returns a list of insider roster statistics for the specified symbol. Each eleme
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::symbol: A stock symbol.
 
-See [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
+See [Insider-Roster-Statistics](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
 
 # Examples
 ``` julia
@@ -234,7 +234,7 @@ Returns a list of fails to deliver for the specified symbol. Each element is a d
 - symbol::symbol: A stock symbol.
 - params...: Additional keyword query params.
 
-See [fail-to-deliver](https://site.financialmodelingprep.com/developer/docs/#Fail-to-deliver) for more details.
+See [Fails-to-Deliver](https://site.financialmodelingprep.com/developer/docs/#Fail-to-deliver) for more details.
 
 # Examples
 ``` julia

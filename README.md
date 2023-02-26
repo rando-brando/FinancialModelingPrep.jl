@@ -194,6 +194,15 @@ df[1:5, 1:4]
 ## Insider Trading
 | Function | Endpoint(s) |
 |----------|----------|
+| insider_trading_types | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_trades | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_trades_feed | [Insider-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Insider-Trading-RSS-Feed) |
+| cik_list | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| cik_from_name | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| cik_from_symbol | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_roster | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insider_roster_statistics | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| fails_to_deliver | [fail-to-deliver](https://site.financialmodelingprep.com/developer/docs/#Fail-to-deliver) |
 
 ## Senate Trading
 | Function | Endpoint(s) |

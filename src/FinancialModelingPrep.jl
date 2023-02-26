@@ -121,6 +121,18 @@ export
     mergers_and_acquisitions_feed,
     mergers_and_acquisitions_search
 
+# export from insidertrading.jl
+export
+    insider_trading_types,
+    insider_trades,
+    insider_trades_feed,
+    cik_list,
+    cik_from_name,
+    cik_from_symbol,
+    insider_roster,
+    insider_roster_statistics,
+    fails_to_deliver
+
 # exports from senatetrading.jl
 export
     senate_trades,
@@ -143,12 +155,12 @@ export
     etf_country_weightings,
     etf_country_weightings,
     etf_exposure,
-    cik_list,
+    institutions_list,
     cik_search,
-    cik_names,
+    company_from_cik,
     forms_13f,
     filing_dates,
-    cusip_mapping
+    company_from_cusip
 
 # exports from stocklist.jl
 export
@@ -177,6 +189,7 @@ include("companyinformation.jl")
 include("stocknews.jl")
 include("marketperformance.jl")
 include("stockstatistics.jl")
+include("insidertrading.jl")
 include("senatetrading.jl")
 include("economics.jl")
 include("fundholdings.jl")

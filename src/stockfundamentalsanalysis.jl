@@ -229,7 +229,7 @@ function financial_statements_growth(fmp::FMP, symbol::String; params...)::Vecto
 end
 
 """
-    key_metrics(fmp, symbol, period, params...)
+    key_metrics(fmp, symbol, period = REPORTING_PERIODS.ttm, params...)
 
 Returns a vector of key metrics for the specified symbol. Each element is a dictionary.
 
@@ -247,7 +247,7 @@ See [Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company
 fmp = FMP()
 
 # get key metrics for AAPL in the last 30 years by ttm
-data = key_metrics(fmp, "AAPL", period = "ttm", limit = 30)
+data = key_metrics(fmp, "AAPL", period = REPORTING_PERIODS.ttm, limit = 30)
 ```
 """
 function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual, params...)::Vector{Any}

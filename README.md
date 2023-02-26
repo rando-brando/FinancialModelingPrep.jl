@@ -224,12 +224,12 @@ df[1:5, 1:4]
 | etf_sector_weightings | [ETF-Sector-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Sector-Weightings) |
 | etf_country_weightings | [ETF-Country-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Country-Weightings) |
 | etf_exposure | [ETF-Stock-Exposure](https://site.financialmodelingprep.com/developer/docs/#ETF-Stock-Exposure) |
-| cik_list | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| institutions_list | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 | cik_search | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| cik_names | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| company_from_cik | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 | forms_13f | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 | filing_dates | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
-| cusip_mapping | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
+| company_from_cusip | [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) |
 
 ## Stock List
 | Function | Endpoint(s) |

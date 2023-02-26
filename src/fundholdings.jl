@@ -195,9 +195,9 @@ function etf_exposure(fmp::FMP, symbol::String)::Vector{Any}
 end
 
 """
-    cik_list(fmp)
+    institutions_list(fmp)
 
-Returns a list of all institutional investment managers by CIK. Each element is a dictionary.
+Returns a list of all companies by CIK. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -209,11 +209,11 @@ See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) 
 # create a FMP API instance
 fmp = FMP()
 
-# get all CIKs
-data = cik_list(fmp)
+# get all institutions
+data = institutions_list(fmp)
 ```
 """
-function cik_list(fmp::FMP)::Vector{Any}
+function institutions_list(fmp::FMP)::Vector{Any}
     endpoint = "cik_list"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
@@ -250,7 +250,7 @@ function cik_search(fmp::FMP, name::String)::Vector{Any}
 end
 
 """
-    cik_names(fmp, cik)
+    company_from_cik(fmp, cik)
 
 Returns a list of all company names matching the specified CIK. Each element is a dictionary.
 
@@ -266,10 +266,10 @@ See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) 
 fmp = FMP()
 
 # get the company name matching the CIK
-data = cik_names(fmp, "0001067983")
+data = company_from_cik(fmp, "0001067983")
 ```
 """
-function cik_names(fmp::FMP, cik::String)::Vector{Any}
+function company_from_cik(fmp::FMP, cik::String)::Vector{Any}
     endpoint = "cik/$(cik)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
@@ -335,7 +335,7 @@ function filing_dates(fmp::FMP, cik::String)::Vector{Any}
 end
 
 """
-    cusip_mapping(fmp, cusip)
+    company_from_cusip(fmp, cusip)
 
 Returns a list of all companies matching the specified cusip. Each element is a dictionary.
 
@@ -351,10 +351,10 @@ See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) 
 fmp = FMP()
 
 # get all companies matching the cusip
-data = cusip_mapping(fmp, "000360206")
+data = company_from_cusip(fmp, "000360206")
 ```
 """
-function cusip_mapping(fmp::FMP, cusip::String)::Vector{Any}
+function company_from_cusip(fmp::FMP, cusip::String)::Vector{Any}
     endpoint = "cusip/$(cusip)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)

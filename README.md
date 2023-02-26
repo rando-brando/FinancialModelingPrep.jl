@@ -178,8 +178,7 @@ df[1:5, 1:4]
 | most_active | [Most-Active](https://site.financialmodelingprep.com/developer/docs/#Most-Active-Stock-Companies) |
 
 ## Advanced Data
-| Function | Endpoint(s) |
-|----------|----------|
+*Skipped:*
 
 ## Stock Statistics
 | Function | Endpoint(s) |
@@ -199,6 +198,10 @@ df[1:5, 1:4]
 ## Senate Trading
 | Function | Endpoint(s) |
 |----------|----------|
+| senate_trades | [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
+| senate_trades_feed | [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
+| senate_disclosures | [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
+| senate_disclosures_feed | [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
 
 ## Economics
 | Function | Endpoint(s) |

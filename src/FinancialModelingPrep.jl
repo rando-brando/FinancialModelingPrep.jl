@@ -121,6 +121,13 @@ export
     mergers_and_acquisitions_feed,
     mergers_and_acquisitions_search
 
+# exports from senatetrading.jl
+export
+    senate_trades,
+    senate_trades_feed,
+    senate_disclosures,
+    senate_disclosure_feed
+
 # exports from fundholdings.jl
 export
     etf_holders,
@@ -164,6 +171,7 @@ include("companyinformation.jl")
 include("stocknews.jl")
 include("marketperformance.jl")
 include("stockstatistics.jl")
+include("senatetrading.jl")
 include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")

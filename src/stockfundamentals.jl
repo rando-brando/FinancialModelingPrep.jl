@@ -27,8 +27,8 @@ Returns a vector of income statements for the specified symbol. Each element is 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Income-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -44,7 +44,7 @@ data = income_statements(fmp, "AAPL", reported = true, limit = 5)
 """
 function income_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
     endpoint = (reported ? "income-statement-as-reported" : "income-statement") * "/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data 
@@ -61,8 +61,8 @@ Returns a vector of balance sheet statements for the specified symbol. Each elem
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Balance-Sheet-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -78,7 +78,7 @@ data = balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5)
 """
 function balance_sheet_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
     endpoint = (reported ? "balance-sheet-statement-as-reported" : "balance-sheet-statement") * "/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -95,8 +95,8 @@ Returns a vector of cash flow statements for the specified symbol. Each element 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Cash-Flow-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Cash-Flow-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -112,7 +112,7 @@ data = cash_flow_statements(fmp, "AAPL", reported = true, limit = 5)
 """
 function cash_flow_statements(fmp::FMP, symbol::String; reported::Bool = false, params...)::Vector{Any}
     endpoint = (reported ? "cash-flow-statement-as-reported" : "cash-flow-statement") * "/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -121,14 +121,14 @@ end
 """
     financial_statements(fmp, symbol, params...)
 
-Returns a vector of financial statements by period for the specified symbol. Each element is a dictionary.
+Returns a vector of financial statements as reported for the specified symbol. Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Company-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
+See [Full-Financial-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
 ``` julia
@@ -141,7 +141,7 @@ data = financial_statements(fmp, "AAPL", period = "quarter")
 """
 function financial_statements(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "financial-statement-full-as-reported/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -182,7 +182,7 @@ function financial_reports(fmp::FMP, symbol::String, year::Integer; period::Stri
 end
 
 """
-    revenue_segments(fmp, symbol, params...)
+    revenue_segments(fmp, symbol, segment = REVENUE_SEGMENTS.product, params...)
 
 Returns a dictionary with the revenue segments for the specified symbol.
 
@@ -201,7 +201,7 @@ See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/deve
 fmp = FMP()
 
 # get all quarterly product revenue segments for AAPL
-data = revenue_segments(fmp, "AAPL", segment = "product", period = "quarter")
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter")
 ```
 """
 function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...)::Vector{Any}
@@ -209,7 +209,7 @@ function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SE
         error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). Modify REVENUE_SEGMENTS to override behavior.")
     end
     endpoint = "revenue-$(segment)-segmentation"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -273,7 +273,7 @@ data = earnings_call_transcript(fmp, "AAPL", year = 2022)
 """
 function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "earnings_call_transcript/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data
@@ -302,7 +302,7 @@ data = sec_filings(fmp, "AAPL", type = "10-K", page = 2)
 """
 function sec_filings(fmp::FMP, symbol::String; params...)::Vector{Any}
     endpoint = "sec_filings/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

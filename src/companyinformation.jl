@@ -118,7 +118,7 @@ Returns the NYSE schedule including market hours and market holidays.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [NYSE-Holidays-and-Trading-Hours](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
+See [NYSE-Schedule](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
 
 # Examples
 ``` julia
@@ -159,7 +159,7 @@ data = delisted_companies(fmp, page = 0)
 """
 function delisted_companies(fmp::FMP; params...)::Vector{Any}
     endpoint = "delisted-companies"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

@@ -48,7 +48,7 @@ data = upgrades_and_downgrades_feed(fmp, page = 0)
 """
 function upgrades_and_downgrades_feed(fmp::FMP; params...)::Vector{Any}
     endpoint = "upgrades-downgrades-rss-feed"
-    url, query = Client.make_url_v4(fmp, endpoint, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
     return data

@@ -275,7 +275,7 @@ function survivorship_bias(fmp::FMP, symbol::String, date::String)::Vector{Any}
 end
 
 """
-    technical_indicators(fmp, symbol, frequency = TIME_FREQUENCIES.daily, period = 50, type = "SMA")
+    technical_indicators(fmp, symbol, frequency = TIME_FREQUENCIES.daily, period = 200, type = "SMA")
 
 Returns the historical price quote for the specified symbol and frequency. Each element is a dictionary.
 
@@ -294,14 +294,14 @@ See [Intraday-Indicators](https://site.financialmodelingprep.com/developer/docs/
 # create a FMP API instance
 fmp = FMP()
 
-# get the daily 200 period SMA for AAPL
-data = technical_indicators(fmp, "AAPL", period = 200)
+# get the daily 50 period SMA for AAPL
+data = technical_indicators(fmp, "AAPL", period = 50)
 
 # get the 15m 10 period WMA for AAPL
 data = technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "WMA")
 ```
 """
-function technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 50, type::String = "SMA")::Vector{Any}
+function technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA")::Vector{Any}
     if !(frequency in TIME_FREQUENCIES)
         error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES). Modify TIME_FREQUENCIES to override behavior.")
     end

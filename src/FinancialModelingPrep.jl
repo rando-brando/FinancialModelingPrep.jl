@@ -8,7 +8,8 @@ import .Client.FMP
 # export preset variables
 export 
     REPORTING_PERIODS,
-    REVENUE_SEGMENTS
+    REVENUE_SEGMENTS,
+    TIME_FREQUENCIES
 
 # exports from Client module
 export FMP
@@ -146,6 +147,18 @@ export
     treasury_rates,
     economic_indicator
 
+# exports from stockprice.jl
+export
+    company_quote,
+    otc_quote,
+    price_change,
+    price_quote,
+    price_quotes,
+    historical_price_quote,
+    historical_splits,
+    survivorship_bias,
+    technical_indicators
+
 # exports from fundholdings.jl
 export
     etf_holders,
@@ -177,6 +190,7 @@ export
 
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
+TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
 
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
@@ -192,6 +206,7 @@ include("stockstatistics.jl")
 include("insidertrading.jl")
 include("senatetrading.jl")
 include("economics.jl")
+include("stockprice.jl")
 include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")

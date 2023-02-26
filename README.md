@@ -222,6 +222,16 @@ df[1:5, 1:4]
 ## Stock Price
 | Function | Endpoint(s) |
 |----------|----------|
+| company_quote | [Company-Quote](https://site.financialmodelingprep.com/developer/docs/#Company-Quote) |
+| otc_quote | [OTC-Quote](https://site.financialmodelingprep.com/developer/docs/#Company-Quote) |
+| price_change | [Price-Change](https://site.financialmodelingprep.com/developer/docs/#Stock-price-change) |
+| price_quote | [Price-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) |
+| price_quotes | [Price-Quotes](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) |
+| historical_price_quote | [Historical-Price-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Historical-Price) |
+| historical_splits | [Historical-Stock-Splits](https://site.financialmodelingprep.com/developer/docs/#Historical-Stock-Splits) |
+| survivorship_bias | [Survivorship-Bias](https://site.financialmodelingprep.com/developer/docs/#Survivorship-Bias-Free-EOD) |
+| technical_indicators | [Daily-Indicators](https://site.financialmodelingprep.com/developer/docs/#Daily-Indicators) </br> [Intraday-Indicators](https://site.financialmodelingprep.com/developer/docs/#Intraday-Indicators) |
+
 
 ## Fund Holdings
 | Function | Endpoint(s) |

@@ -14,6 +14,12 @@ export
 # exports from Client module
 export FMP
 
+# exports from pricequotes.jl
+export
+    price_quote,
+    price_quotes,
+    historical_price_quote
+
 # exports from stockfundamentals.jl
 export
     symbols_with_financials,
@@ -149,12 +155,8 @@ export
 
 # exports from stockprice.jl
 export
-    company_quote,
     otc_quote,
     price_change,
-    price_quote,
-    price_quotes,
-    historical_price_quote,
     historical_splits,
     survivorship_bias,
     technical_indicators
@@ -188,10 +190,29 @@ export
     nasdaq_companies,
     dowjones_companies
 
+# exports from euronext.jl
+export
+    available_euronext
+
+# exports from tsx.jl
+export
+    available_tsx
+
+# exports from cryptoforexcommodities.jl
+export
+    available_crytocurrencies,
+    crypto_quote,
+    available_forex_pairs,
+    exchange_rates,
+    forex_quote,
+    available_commodities,
+    commodity_quote
+
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
 TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
 
+include("pricequotes.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
 include("esgscore.jl")
@@ -210,5 +231,8 @@ include("stockprice.jl")
 include("fundholdings.jl")
 include("stocklist.jl")
 include("marketindexes.jl")
+include("euronext.jl")
+include("tsx.jl")
+include("cryptoforexcommodities.jl")
 
 end # module FinancialModelingPrep

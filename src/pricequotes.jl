@@ -1,0 +1,147 @@
+"""
+    price_quote(fmp, symbol)
+    price_quote(fmp, symbols)
+
+Returns the price quote for the specified symbol(s). Each element is a dictionary.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- symbol::String: A financial symbol.
+- symbols::Vector{String}: A vector of financial symbols.
+
+See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
+See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
+See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
+See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get the price quote for BTCUSD
+data = price_quote(fmp, "BTCUSD")
+
+# get the price quote for MSFT and GOOG
+data = price_quote(fmp, ["MSFT", "GOOG"])
+```
+"""
+function price_quote(fmp::FMP, symbol::String)::Vector{Any}
+    endpoint = "quote/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
+    return data
+end
+
+function price_quote(fmp::FMP, symbols::Vector{String})::Vector{Any}
+    endpoint = "quote/$(join(symbols, ','))"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
+    return data
+end
+
+"""
+    price_quotes(fmp, market)
+
+Returns the price quotes for the specified marklet. Each element is a dictionary.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- market::String: A financial market.
+
+See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
+See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
+See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
+See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get the price quotes for major indexes
+data = price_quote(fmp, "index")
+
+# get the price quotes for NYSE
+data = price_quote(fmp, "nyse")
+
+# get the price quotes for TSX
+data = price_quote(fmp, "euronext")
+
+# get the price quotes for euronext
+data = price_quote(fmp, "tsx")
+
+# get the price quotes for crypto
+data = price_quote(fmp, "crypto")
+
+# get the price quotes for forex
+data = price_quote(fmp, "forex")
+
+# get the price quotes for commodity
+data = price_quote(fmp, "commodity")
+```
+"""
+function price_quotes(fmp::FMP, market::String)::Vector{Any}
+    endpoint = "quotes/$(market)"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
+    return data
+end
+
+"""
+    historical_price_quote(fmp, symbol, frequency = TIME_FREQUENCIES.daily, params...)
+
+Returns the historical price quote for the specified symbol and frequency. Each element is a dictionary.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- symbol::String: A stock symbol.
+- frequency::String: A time frame.
+- params...: Additional keyword query params.
+
+See [Historical-Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Historical-Price) for more details.
+See [Historical-Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) for more details.
+See [Historical-Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-EuroNext-prices) for more details.
+See [Historical-TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-TSX-prices) for more details.
+See [Historical-Cryptocurrencies-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-Cryptocurrencies-Price) for more details.
+See [Historical-Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-Forex-Price) for more details.
+See [Historical-Commodities-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-commodities-prices) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get the 15m historical price quote for SPY
+data = historical_price_quote(fmp, "SPY", TIME_FREQUENCIES.minutes15)
+
+# get the 4hr historical price quote for BTCUSD
+data = historical_price_quote(fmp, "BTCUSD", TIME_FREQUENCIES.hours4)
+
+# get the daily historical price quote time series for AAPL
+data = historical_price_quote(fmp, "AAPL", TIME_FREQUENCIES.daily, timeseries = 5)
+```
+"""
+function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...)::Vector{Any}
+    if !(frequency in TIME_FREQUENCIES)
+        error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES). Modify TIME_FREQUENCIES to override behavior.")
+    end
+    if frequency == TIME_FREQUENCIES.daily
+        endpoint = "historical-price-full/$(symbol)"
+    else
+        endpoint = "historical-chart/$(frequency)/$(symbol)"
+    end
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_response(response)
+    return data
+end

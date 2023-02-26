@@ -48,11 +48,16 @@ df[1:5, 1:4]
    5 │      13372000000  USD                           0.274489                  10903000000
 ```
 
+## Price Quotes
+| Function | Endpoint(s) |
+|----------|-------------|
+| price_quote </br> price_quotes | [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) </br> [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) </br> [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) </br>[TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) </br> [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) <br> [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) </br> [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) |
+| historical_price_quote | [Historical-Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Historical-Price) </br> [Historical-Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) </br> [Historical-Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-EuroNext-prices) </br> [Historical-TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-TSX-prices) </br> [Historical-Cryptocurrencies-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-Cryptocurrencies-Price) </br> [Historical-Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-Forex-Price) </br> [Historical-Commodities-Quote](https://site.financialmodelingprep.com/developer/docs/#Historical-commodities-prices) |
 
 
 ## Stock Fundamentals
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | symbols_with_financials | [Financial-Statements-List](https://site.financialmodelingprep.com/developer/docs#Financial-Statements-List) |
 | income_statements | [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/>[Income-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
 | balance_sheet_statements | [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) <br/> [Balance-Sheet-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) |
@@ -67,7 +72,7 @@ df[1:5, 1:4]
 
 ## Stock Fundamentals Analysis
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | financial_ratios | [Financial-Ratios](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) |
 | financial_scores | [Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
 | owners_earnings | [Owners-Earnings](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) |
@@ -87,7 +92,7 @@ df[1:5, 1:4]
 
 ## ESG Score
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | esg_scores | [ESG-Score](https://site.financialmodelingprep.com/developer/docs/#ESG-SCORE) |
 | esg_ratings | [ESG-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-ESG-Risk-Ratings) |
 | esg_score_benchmarks | [ESG-Benchmarking](https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) |
@@ -97,7 +102,7 @@ df[1:5, 1:4]
 
 ## Price Target
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | price_targets | [Price-Target](https://site.financialmodelingprep.com/developer/docs/#Price-Target)|
 | price_targets_by_analyst | [Price-Target-by-Analyst-Name](https://site.financialmodelingprep.com/developer/docs/#Price-Target-By-Analyst-Name) |
 | price_targets_by_company | [Price-Target-by-Analyst-Company](https://site.financialmodelingprep.com/developer/docs/#Price-Target-by-Analyst-Company) |
@@ -107,7 +112,7 @@ df[1:5, 1:4]
 
 ## Upgrades & Downgrades
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | upgrades_and_downgrades | [Upgrades-&-Downgrades](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades) |
 | upgrades_and_downgrades_feed | [Upgrades-&-Downgrades-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-RSS-Feed) |
 | upgrades_and_downgrades_consensus | [Upgrades-&-Downgrades-Consensus](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-Consensus) |
@@ -124,7 +129,7 @@ df[1:5, 1:4]
 
 ## Stock Calendars
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | earnings_calendar | [Earnings-Calendar](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) |
 | earnings_calendar_confirmed | [Earnings-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) |
 | ipo_calendar | [IPO-Calendar](https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) |
@@ -138,14 +143,14 @@ df[1:5, 1:4]
 
 ## Stock Look Up Tool
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | search_symbol | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
 | search_name | [Name-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
 | stock_screener | [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) |
 
 ## Company Information
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | company_profile | [Company-Profile](https://site.financialmodelingprep.com/developer/docs/#Company-Profile) |
 | key_executives | [Key-Executives](https://site.financialmodelingprep.com/developer/docs/#Key-Executives) |
 | company_outlook | [Company-Outlook](https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) |
@@ -157,7 +162,7 @@ df[1:5, 1:4]
 
 ## Stock News
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | fmp_articles | [FMP-Articles](https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) |
 | stock_news | [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
 | stock_news_sentiment_feed | [Stock-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Stock-News) |
@@ -168,7 +173,7 @@ df[1:5, 1:4]
 
 ## Market Performance
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | sector_pe_ratios | [Sectors-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Sectors-PE-Ratio) |
 | industry_pe_ratios | [Industries-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Industries-PE-Ratio) |
 | sector_performances | [Sectors-Performance](https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) |
@@ -182,7 +187,7 @@ df[1:5, 1:4]
 
 ## Stock Statistics
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | social_sentiment | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
 | stock_grades | [Stock-Grade](https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) |
 | earnings_surprises | [Earnings-Surprises](https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) |
@@ -193,7 +198,7 @@ df[1:5, 1:4]
 
 ## Insider Trading
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | insider_trading_types | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades_feed | [Insider-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Insider-Trading-RSS-Feed) |
@@ -206,7 +211,7 @@ df[1:5, 1:4]
 
 ## Senate Trading
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | senate_trades | [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
 | senate_trades_feed | [Senate-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) |
 | senate_disclosures | [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) |
@@ -214,20 +219,16 @@ df[1:5, 1:4]
 
 ## Economics
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | market_risk_premium | [Market-Risk-Premium](https://site.financialmodelingprep.com/developer/docs/#Market-Risk-Premium) |
 | treasury_rates | [Treasury-Rates](https://site.financialmodelingprep.com/developer/docs/#Treasury-Rates) |
 | economic_indicator | [Economic-Indicator](https://site.financialmodelingprep.com/developer/docs/#Economic-Indicator) |
 
 ## Stock Price
 | Function | Endpoint(s) |
-|----------|----------|
-| company_quote | [Company-Quote](https://site.financialmodelingprep.com/developer/docs/#Company-Quote) |
+|----------|-------------|
 | otc_quote | [OTC-Quote](https://site.financialmodelingprep.com/developer/docs/#Company-Quote) |
 | price_change | [Price-Change](https://site.financialmodelingprep.com/developer/docs/#Stock-price-change) |
-| price_quote | [Price-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) |
-| price_quotes | [Price-Quotes](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) |
-| historical_price_quote | [Historical-Price-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Historical-Price) |
 | historical_splits | [Historical-Stock-Splits](https://site.financialmodelingprep.com/developer/docs/#Historical-Stock-Splits) |
 | survivorship_bias | [Survivorship-Bias](https://site.financialmodelingprep.com/developer/docs/#Survivorship-Bias-Free-EOD) |
 | technical_indicators | [Daily-Indicators](https://site.financialmodelingprep.com/developer/docs/#Daily-Indicators) </br> [Intraday-Indicators](https://site.financialmodelingprep.com/developer/docs/#Intraday-Indicators) |
@@ -235,7 +236,7 @@ df[1:5, 1:4]
 
 ## Fund Holdings
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | etf_holders | [ETF-Holders](https://site.financialmodelingprep.com/developer/docs/#ETF-Holders) |
 | etf_summary | [ETF-Info](https://site.financialmodelingprep.com/developer/docs/#ETF-Expense-ratio) |
 | institutional_holders | [Institutional-Holders](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders) |
@@ -252,7 +253,7 @@ df[1:5, 1:4]
 
 ## Stock List
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | available_symbols | [Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Symbols-List) |
 | tradeable_symbols | [Tradeable-Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Tradable-Symbols-List) |
 | etf_symbols | [ETF-Symbols](https://site.financialmodelingprep.com/developer/docs/#ETF-List) |
@@ -262,7 +263,7 @@ df[1:5, 1:4]
 
 ## Market Indexes
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
 | available_indexes | [Available-Indexes](https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) |
 | sp500_companies | [List-of-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) </br> [Historical-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-S&P-500) |
 | nasdaq_companies | [List-of-Nasdaq-100-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Nasdaq-100-companies) |
@@ -270,12 +271,18 @@ df[1:5, 1:4]
 
 ## Euronext
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
+| available_euronext | [Euronext-List](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) |
 
 ## TSX
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
+| available_tsx | [TSX-List](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) |
 
 ## Crypto, Forex, and Commodities
 | Function | Endpoint(s) |
-|----------|----------|
+|----------|-------------|
+| available_cryptocurrencies | [Cryptocurrencies-List](https://site.financialmodelingprep.com/developer/docs/#Historical-Cryptocurrencies-Price) |
+| available_forex_pairs | [Forex-Pairs-List](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) |
+| exchange_rates | [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) |
+| available_commodities | [Commodities-List](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) |

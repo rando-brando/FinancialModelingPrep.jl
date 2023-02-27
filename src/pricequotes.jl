@@ -10,12 +10,12 @@ Returns the price quote for the specified symbol(s). Each element is a dictionar
 - symbols::Vector{String}: A vector of financial symbols.
 
 See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
-See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones%2C-Nasdaq%2C-S&P-500)) for more details.
 See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
 See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
 See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
 See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
-See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold%2C-Silver%2C-Oil)) for more details.
 
 # Examples
 ``` julia
@@ -55,12 +55,12 @@ Returns the price quotes for the specified marklet. Each element is a dictionary
 - market::String: A financial market.
 
 See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
-See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones%2C-Nasdaq%2C-S&P-500)) for more details.
 See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
 See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
 See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
 See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
-See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold%2C-Silver%2C-Oil)) for more details.
 
 # Examples
 ``` julia

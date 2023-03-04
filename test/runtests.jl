@@ -12,7 +12,7 @@ FMP_API_KEY = ENV["FMP_API_KEY"]
 fmp = FMP(api_key = FMP_API_KEY)
 
 include("test_pricequotes.jl")
-#include("test_stockfundamentals.jl")
+include("test_stockfundamentals.jl")
 #include("test_stockfundamentalsanalysis.jl")
 #include("test_esgscore.jl")
 #include("test_pricetarget.jl")

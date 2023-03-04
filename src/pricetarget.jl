@@ -43,7 +43,7 @@ See [Price-Target-by-Analyst-Name](https://site.financialmodelingprep.com/develo
 fmp = FMP()
 
 # get the price targets from Tim Anderson
-data = price_targets_by_analyst(fmp, name = "Tim%20Anderson")
+data = price_targets_by_analyst(fmp, "Tim%20Anderson")
 ```
 """
 function price_targets_by_analyst(fmp::FMP, name::String)::Vector{Any}
@@ -71,7 +71,7 @@ See [Price-Target-by-Analyst-Company](https://site.financialmodelingprep.com/dev
 fmp = FMP()
 
 # get the price targets from Barclays
-data = price_targets_by_company(fmp, company = "Barclays")
+data = price_targets_by_company(fmp, "Barclays")
 ```
 """
 function price_targets_by_company(fmp::FMP, company::String)::Vector{Any}
@@ -154,8 +154,8 @@ See [Price-Target-RSS-Feed](https://site.financialmodelingprep.com/developer/doc
 # create a FMP API instance
 fmp = FMP()
 
-# get the price target summary for AAPL
-data = price_targets_feed(fmp, "AAPL")
+# get the first page from the price target feed
+data = price_targets_feed(fmp, page = 0)
 ```
 """
 function price_targets_feed(fmp::FMP; params...)::Vector{Any}

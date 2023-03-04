@@ -1,13 +1,11 @@
 """
     otc_quote(fmp, symbol)
-    otc_quote(fmp, symbols)
 
 Returns the price quote for the specified symbol(s). Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- symbols::Vector{String}: A vector of stock symbols.
 
 See [OTC-Quote](https://site.financialmodelingprep.com/developer/docs/#Company-Quote) for more details.
 
@@ -18,9 +16,6 @@ fmp = FMP()
 
 # get the otc quote for GBTC
 data = otc_quote(fmp, "GBTC")
-
-# get the otc quote for BATRB and FWONB
-data = otc_quote(fmp, ["BATRB", "FWONB"])
 ```
 """
 function otc_quote(fmp::FMP, symbol::String)::Vector{Any}
@@ -31,24 +26,14 @@ function otc_quote(fmp::FMP, symbol::String)::Vector{Any}
     return data
 end
 
-function otc_quote(fmp::FMP, symbols::Vector{String})::Vector{Any}
-    endpoint = "otc/real-time-price/$(join(symbols, ','))"
-    url, query = Client.make_url_v3(fmp, endpoint)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
-    return data
-end
-
 """
     price_change(fmp, symbol)
-    price_change(fmp, symbols)
 
 Returns the price change for the specified symbol(s). Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- symbols::Vector{String}: A vector of stock symbols.
 
 See [Price-Change](https://site.financialmodelingprep.com/developer/docs/#Stock-price-change) for more details.
 
@@ -59,21 +44,10 @@ fmp = FMP()
 
 # get the price change for AAPL
 data = price_change(fmp, "AAPL")
-
-# get the price change for MSFT and GOOG
-data = price_change(fmp, ["MSFT", "GOOG"])
 ```
 """
 function price_change(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "stock-price-change/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
-    return data
-end
-
-function price_change(fmp::FMP, symbols::Vector{String})::Vector{Any}
-    endpoint = "stock-price-change/$(join(symbols, ','))"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)

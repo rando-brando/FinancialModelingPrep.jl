@@ -167,10 +167,10 @@ See [Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/develope
 fmp = FMP()
 
 # get the 10-K for AAPL in 2022
-data = financial_reports(fmp, "AAPL", year = 2022, period = "FY")
+data = financial_reports(fmp, "AAPL", year = 2022)
 
 # get the 10-Q for AAPL in Q4 of 2022
-data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")
+data = financial_reports(fmp, "AAPL", year = 2022, period = "Q4")
 ```
 """
 function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")::Vector{Any}
@@ -199,6 +199,9 @@ See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/deve
 ``` julia
 # create a FMP API instance
 fmp = FMP()
+
+# get all yearly geographic revenue segments for AAPL
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)
 
 # get all quarterly product revenue segments for AAPL
 data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter")
@@ -267,8 +270,8 @@ See [Earnings-Call-Transcript](https://site.financialmodelingprep.com/developer/
 # create a FMP API instance
 fmp = FMP()
 
-# get all transcripts for AAPL in 2022
-data = earnings_call_transcript(fmp, "AAPL", year = 2022)
+# get all transcripts for AAPL in Q3 of 2022
+data = earnings_call_transcript(fmp, "AAPL", year = 2022, quarter = 3)
 ```
 """
 function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{Any}

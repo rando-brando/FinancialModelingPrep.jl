@@ -129,7 +129,7 @@ See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-In
 fmp = FMP()
 
 # get all CIKs matching the name
-data = cik_from_name(fmp, name = "zuckerberg%20mark)
+data = cik_from_name(fmp, "zuckerberg%20mark")
 ```
 """
 function cik_from_name(fmp::FMP, name::String)::Vector{Any}

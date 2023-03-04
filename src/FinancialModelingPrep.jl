@@ -28,9 +28,11 @@ export
     cash_flow_statements,
     financial_statements,
     financial_reports,
+    revenue_segments,
     shares_float,
     earnings_call_transcripts,
-    sec_filings
+    sec_filings,
+    company_notes
 
 # exports from stockfundamentalsanalysis.jl
 export
@@ -43,7 +45,7 @@ export
     cash_flow_statements_growth,
     financial_statements_growth,
     key_metrics,
-    current_rating,
+    company_rating,
     historical_ratings,
     discounted_cash_flows,
     historical_discounted_cash_flows
@@ -167,7 +169,7 @@ export
     etf_summary,
     institutional_holders,
     mutual_fund_holders,
-    etf_country_weightings,
+    etf_sector_weightings,
     etf_country_weightings,
     etf_exposure,
     institutions_list,
@@ -201,12 +203,9 @@ export
 # exports from cryptoforexcommodities.jl
 export
     available_crytocurrencies,
-    crypto_quote,
     available_forex_pairs,
     exchange_rates,
-    forex_quote,
-    available_commodities,
-    commodity_quote
+    available_commodities
 
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options

@@ -1,44 +1,31 @@
 """
     price_quote(fmp, symbol)
-    price_quote(fmp, symbols)
 
 Returns the price quote for the specified symbol(s). Each element is a dictionary.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A financial symbol.
-- symbols::Vector{String}: A vector of financial symbols.
 
 See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
-See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones%2C-Nasdaq%2C-S&P-500)) for more details.
 See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
 See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
 See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
 See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
-See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold%2C-Silver%2C-Oil)) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
-# get the price quote for BTCUSD
-data = price_quote(fmp, "BTCUSD")
-
-# get the price quote for MSFT and GOOG
-data = price_quote(fmp, ["MSFT", "GOOG"])
+# get the price quote for AAPL
+data = price_quote(fmp, "AAPL")
 ```
 """
 function price_quote(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "quote/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
-    return data
-end
-
-function price_quote(fmp::FMP, symbols::Vector{String})::Vector{Any}
-    endpoint = "quote/$(join(symbols, ','))"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)
@@ -55,12 +42,12 @@ Returns the price quotes for the specified marklet. Each element is a dictionary
 - market::String: A financial market.
 
 See [Stock-Quote](https://site.financialmodelingprep.com/developer/docs/#Stock-Price) for more details.
-See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones,-Nasdaq,-S&P-500)) for more details.
+See [Index-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-majors-indexes-(Dow-Jones%2C-Nasdaq%2C-S&P-500)) for more details.
 See [Euronext-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.
 See [TSX-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-TSX) for more details.
 See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
 See [Forex-Quote](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
-See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+See [Commodity-Quote](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold%2C-Silver%2C-Oil)) for more details.
 
 # Examples
 ``` julia
@@ -121,14 +108,14 @@ See [Historical-Commodities-Quote](https://site.financialmodelingprep.com/develo
 # create a FMP API instance
 fmp = FMP()
 
-# get the 15m historical price quote for SPY
-data = historical_price_quote(fmp, "SPY", TIME_FREQUENCIES.minutes15)
+# get the 15m historical price quote for AAPL
+data = historical_price_quote(fmp, "AAPL", frequency = TIME_FREQUENCIES.minutes15)
 
 # get the 4hr historical price quote for BTCUSD
-data = historical_price_quote(fmp, "BTCUSD", TIME_FREQUENCIES.hours4)
+data = historical_price_quote(fmp, "BTCUSD", frequency = TIME_FREQUENCIES.hours4)
 
-# get the daily historical price quote time series for AAPL
-data = historical_price_quote(fmp, "AAPL", TIME_FREQUENCIES.daily, timeseries = 5)
+# get the daily historical price quote time series for EURUSD
+data = historical_price_quote(fmp, "EURUSD", frequency = TIME_FREQUENCIES.daily, timeseries = 5)
 ```
 """
 function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...)::Vector{Any}

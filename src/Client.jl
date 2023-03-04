@@ -23,8 +23,8 @@ fmp = FMP(apikey = FMP_API_KEY)
 ```
 """
 @kwdef struct FMP
-    api_key::String = "demo"
-    base_url::String = "https://financialmodelingprep.com"
+    apikey::String = "demo"
+    baseurl::String = "https://financialmodelingprep.com"
     headers::Dict{String, String} = Dict{String, String}("Upgrade-Insecure-Requests" => "1")
 end
 
@@ -40,8 +40,8 @@ Creates a Financial Modeling Prep API version 3 URL.
 """
 function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = "$(fmp.base_url)/api/v3/$(endpoint)"
+    query["apikey"] = fmp.apikey
+    url = "$(fmp.baseurl)/api/v3/$(endpoint)"
     return url, query
 end
 
@@ -57,8 +57,8 @@ Creates a Financial Modeling Prep API version 4 URL.
 """
 function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
-    query["apikey"] = fmp.api_key
-    url = "$(fmp.base_url)/api/v4/$(endpoint)"
+    query["apikey"] = fmp.apikey
+    url = "$(fmp.baseurl)/api/v4/$(endpoint)"
     return url, query
 end
 

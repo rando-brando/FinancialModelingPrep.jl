@@ -167,7 +167,7 @@ See [Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/develope
 fmp = FMP()
 
 # get the 10-K for AAPL in 2022
-data = financial_reports(fmp, "AAPL", year = 2022, period = "FY")
+data = financial_reports(fmp, "AAPL", year = 2022)
 
 # get the 10-Q for AAPL in Q4 of 2022
 data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")

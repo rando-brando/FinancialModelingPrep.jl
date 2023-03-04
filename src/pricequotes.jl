@@ -1,6 +1,5 @@
 """
     price_quote(fmp, symbol)
-    price_quote(fmp, symbols)
 
 Returns the price quote for the specified symbol(s). Each element is a dictionary.
 

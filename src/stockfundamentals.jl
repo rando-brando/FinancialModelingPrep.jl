@@ -267,8 +267,8 @@ See [Earnings-Call-Transcript](https://site.financialmodelingprep.com/developer/
 # create a FMP API instance
 fmp = FMP()
 
-# get all transcripts for AAPL in 2022
-data = earnings_call_transcript(fmp, "AAPL", year = 2022)
+# get all transcripts for AAPL in Q3 of 2022
+data = earnings_call_transcript(fmp, "AAPL", year = 2022, quarter = 3)
 ```
 """
 function earnings_call_transcripts(fmp::FMP, symbol::String; params...)::Vector{Any}

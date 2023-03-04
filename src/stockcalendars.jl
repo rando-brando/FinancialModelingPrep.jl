@@ -227,7 +227,6 @@ fmp = FMP()
 data = historical_dividends(fmp, "AAPL")
 ```
 """
-
 function historical_dividends(fmp::FMP, symbol::String)::Vector{Any}
     endpoint = "historical-price-full/stock-dividends/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)

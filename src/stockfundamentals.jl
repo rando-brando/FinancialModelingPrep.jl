@@ -200,6 +200,9 @@ See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/deve
 # create a FMP API instance
 fmp = FMP()
 
+# get all yearly geographic revenue segments for AAPL
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)
+
 # get all quarterly product revenue segments for AAPL
 data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter")
 ```

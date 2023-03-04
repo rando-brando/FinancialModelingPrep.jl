@@ -45,7 +45,7 @@ export
     cash_flow_statements_growth,
     financial_statements_growth,
     key_metrics,
-    current_rating,
+    company_rating,
     historical_ratings,
     discounted_cash_flows,
     historical_discounted_cash_flows

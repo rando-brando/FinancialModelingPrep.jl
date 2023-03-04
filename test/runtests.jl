@@ -9,7 +9,7 @@ DotEnv.config("../.env")
 FMP_API_KEY = ENV["FMP_API_KEY"]
 
 # create a new FMP API instance
-fmp = FMP(api_key = FMP_API_KEY)
+fmp = FMP(apikey = FMP_API_KEY)
 
 include("test_pricequotes.jl")
 include("test_stockfundamentals.jl")

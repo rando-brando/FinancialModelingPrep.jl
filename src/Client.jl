@@ -4,14 +4,14 @@ import HTTP, JSON
 import Base: @kwdef
 
 """
-FMP(apikey = "demo", baseurl = "https://financialmodelingprep.com", headers = Dict("Upgrade-Insecure-Requests" => "1"))
+FMP(apikey, baseurl, headers)
 
 Creates a Financial Modeling Prep instance for interacting with the API server endpoints.
 
 # Arguments
-- apikey::String
-- baseurl::String
-- headers::Dict{String, String}
+- apikey::String = `"demo"`
+- baseurl::String = `"https://financialmodelingprep.com"`
+- headers::Dict{String, String} = `Dict("Upgrade-Insecure-Requests" => "1")`
 
 # Examples
 ``` julia

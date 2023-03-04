@@ -169,7 +169,7 @@ export
     etf_summary,
     institutional_holders,
     mutual_fund_holders,
-    etf_country_weightings,
+    etf_sector_weightings,
     etf_country_weightings,
     etf_exposure,
     institutions_list,

@@ -1,5 +1,13 @@
 # FinancialModelingPrep
 
+[![Build Status](https://github.com/rando-brando/FinancialModelingPrep/workflows/CI/badge.svg)](https://github.com/rando-brando/FinancialModelingPrep/actions?query=workflow%3ACI)
+[![Documentation Status](https://github.com/rando-brando/FinancialModelingPrep/workflows/Docs/badge.svg)](https://github.com/rando-brando/FinancialModelingPrep/actions?query=workflow%3ADocs)
+[![codecov](https://codecov.io/gh/rando-brando/FinancialModelingPrep/branch/main/graph/badge.svg)](https://codecov.io/gh/rando-brando/FinancialModelingPrep)
+
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://rando-brando.github.io/FinancialModelingPrep/stable)
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://rando-brando.github.io/FinancialModelingPrep/dev)
+[![Star on GitHub](https://img.shields.io/github/stars/rando-brando/FinancialModelingPrep.svg?style=social)](https://github.com/rando-brando/FinancialModelingPrep/stargazers)
+
 *Financial Modeling Prep API wrapper with Julia*
 
 ## Disclaimer

@@ -203,12 +203,9 @@ export
 # exports from cryptoforexcommodities.jl
 export
     available_crytocurrencies,
-    crypto_quote,
     available_forex_pairs,
     exchange_rates,
-    forex_quote,
-    available_commodities,
-    commodity_quote
+    available_commodities
 
 REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options

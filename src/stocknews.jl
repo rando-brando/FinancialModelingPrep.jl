@@ -43,7 +43,7 @@ See [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-Ne
 fmp = FMP()
 
 # get the latest 50 stock news for GOOG and MSFT
-data = stock_news(fmp, ticker = [GOOG, MSFT], limit = 50)
+data = stock_news(fmp, ticker = ["GOOG", "MSFT"], limit = 50)
 ```
 """
 function stock_news(fmp::FMP; params...)::Vector{Any}

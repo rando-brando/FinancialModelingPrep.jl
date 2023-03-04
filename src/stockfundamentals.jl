@@ -170,7 +170,7 @@ fmp = FMP()
 data = financial_reports(fmp, "AAPL", year = 2022)
 
 # get the 10-Q for AAPL in Q4 of 2022
-data = financial_reports(fmp, "AAPL",  year = 2022, period = "Q4")
+data = financial_reports(fmp, "AAPL", year = 2022, period = "Q4")
 ```
 """
 function financial_reports(fmp::FMP, symbol::String, year::Integer; period::String = "FY")::Vector{Any}

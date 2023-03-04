@@ -22,7 +22,7 @@ using FinancialModelingPrep
 FMP_API_KEY = ENV["FMP_API_KEY"]
 
 # create a new FMP API instance
-fmp = FMP(api_key = FMP_API_KEY)
+fmp = FMP(apikey = FMP_API_KEY)
 ```
 ``` julia
 # pass API instance to any endpoint method

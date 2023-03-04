@@ -4,22 +4,22 @@ import HTTP, JSON
 import Base: @kwdef
 
 """
-FMP(api_key, base_url, headers)
+FMP(apikey = "demo", baseurl = "https://financialmodelingprep.com", headers = Dict("Upgrade-Insecure-Requests" => "1"))
 
 Creates a Financial Modeling Prep instance for interacting with the API server endpoints.
 
 # Arguments
-- api_key::String
-- base_url::String
+- apikey::String
+- baseurl::String
 - headers::Dict{String, String}
 
 # Examples
 ``` julia
 # load your FMP API key
-my_key = ENV("FMP_API_KEY")
+FMP_API_KEY = ENV("FMP_API_KEY")
 
 # create a new FMP instance, passing the API key by name
-fmp = FMP(api_key = my_key)
+fmp = FMP(apikey = FMP_API_KEY)
 ```
 """
 @kwdef struct FMP

@@ -28,8 +28,9 @@ end
 end
 
 @testset "revenue_segments" begin
-    @test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)[1])
-    @test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter)[1])
+    # removed because I don't have the required plan to test it.
+    #@test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)[1])
+    #@test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter)[1])
 end
 
 @testset "shares_float" begin

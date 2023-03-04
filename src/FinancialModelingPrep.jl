@@ -28,9 +28,11 @@ export
     cash_flow_statements,
     financial_statements,
     financial_reports,
+    revenue_segments,
     shares_float,
     earnings_call_transcripts,
-    sec_filings
+    sec_filings,
+    company_notes
 
 # exports from stockfundamentalsanalysis.jl
 export

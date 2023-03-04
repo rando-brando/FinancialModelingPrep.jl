@@ -49,7 +49,7 @@ data = search_name(fmp, "Meta", limit = 10, exchange = "NASDAQ")
 ```
 """
 function search_name(fmp::FMP, name::String; params...)::Vector{Any}
-    endpoint = "search-namer"
+    endpoint = "search-name"
     url, query = Client.make_url_v3(fmp, endpoint; query = name, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_response(response)

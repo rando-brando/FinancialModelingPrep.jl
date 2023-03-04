@@ -37,5 +37,5 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/rando-brando/FinancialModelingPrep"
+    repo = "github.com/rando-brando/FinancialModelingPrep.jl"
 )

@@ -122,13 +122,13 @@ See [Historical-Commodities-Quote](https://site.financialmodelingprep.com/develo
 fmp = FMP()
 
 # get the 15m historical price quote for SPY
-data = historical_price_quote(fmp, "SPY", TIME_FREQUENCIES.minutes15)
+data = historical_price_quote(fmp, "SPY", frequency = TIME_FREQUENCIES.minutes15)
 
 # get the 4hr historical price quote for BTCUSD
-data = historical_price_quote(fmp, "BTCUSD", TIME_FREQUENCIES.hours4)
+data = historical_price_quote(fmp, "BTCUSD", frequency = TIME_FREQUENCIES.hours4)
 
 # get the daily historical price quote time series for AAPL
-data = historical_price_quote(fmp, "AAPL", TIME_FREQUENCIES.daily, timeseries = 5)
+data = historical_price_quote(fmp, "AAPL", frequency = TIME_FREQUENCIES.daily, timeseries = 5)
 ```
 """
 function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...)::Vector{Any}

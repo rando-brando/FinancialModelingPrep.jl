@@ -1,6 +1,6 @@
 # FinancialModelingPrep
 
-[![Documentation Status](https://github.com/rando-brando/FinancialModelingPrep.jl/actions/workflows/documentation.yml/badge.svg?branch=main)](https://github.com/rando-brando/FinancialModelingPrep.jl/actions/workflows/documentation.yml)
+[![Documentation Status](https://github.com/rando-brando/FinancialModelingPrep.jl/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rando-brando/FinancialModelingPrep.jl/actions/workflows/ci.yml)
 [![](https://img.shields.io/badge/docs-latest-blue.svg)](https://rando-brando.github.io/FinancialModelingPrep.jl/dev)
 [![codecov](https://codecov.io/gh/rando-brando/FinancialModelingPrep/branch/main/graph/badge.svg)](https://codecov.io/gh/rando-brando/FinancialModelingPrep.jl)
 [![Star on GitHub](https://img.shields.io/github/stars/rando-brando/FinancialModelingPrep.svg?style=social)](https://github.com/rando-brando/FinancialModelingPrep.jl/stargazers)

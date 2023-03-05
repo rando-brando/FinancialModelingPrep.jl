@@ -34,7 +34,7 @@ Returns a vector of all S&P 500 companies. Each element is a dictionary.
 - fmp::FMP: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
-See [List-of-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) for more details.
+See [List-of-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) for more details.\\
 See [Historical-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-S&P-500) for more details.
 
 # Examples
@@ -91,7 +91,7 @@ Returns a vector of all Dow Jones companies. Each element is a dictionary.
 - fmp::FMP: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
-See [List-of-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) for more details.
+See [List-of-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) for more details.\\
 See [Historical-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-Dow-Jones) for more details.
 
 # Examples

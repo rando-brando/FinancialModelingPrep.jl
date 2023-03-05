@@ -123,7 +123,7 @@ Returns the historical price quote for the specified symbol and frequency. Each 
 - period::Integer: The indicator period.
 - type::String: The indicator type.
 
-See [Daily-Indicators](https://site.financialmodelingprep.com/developer/docs/#Daily-Indicators) for more details.
+See [Daily-Indicators](https://site.financialmodelingprep.com/developer/docs/#Daily-Indicators) for more details.\\
 See [Intraday-Indicators](https://site.financialmodelingprep.com/developer/docs/#Intraday-Indicators) for more details.
 
 # Examples

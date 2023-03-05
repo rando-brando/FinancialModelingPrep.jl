@@ -27,7 +27,7 @@ Returns a vector of income statements for the specified symbol. Each element is 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Income-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.\\
 See [Income-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
@@ -61,7 +61,7 @@ Returns a vector of balance sheet statements for the specified symbol. Each elem
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Balance-Sheet-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.\\
 See [Balance-Sheet-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
@@ -95,7 +95,7 @@ Returns a vector of cash flow statements for the specified symbol. Each element 
 - reported::Bool: Return the reported or normalized statements.
 - params...: Additional keyword query params.
 
-See [Cash-Flow-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.  
+See [Cash-Flow-Statements](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements) for more details.\\
 See [Cash-Flow-Statements-As-Reported](https://site.financialmodelingprep.com/developer/docs#Company-Financial-Statements-As-Reported) for more details.
 
 # Examples
@@ -158,7 +158,7 @@ Returns a vector with the financial report for the specified symbol, year and pe
 - year::Integer: A calendar year.
 - period::String: One of "FY", "Q1", "Q2", "Q3" or "Q4".
 
-See [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) for more details.
+See [Annual-Reports-on-Form-10-K](https://site.financialmodelingprep.com/developer/docs#Annual-Reports-on-Form-10-K) for more details.\\
 See [Quarterly-Earnings-Reports](https://site.financialmodelingprep.com/developer/docs/#Quarterly-Earnings-Reports) for more details.
 
 # Examples
@@ -192,7 +192,7 @@ Returns a dictionary with the revenue segments for the specified symbol.
 - segment::String: A `REVENUE_SEGMENTS` option.
 - params...: Additional keyword query params.
 
-See [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) for more details.
+See [Sales-Revenue-By-Segments](https://site.financialmodelingprep.com/developer/docs/#Sales-Revenue-By-Segments) for more details.\\
 See [Revenue-Geographic-by-Segments](https://site.financialmodelingprep.com/developer/docs/#Revenue-Geographic-by-Segments) for more details.
 
 # Examples

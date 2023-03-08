@@ -208,9 +208,6 @@ data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period 
 ```
 """
 function revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...)
-    if !(segment in REVENUE_SEGMENTS)
-        error("Invalid segment value. Allowed values are $(REVENUE_SEGMENTS). Modify REVENUE_SEGMENTS to override behavior.")
-    end
     endpoint = "revenue-$(segment)-segmentation"
     url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
     response = Client.make_get_request(url, query)

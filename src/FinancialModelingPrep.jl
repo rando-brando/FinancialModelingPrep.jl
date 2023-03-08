@@ -207,9 +207,9 @@ export
     exchange_rates,
     available_commodities
 
-REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
-REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
-TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
+const REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
+const REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
+const TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
 
 include("pricequotes.jl")
 include("stockfundamentals.jl")

@@ -251,9 +251,6 @@ data = key_metrics(fmp, "AAPL", period = REPORTING_PERIODS.ttm, limit = 30)
 ```
 """
 function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual, params...)
-    if !(period in REPORTING_PERIODS)
-        error("Invalid period value. Allowed values are $(REPORTING_PERIODS). Modify REPORTING_PERIODS to override behavior.")
-    end
     endpoint = "key-metrics" * ("-$(period)" ^ (period == REPORTING_PERIODS.ttm)) * "/$(symbol)"
     if period == REPORTING_PERIODS.quarter
         url, query = Client.make_url_v3(fmp, endpoint; period = period, params...)

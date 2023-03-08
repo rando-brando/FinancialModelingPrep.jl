@@ -1,7 +1,7 @@
 """
     search_symbol(fmp, symbol, params...)
 
-Returns a list of search results for the specified symbol and filters. Each element is a dictionary.
+Returns a list of search results for the specified symbol and filters.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -30,7 +30,7 @@ end
 """
     search_name(fmp, name, params...)
 
-Returns a list of search results for the specified name and filters. Each element is a dictionary.
+Returns a list of search results for the specified name and filters.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -59,7 +59,7 @@ end
 """
     stock_screener(fmp, params...)
 
-Returns a list of search results for the specified filters. Each element is a dictionary.
+Returns a list of search results for the specified filters.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -84,5 +84,32 @@ function stock_screener(fmp::FMP; params...)
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
+    return data
+end
+
+"""
+    available_countries(fmp)
+
+Returns a JSON array of all available countries in the API.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+
+See [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get a list of all available countries
+data = available_countries(fmp)
+```
+"""
+function available_countries(fmp::FMP)
+    endpoint = "get-all-countries"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_object(response)
     return data
 end

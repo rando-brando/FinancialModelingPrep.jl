@@ -17,11 +17,11 @@ fmp = FMP()
 data = market_risk_premiums(fmp)
 ```
 """
-function market_risk_premiums(fmp::FMP)::Vector{Any}
+function market_risk_premiums(fmp::FMP)
     endpoint = "market_risk_premium"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -45,11 +45,11 @@ fmp = FMP()
 data = treasury_rates(fmp, from = "2022-01-01", to = "2022-03-31")
 ```
 """
-function treasury_rates(fmp::FMP; params...)::Vector{Any}
+function treasury_rates(fmp::FMP; params...)
     endpoint = "treasury"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -77,10 +77,10 @@ data = economic_indicator(fmp, name = "realGDP", from = "2022-01-01", to = "2022
 data = economic_indicator(fmp, name = "federalFunds", from = "2022-01-01", to = "2022-03-31")
 ```
 """
-function economic_indicator(fmp::FMP, name::String; params...)::Vector{Any}
+function economic_indicator(fmp::FMP, name::String; params...)
     endpoint = "economic"
     url, query = Client.make_url_v4(fmp, endpoint; name = name, params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

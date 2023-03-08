@@ -18,11 +18,11 @@ fmp = FMP()
 data = sector_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE")
 ```
 """
-function sector_pe_ratios(fmp::FMP; params...)::Vector{Any}
+function sector_pe_ratios(fmp::FMP; params...)
     endpoint = "sector_price_earning_ratio"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = industry_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE")
 ```
 """
-function industry_pe_ratios(fmp::FMP; params...)::Vector{Any}
+function industry_pe_ratios(fmp::FMP; params...)
     endpoint = "industry_price_earning_ratio"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -73,11 +73,11 @@ fmp = FMP()
 data = sector_performances(fmp)
 ```
 """
-function sector_performances(fmp::FMP)::Vector{Any}
+function sector_performances(fmp::FMP)
     endpoint = "sector-performance"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -101,11 +101,11 @@ fmp = FMP()
 data = historical_sector_performances(fmp, limit = 10)
 ```
 """
-function historical_sector_performances(fmp::FMP; params...)::Vector{Any}
+function historical_sector_performances(fmp::FMP; params...)
     endpoint = "historical-sectors-performance"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -128,11 +128,11 @@ fmp = FMP()
 data = gainers(fmp)
 ```
 """
-function gainers(fmp::FMP)::Vector{Any}
+function gainers(fmp::FMP)
     endpoint = "gainers"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -155,11 +155,11 @@ fmp = FMP()
 data = losers(fmp)
 ```
 """
-function losers(fmp::FMP)::Vector{Any}
+function losers(fmp::FMP)
     endpoint = "losers"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -182,10 +182,10 @@ fmp = FMP()
 data = most_active(fmp)
 ```
 """
-function most_active(fmp::FMP)::Vector{Any}
+function most_active(fmp::FMP)
     endpoint = "actives"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

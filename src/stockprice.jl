@@ -18,11 +18,11 @@ fmp = FMP()
 data = otc_quote(fmp, "GBTC")
 ```
 """
-function otc_quote(fmp::FMP, symbol::String)::Vector{Any}
+function otc_quote(fmp::FMP, symbol::String)
     endpoint = "otc/real-time-price/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = price_change(fmp, "AAPL")
 ```
 """
-function price_change(fmp::FMP, symbol::String)::Vector{Any}
+function price_change(fmp::FMP, symbol::String)
     endpoint = "stock-price-change/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = historical_splits(fmp, "AAPL")
 ```
 """
-function historical_splits(fmp::FMP, symbol::String)::Vector{Any}
+function historical_splits(fmp::FMP, symbol::String)
     endpoint = "historical-price-full/stock_split/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -103,11 +103,11 @@ fmp = FMP()
 data = survivorship_bias(fmp, "AAPL", "2012-01-03")
 ```
 """
-function survivorship_bias(fmp::FMP, symbol::String, date::String)::Vector{Any}
+function survivorship_bias(fmp::FMP, symbol::String, date::String)
     endpoint = "historical-price-full/$(symbol)/$(date)"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -138,13 +138,13 @@ data = technical_indicators(fmp, "AAPL", period = 50)
 data = technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "WMA")
 ```
 """
-function technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA")::Vector{Any}
+function technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA")
     if !(frequency in TIME_FREQUENCIES)
         error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES). Modify TIME_FREQUENCIES to override behavior.")
     end
     endpoint = "technical_indicator/$(frequency)/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint, period = period, type = type)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

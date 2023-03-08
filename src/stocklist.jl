@@ -17,11 +17,11 @@ fmp = FMP()
 data = available_symbols(fmp)
 ```
 """
-function available_symbols(fmp::FMP)::Vector{Any}
+function available_symbols(fmp::FMP)
     endpoint = "stock/list"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -44,11 +44,11 @@ fmp = FMP()
 data = tradeable_symbols(fmp)
 ```
 """
-function tradeable_symbols(fmp::FMP)::Vector{Any}
+function tradeable_symbols(fmp::FMP)
     endpoint = "available-traded/list"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -71,10 +71,10 @@ fmp = FMP()
 data = etf_symbols(fmp)
 ```
 """
-function etf_symbols(fmp::FMP)::Vector{Any}
+function etf_symbols(fmp::FMP)
     endpoint = "etf/list"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

@@ -18,11 +18,11 @@ fmp = FMP()
 data = etf_holders(fmp, "SPY")
 ```
 """
-function etf_holders(fmp::FMP, symbol::String)::Vector{Any}
+function etf_holders(fmp::FMP, symbol::String)
     endpoint = "etf-holder/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = etf_summary(fmp, "SPY")
 ```
 """
-function etf_summary(fmp::FMP, symbol::String)::Vector{Any}
+function etf_summary(fmp::FMP, symbol::String)
     endpoint = "etf-info"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = institutional_holders(fmp, "AAPL")
 ```
 """
-function institutional_holders(fmp::FMP, symbol::String)::Vector{Any}
+function institutional_holders(fmp::FMP, symbol::String)
     endpoint = "institutional-holder/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,11 +102,11 @@ fmp = FMP()
 data = mutual_fund_holders(fmp, "AAPL")
 ```
 """
-function mutual_fund_holders(fmp::FMP, symbol::String)::Vector{Any}
+function mutual_fund_holders(fmp::FMP, symbol::String)
     endpoint = "mutual-fund-holder/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -130,11 +130,11 @@ fmp = FMP()
 data = etf_sector_weightings(fmp, "SPY")
 ```
 """
-function etf_sector_weightings(fmp::FMP, symbol::String)::Vector{Any}
+function etf_sector_weightings(fmp::FMP, symbol::String)
     endpoint = "etf-sector-weightings/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -158,11 +158,11 @@ fmp = FMP()
 data = etf_country_weightings(fmp, "SPY")
 ```
 """
-function etf_country_weightings(fmp::FMP, symbol::String)::Vector{Any}
+function etf_country_weightings(fmp::FMP, symbol::String)
     endpoint = "etf-country-weightings/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -186,11 +186,11 @@ fmp = FMP()
 data = etf_exposure(fmp, "AAPL")
 ```
 """
-function etf_exposure(fmp::FMP, symbol::String)::Vector{Any}
+function etf_exposure(fmp::FMP, symbol::String)
     endpoint = "etf-stock-exposure/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -213,11 +213,11 @@ fmp = FMP()
 data = institutions_list(fmp)
 ```
 """
-function institutions_list(fmp::FMP)::Vector{Any}
+function institutions_list(fmp::FMP)
     endpoint = "cik_list"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -241,11 +241,11 @@ fmp = FMP()
 data = cik_search(fmp, "Berkshire")
 ```
 """
-function cik_search(fmp::FMP, name::String)::Vector{Any}
+function cik_search(fmp::FMP, name::String)
     endpoint = "cik-search/$(name)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -269,11 +269,11 @@ fmp = FMP()
 data = company_from_cik(fmp, "0001067983")
 ```
 """
-function company_from_cik(fmp::FMP, cik::String)::Vector{Any}
+function company_from_cik(fmp::FMP, cik::String)
     endpoint = "cik/$(cik)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -298,11 +298,11 @@ fmp = FMP()
 data = forms_13f(fmp, "0001067983", "2022-06-30")
 ```
 """
-function forms_13f(fmp::FMP, cik::String, date::String)::Vector{Any}
+function forms_13f(fmp::FMP, cik::String, date::String)
     endpoint = "form-thirteen/$(cik)"
     url, query = Client.make_url_v3(fmp, endpoint, date = date)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -326,11 +326,11 @@ fmp = FMP()
 data = filing_dates(fmp, "0001067983")
 ```
 """
-function filing_dates(fmp::FMP, cik::String)::Vector{Any}
+function filing_dates(fmp::FMP, cik::String)
     endpoint = "form-thirteen-date/$(cik)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -354,10 +354,10 @@ fmp = FMP()
 data = company_from_cusip(fmp, "000360206")
 ```
 """
-function company_from_cusip(fmp::FMP, cusip::String)::Vector{Any}
+function company_from_cusip(fmp::FMP, cusip::String)
     endpoint = "cusip/$(cusip)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

@@ -17,11 +17,11 @@ fmp = FMP()
 data = insider_trading_types(fmp)
 ```
 """
-function insider_trading_types(fmp::FMP)::Vector{Any}
+function insider_trading_types(fmp::FMP)
     endpoint = "insider-trading-transaction-type"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -48,11 +48,11 @@ data = insider_trades(fmp, transactionType = ["P-Purchase", "S-Sale"], page = 0)
 data = insider_trades(fmp, symbol = "AAPL", page = 0)
 ```
 """
-function insider_trades(fmp::FMP; params...)::Vector{Any}
+function insider_trades(fmp::FMP; params...)
     endpoint = "insider-trading"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -76,11 +76,11 @@ fmp = FMP()
 data = insider_trades_feed(fmp, page = 0)
 ```
 """
-function insider_trades_feed(fmp::FMP; params...)::Vector{Any}
+function insider_trades_feed(fmp::FMP; params...)
     endpoint = "insider-trading-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -104,11 +104,11 @@ fmp = FMP()
 data = cik_list(fmp, page = 3)
 ```
 """
-function cik_list(fmp::FMP, params...)::Vector{Any}
+function cik_list(fmp::FMP, params...)
     endpoint = "mapper-cik-name"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -132,11 +132,11 @@ fmp = FMP()
 data = cik_from_name(fmp, "zuckerberg%20mark")
 ```
 """
-function cik_from_name(fmp::FMP, name::String)::Vector{Any}
+function cik_from_name(fmp::FMP, name::String)
     endpoint = "mapper-cik-name"
     url, query = Client.make_url_v4(fmp, endpoint, name = name)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -160,11 +160,11 @@ fmp = FMP()
 data = cik_from_symbol(fmp, "AAPL")
 ```
 """
-function cik_from_symbol(fmp::FMP, symbol::String)::Vector{Any}
+function cik_from_symbol(fmp::FMP, symbol::String)
     endpoint = "mapper-cik-company/$(symbol)"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -188,11 +188,11 @@ fmp = FMP()
 data = insider_roster(fmp, "AAPL")
 ```
 """
-function insider_roster(fmp::FMP, symbol::String)::Vector{Any}
+function insider_roster(fmp::FMP, symbol::String)
     endpoint = "insider-roaster"
     url, query = Client.make_url_v3(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -216,11 +216,11 @@ fmp = FMP()
 data = insider_roster_statistics(fmp, "AAPL")
 ```
 """
-function insider_roster_statistics(fmp::FMP, symbol::String)::Vector{Any}
+function insider_roster_statistics(fmp::FMP, symbol::String)
     endpoint = "insider-roaster-statistics"
     url, query = Client.make_url_v3(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -245,10 +245,10 @@ fmp = FMP()
 data = fails_to_deliver(fmp, "AAPL", page = 0)
 ```
 """
-function fails_to_deliver(fmp::FMP, symbol::String; params...)::Vector{Any}
+function fails_to_deliver(fmp::FMP, symbol::String; params...)
     endpoint = "fails_to_deliver"
     url, query = Client.make_url_v3(fmp, endpoint; symbol = symbol, params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

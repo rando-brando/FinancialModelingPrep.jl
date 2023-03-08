@@ -24,19 +24,19 @@ data = social_sentiment(fmp, "AAPL", page = 0)
 data = social_sentiment(fmp, type = "trending", type = "bullish", source = "stocktwits")
 ```
 """
-function social_sentiment(fmp::FMP; type::String = "trending", params...)::Vector{Any}
+function social_sentiment(fmp::FMP; type::String = "trending", params...)
     endpoint = "social-sentiment/$(type)"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
-function social_sentiment(fmp::FMP, symbol::String; params...)::Vector{Any}
+function social_sentiment(fmp::FMP, symbol::String; params...)
     endpoint = "historical/social-sentiment"
     url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -61,11 +61,11 @@ fmp = FMP()
 data = stock_grades(fmp, "AAPL", limit = 100)
 ```  
 """
-function stock_grades(fmp::FMP, symbol::String; params...)::Vector{Any}
+function stock_grades(fmp::FMP, symbol::String; params...)
     endpoint = "grade/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -89,11 +89,11 @@ fmp = FMP()
 data = earnings_surprises(fmp, "AAPL")
 ```
 """
-function earnings_surprises(fmp::FMP, symbol::String)::Vector{Any}
+function earnings_surprises(fmp::FMP, symbol::String)
     endpoint = "earnings-surprises/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -118,11 +118,11 @@ fmp = FMP()
 data = analyst_estimates(fmp, "AAPL", period = "quarter", limit = 4)
 ```  
 """
-function analyst_estimates(fmp::FMP, symbol::String; params...)::Vector{Any}
+function analyst_estimates(fmp::FMP, symbol::String; params...)
     endpoint = "analyst-estimates/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -146,11 +146,11 @@ fmp = FMP()
 data = mergers_and_acquisitions_feed(fmp, page = 0)
 ```
 """
-function mergers_and_acquisitions_feed(fmp::FMP; params...)::Vector{Any}
+function mergers_and_acquisitions_feed(fmp::FMP; params...)
     endpoint = "mergers-acquisitions-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -174,10 +174,10 @@ fmp = FMP()
 data = mergers_and_acquisitions_search(fmp, name = "Syros")
 ```
 """
-function mergers_and_acquisitions_search(fmp::FMP; params...)::Vector{Any}
+function mergers_and_acquisitions_search(fmp::FMP; params...)
     endpoint = "mergers-acquisitions/search"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

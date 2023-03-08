@@ -17,11 +17,11 @@ fmp = FMP()
 data = available_indexes(fmp)
 ```
 """
-function available_indexes(fmp::FMP)::Vector{Any}
+function available_indexes(fmp::FMP)
     endpoint = "symbol/available_indexes"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = sp500_companies(fmp, historical = true)
 ```
 """
-function sp500_companies(fmp::FMP; historical::Bool = false)::Vector{Any}
+function sp500_companies(fmp::FMP; historical::Bool = false)
     endpoint = ("historical/" ^ historical) * "sp500_constituent"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = nasdaq_companies(fmp, historical = true)
 ```
 """
-function nasdaq_companies(fmp::FMP; historical::Bool = false)::Vector{Any}
+function nasdaq_companies(fmp::FMP; historical::Bool = false)
     endpoint = ("historical/" ^ historical) * "nasdaq_constituent"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -103,10 +103,10 @@ fmp = FMP()
 data = dowjones_companies(fmp, historical = true)
 ```
 """
-function dowjones_companies(fmp::FMP; historical::Bool = false)::Vector{Any}
+function dowjones_companies(fmp::FMP; historical::Bool = false)
     endpoint = ("historical/" ^ historical) * "dowjones_constituent"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

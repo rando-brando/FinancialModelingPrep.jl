@@ -18,11 +18,11 @@ fmp = FMP()
 data = upgrades_and_downgrades(fmp, AAPL)
 ```
 """
-function upgrades_and_downgrades(fmp::FMP, symbol::String)::Vector{Any}
+function upgrades_and_downgrades(fmp::FMP, symbol::String)
     endpoint = "upgrades-downgrades"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = upgrades_and_downgrades_feed(fmp, page = 0)
 ```
 """
-function upgrades_and_downgrades_feed(fmp::FMP; params...)::Vector{Any}
+function upgrades_and_downgrades_feed(fmp::FMP; params...)
     endpoint = "upgrades-downgrades-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = upgrades_and_downgrades_consensus(fmp, AAPL)
 ```
 """
-function upgrades_and_downgrades_consensus(fmp::FMP, symbol::String)::Vector{Any}
+function upgrades_and_downgrades_consensus(fmp::FMP, symbol::String)
     endpoint = "upgrades-downgrades-consensus"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,10 +102,10 @@ fmp = FMP()
 data = upgrades_and_downgrades_by_company(fmp, "Barclays")
 ```
 """
-function upgrades_and_downgrades_by_company(fmp::FMP, company::String)::Vector{Any}
+function upgrades_and_downgrades_by_company(fmp::FMP, company::String)
     endpoint = "upgrades-downgrades-grading-company"
     url, query = Client.make_url_v4(fmp, endpoint, company = company)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

@@ -18,11 +18,11 @@ fmp = FMP()
 data = price_targets(fmp, "AAPL")
 ```
 """
-function price_targets(fmp::FMP, symbol::String)::Vector{Any}
+function price_targets(fmp::FMP, symbol::String)
     endpoint = "price-target"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = price_targets_by_analyst(fmp, "Tim%20Anderson")
 ```
 """
-function price_targets_by_analyst(fmp::FMP, name::String)::Vector{Any}
+function price_targets_by_analyst(fmp::FMP, name::String)
     endpoint = "price-target-analyst-name"
     url, query = Client.make_url_v4(fmp, endpoint, name = name)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = price_targets_by_company(fmp, "Barclays")
 ```
 """
-function price_targets_by_company(fmp::FMP, company::String)::Vector{Any}
+function price_targets_by_company(fmp::FMP, company::String)
     endpoint = "price-target-analyst-company"
     url, query = Client.make_url_v4(fmp, endpoint, company = company)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,11 +102,11 @@ fmp = FMP()
 data = price_targets_summary(fmp, "AAPL")
 ```
 """
-function price_targets_summary(fmp::FMP, symbol::String)::Vector{Any}
+function price_targets_summary(fmp::FMP, symbol::String)
     endpoint = "price-target-summary"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -130,11 +130,11 @@ fmp = FMP()
 data = price_target_consensus(fmp, "AAPL")
 ```
 """
-function price_targets_consensus(fmp::FMP, symbol::String)::Vector{Any}
+function price_targets_consensus(fmp::FMP, symbol::String)
     endpoint = "price-target-consensus"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -158,10 +158,10 @@ fmp = FMP()
 data = price_targets_feed(fmp, page = 0)
 ```
 """
-function price_targets_feed(fmp::FMP; params...)::Vector{Any}
+function price_targets_feed(fmp::FMP; params...)
     endpoint = "price-target-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

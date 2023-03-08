@@ -18,11 +18,11 @@ fmp = FMP()
 data = esg_scores(fmp, "AAPL")
 ```
 """
-function esg_scores(fmp::FMP, symbol::String)::Vector{Any}
+function esg_scores(fmp::FMP, symbol::String)
     endpoint = "esg-environmental-social-governance-data"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = esg_ratings(fmp, "AAPL")
 ```
 """
-function esg_ratings(fmp::FMP, symbol::String)::Vector{Any}
+function esg_ratings(fmp::FMP, symbol::String)
     endpoint = "esg-environmental-social-governance-data-ratings"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,10 +74,10 @@ fmp = FMP()
 data = esg_score_benchmarks(fmp, year = 2023)
 ```
 """
-function esg_score_benchmarks(fmp::FMP, year::Integer)::Vector{Any}
+function esg_score_benchmarks(fmp::FMP, year::Integer)
     endpoint = "esg-environmental-social-governance-sector-benchmark"
     url, query = Client.make_url_v4(fmp, endpoint, year = year)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

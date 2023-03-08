@@ -17,10 +17,10 @@ fmp = FMP()
 data = available_tsx(fmp)
 ```
 """
-function available_tsx(fmp::FMP)::Vector{Any}
+function available_tsx(fmp::FMP)
     endpoint = "symbol/available-tsx"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

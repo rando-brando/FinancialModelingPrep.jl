@@ -25,4 +25,3 @@ Manifest.toml
 
 # Project files
 .env
-sandbox.jl

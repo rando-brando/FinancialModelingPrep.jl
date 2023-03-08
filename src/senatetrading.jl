@@ -18,11 +18,11 @@ fmp = FMP()
 data = senate_trades(fmp, "AAPL")
 ```
 """
-function senate_trades(fmp::FMP, symbol::String)::Vector{Any}
+function senate_trades(fmp::FMP, symbol::String)
     endpoint = "senate-trading"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = senate_trades_feed(fmp, page = 0)
 ```
 """
-function senate_trades_feed(fmp::FMP; params...)::Vector{Any}
+function senate_trades_feed(fmp::FMP; params...)
     endpoint = "senate-trading-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = senate_disclosures(fmp, "AAPL")
 ```
 """
-function senate_disclosures(fmp::FMP, symbol::String)::Vector{Any}
+function senate_disclosures(fmp::FMP, symbol::String)
     endpoint = "senate-disclosure"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,10 +102,10 @@ fmp = FMP()
 data = senate_disclosure_feed(fmp, page = 0)
 ```
 """
-function senate_disclosure_feed(fmp::FMP; params...)::Vector{Any}
+function senate_disclosure_feed(fmp::FMP; params...)
     endpoint = "senate-disclosure-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

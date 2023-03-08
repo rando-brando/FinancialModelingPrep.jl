@@ -1,6 +1,6 @@
 module Client
 
-import HTTP, JSON
+import HTTP, JSON3, JSONTables
 import Base: @kwdef
 
 """
@@ -83,27 +83,46 @@ function make_get_request(url::String, query::Dict{String, Any})::HTTP.Messages.
 end
 
 """
-    parse_json_response(response)
+    parse_json_object(response)
+    parse_json_object(response, accessor)
 
-Parses a JSON response from the Financial Modeling Prep API server.
+Parses a response from the Financial Modeling Prep API server as a JSON object.
 
 # Arguments
-- response::HTTP.Messages.Response: An HTTP response object.
+- response::HTTP.Messages.Response: An HTTP response containing JSON data.
+- accessor: A Symbol or String accessor containing a nested array.
 """
-function parse_json_response(response::HTTP.Messages.Response)::Vector{Any}
-    result = JSON.parse(String(response.body))
-    
+function parse_json_object(response::HTTP.Messages.Response, accessor)::Union{JSON3.Object, JSON3.Array}
+    result = JSON3.read(response.body)
+
     # raise error when the API response does
-    if isa(result, Dict) && haskey(result, "Error Message")
-        error(result["Error Message"])
+    if isa(result, JSON3.Object)
+        if haskey(result, "Error Message")
+            error(result["Error Message"])
+        elseif haskey(result, accessor)
+            result = result[accessor]
+        end
     end
 
-    # convert all results to a vector
-    if !isa(result, Vector)
-        result = [result]
-    end
-    
     return result
 end
+parse_json_object(response::HTTP.Messages.Response) = parse_json_object(response, nothing)
 
-end # module Handler
+"""
+    parse_json_table(response)
+    parse_json_table(response, accessor)
+
+    Parses a response from the Financial Modeling Prep API server as a JSON table.
+
+# Arguments
+- response::HTTP.Messages.Response: An HTTP response containing JSON data.
+- accessor: A Symbol or String accessor containing a nested array.
+"""
+function parse_json_table(response::HTTP.Messages.Response, accessor)::JSONTables.Table
+    result = parse_json_object(response, accessor)
+    result = JSONTables.jsontable(result)
+    return result
+end
+parse_json_table(response::HTTP.Messages.Response) = parse_json_table(response, nothing)
+
+end # module Client

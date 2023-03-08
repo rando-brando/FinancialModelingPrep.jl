@@ -18,11 +18,11 @@ fmp = FMP()
 data = fmp_articles(fmp, page = 0, size = 5)
 ```
 """
-function fmp_articles(fmp::FMP; params...)::Vector{Any}
+function fmp_articles(fmp::FMP; params...)
     endpoint = "fmp/articles"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = stock_news(fmp, ticker = ["GOOG", "MSFT"], limit = 50)
 ```
 """
-function stock_news(fmp::FMP; params...)::Vector{Any}
+function stock_news(fmp::FMP; params...)
     endpoint = "stock_news"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = stock_news_sentiment_feed(fmp, page = 0)
 ```
 """
-function stock_news_sentiment_feed(fmp::FMP; params...)::Vector{Any}
+function stock_news_sentiment_feed(fmp::FMP; params...)
     endpoint = "stock-news-setniments-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,11 +102,11 @@ fmp = FMP()
 data = crypto_news(fmp, symbol = "BTCUSD", page = 0)
 ```
 """
-function crypto_news(fmp::FMP; params...)::Vector{Any}
+function crypto_news(fmp::FMP; params...)
     endpoint = "crypto_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -130,11 +130,11 @@ fmp = FMP()
 data = forex_news(fmp, symbol = "EURUSD", page = 0)
 ```
 """
-function forex_news(fmp::FMP; params...)::Vector{Any}
+function forex_news(fmp::FMP; params...)
     endpoint = "forex_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -158,11 +158,11 @@ fmp = FMP()
 data = general_news(fmp, page = 0)
 ```
 """
-function general_news(fmp::FMP; params...)::Vector{Any}
+function general_news(fmp::FMP; params...)
     endpoint = "general_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -187,10 +187,10 @@ fmp = FMP()
 data = press_releases(fmp, symbol = "AAPL", page = 0)
 ```
 """
-function press_releases(fmp::FMP, symbol::String; params...)::Vector{Any}
+function press_releases(fmp::FMP, symbol::String; params...)
     endpoint = "press-releases/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

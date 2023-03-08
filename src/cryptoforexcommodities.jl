@@ -17,11 +17,11 @@ fmp = FMP()
 data = available_crytocurrencies(fmp)
 ```
 """
-function available_crytocurrencies(fmp::FMP)::Vector{Any}
+function available_crytocurrencies(fmp::FMP)
     endpoint = "available-cryptocurrencies"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -44,11 +44,11 @@ fmp = FMP()
 data = available_forex_pairs(fmp)
 ```
 """
-function available_forex_pairs(fmp::FMP)::Vector{Any}
+function available_forex_pairs(fmp::FMP)
     endpoint = "available-forex-currency-pairs"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -76,19 +76,19 @@ data = commodity_quote(fmp)
 data = commodity_quote(fmp, "EURUSD")
 ```
 """
-function exchange_rates(fmp::FMP)::Vector{Any}
+function exchange_rates(fmp::FMP)
     endpoint = "fx"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
-function exchange_rates(fmp::FMP, symbol::String)::Vector{Any}
+function exchange_rates(fmp::FMP, symbol::String)
     endpoint = "fx/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -111,10 +111,10 @@ fmp = FMP()
 data = available_commodities(fmp)
 ```
 """
-function available_commodities(fmp::FMP)::Vector{Any}
+function available_commodities(fmp::FMP)
     endpoint = "available-commodities"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

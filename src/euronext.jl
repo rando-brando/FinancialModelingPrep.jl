@@ -17,10 +17,10 @@ fmp = FMP()
 data = available_euronext(fmp)
 ```
 """
-function available_euronext(fmp::FMP)::Vector{Any}
+function available_euronext(fmp::FMP)
     endpoint = "symbol/available-euronext"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

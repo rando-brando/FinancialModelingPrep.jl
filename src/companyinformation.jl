@@ -18,11 +18,11 @@ fmp = FMP()
 data = company_profile(fmp, "AAPL")
 ```
 """
-function company_profile(fmp::FMP, symbol::String)::Vector{Any}
+function company_profile(fmp::FMP, symbol::String)
     endpoint = "profile/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -46,11 +46,11 @@ fmp = FMP()
 data = key_executives(fmp, "AAPL")
 ```
 """
-function key_executives(fmp::FMP, symbol::String)::Vector{Any}
+function key_executives(fmp::FMP, symbol::String)
     endpoint = "key-executives/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -74,11 +74,11 @@ fmp = FMP()
 data = company_outlook(fmp, "AAPL")
 ```
 """
-function company_outlook(fmp::FMP, symbol::String)::Vector{Any}
+function company_outlook(fmp::FMP, symbol::String)
     endpoint = "company-outlook"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -102,11 +102,11 @@ fmp = FMP()
 data = stock_peers(fmp, "AAPL")
 ```
 """
-function stock_peers(fmp::FMP, symbol::String)::Vector{Any}
+function stock_peers(fmp::FMP, symbol::String)
     endpoint = "stock_peers"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -129,11 +129,11 @@ fmp = FMP()
 data = nyse_schedule(fmp)["stockMarketHolidays"]
 ```
 """
-function nyse_schedule(fmp::FMP)::Vector{Any}
+function nyse_schedule(fmp::FMP)
     endpoint = "is-the-market-open"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -157,11 +157,11 @@ fmp = FMP()
 data = delisted_companies(fmp, page = 0)
 ```
 """
-function delisted_companies(fmp::FMP; params...)::Vector{Any}
+function delisted_companies(fmp::FMP; params...)
     endpoint = "delisted-companies"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -184,11 +184,11 @@ fmp = FMP()
 data = symbol_changes(fmp)
 ```
 """
-function symbol_changes(fmp::FMP)::Vector{Any}
+function symbol_changes(fmp::FMP)
     endpoint = "symbol_change"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
@@ -212,10 +212,10 @@ fmp = FMP()
 data = company_information(fmp, "AAPL")
 ```
 """
-function company_information(fmp::FMP, symbol::String)::Vector{Any}
+function company_information(fmp::FMP, symbol::String)
     endpoint = "company-core-information"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end

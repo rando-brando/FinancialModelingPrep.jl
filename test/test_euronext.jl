@@ -1,3 +1,3 @@
 @testset "available_euronext" begin
-    @test !isempty(available_euronext(fmp)[1])
+    @test !isempty(available_euronext(fmp))
 end

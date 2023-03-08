@@ -1,7 +1,7 @@
 """
     price_quote(fmp, symbol)
 
-Returns the price quote for the specified symbol(s). Each element is a dictionary.
+Returns a JSON table with the price quote for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -35,7 +35,7 @@ end
 """
     price_quotes(fmp, market)
 
-Returns the price quotes for the specified marklet. Each element is a dictionary.
+Returns a JSON table with the price quotes for the specified market.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -87,7 +87,7 @@ end
 """
     historical_price_quote(fmp, symbol, frequency = TIME_FREQUENCIES.daily, params...)
 
-Returns the historical price quote for the specified symbol and frequency. Each element is a dictionary.
+Returns a JSON table with the historical price quote for the specified symbol and frequency.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -119,9 +119,6 @@ data = historical_price_quote(fmp, "EURUSD", frequency = TIME_FREQUENCIES.daily,
 ```
 """
 function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...)
-    if !(frequency in TIME_FREQUENCIES)
-        error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES). Modify TIME_FREQUENCIES to override behavior.")
-    end
     if frequency == TIME_FREQUENCIES.daily
         endpoint = "historical-price-full/$(symbol)"
     else

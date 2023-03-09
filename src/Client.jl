@@ -125,7 +125,9 @@ parse_json_object(response::HTTP.Messages.Response) = parse_json_object(response
 """
 function parse_json_table(response::HTTP.Messages.Response, accessor)::JSONTables.Table
     result = parse_json_object(response, accessor)
-    result = JSONTables.jsontable(result)
+    if !isempty(result)
+        result = JSONTables.jsontable(result)
+    end
     return result
 end
 parse_json_table(response::HTTP.Messages.Response) = parse_json_table(response, nothing)

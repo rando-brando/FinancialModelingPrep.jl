@@ -1,7 +1,10 @@
 module Client
 
+include("Exceptions.jl")
+
 import HTTP, JSON3, JSONTables
 import Base: @kwdef
+import .Exceptions
 
 """
 FMP(apikey, baseurl, headers)
@@ -63,22 +66,17 @@ function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{
 end
 
 """
-    make_get_request(url, query)
+    make_get_request(url, query, status_exception = false)
 
 Makes a GET request to the Financial Modeling Prep API server.
 
 # Arguments
 - url::String: A url to make a request to.
 - query::Dict{String, Any}: Additional query parameters for the request.
+- status_exception::Bool = false: throw HTTP.StatusError for response status >= 300.
 """
-function make_get_request(url::String, query::Dict{String, Any})::HTTP.Messages.Response
-    response = HTTP.get(url, query = query)
-    
-    # only response status 200 contains usable data
-    if response.status != 200
-        error("HTTP request returned status code $(response.status).")
-    end
-    
+function make_get_request(url::String, query::Dict{String, Any}; status_exception = false)::HTTP.Messages.Response
+    response = HTTP.get(url, query = query, status_exception = status_exception)
     return response
 end
 
@@ -98,8 +96,15 @@ function parse_json_object(response::HTTP.Messages.Response, accessor)::Union{JS
     # raise error when the API response does
     if isa(result, JSON3.Object)
         if haskey(result, "Error Message")
-            error(result["Error Message"])
-        elseif haskey(result, accessor)
+            throw(Exceptions.PermissionError(result["Error Message"]))
+        end
+        if response.status != 200
+            status = response.status
+            method = response.request.method
+            target = split(response.request.target, "?")[1]
+            throw(HTTP.Exceptions.StatusError(status, method, target, response))
+        end
+        if haskey(result, accessor)
             result = result[accessor]
         end
     end

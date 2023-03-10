@@ -58,7 +58,7 @@ historical_ratings
 discounted_cash_flows
 ```
 
-## advanced\discounted\_cash\_flows
+## advanced\_discounted\_cash\_flows
 ```@docs
 advanced_discounted_cash_flows
 ```

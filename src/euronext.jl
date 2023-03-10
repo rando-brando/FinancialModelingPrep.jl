@@ -4,7 +4,7 @@
 Returns a JSON table of all available euronext symbols in the API.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Euronext-List]\
 (https://site.financialmodelingprep.com/developer/docs/#Most-of-the-EuroNext) for more details.

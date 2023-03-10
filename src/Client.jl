@@ -37,9 +37,9 @@ end
 Creates a Financial Modeling Prep API version 3 URL.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - endpoint::String: The api endpoint
-- params...: Additional keyword query params.
+- `params...`: Additional keyword query params.
 """
 function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)
@@ -54,9 +54,9 @@ end
 Creates a Financial Modeling Prep API version 4 URL.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - endpoint::String: The api endpoint
-- params...: Additional keyword query params.
+- `params...`: Additional keyword query params.
 """
 function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
     query = Dict{String, Any}(string(k) => v for (k, v) in params)

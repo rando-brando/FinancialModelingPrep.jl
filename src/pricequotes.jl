@@ -4,8 +4,8 @@
 Returns a JSON table with the price quote for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A financial symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A financial symbol.
 
 See [Company-Quote]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Quote) for more details.\\
@@ -45,7 +45,7 @@ end
 Returns a JSON table with the price quotes for the specified market.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - market::String: A financial market.
 
 See [Stock-Quote]\
@@ -104,10 +104,10 @@ end
 Returns a JSON table with the historical price quote for the specified symbol and frequency.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 - frequency::String: A time frame.
-- params...: Additional keyword query params.
+- `params...`: Additional keyword query params.
 
 See [Historical-Stock-Quote]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Historical-Price) for more details.\\

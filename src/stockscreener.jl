@@ -4,9 +4,9 @@
 Returns a list of search results for the specified symbol and filters.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Symbol-Search]\
 (https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
@@ -20,13 +20,14 @@ fmp = FMP()
 data = search_symbol(fmp, "AA", limit = 10, exchange = "NASDAQ")
 ```
 """
-function search_symbol(fmp::FMP, symbol::String; params...)
+function search_symbol(fmp::FMP; symbol::String, params...)
     endpoint = "search-ticker"
     url, query = Client.make_url_v3(fmp, endpoint; query = symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+search_symbol(fmp::FMP, symbol::String; params...) = search_symbol(fmp; symbol, params...)
 
 """
     search_name(fmp, name, params...)
@@ -34,9 +35,9 @@ end
 Returns a list of search results for the specified name and filters.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- name::String: A company name.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `name::String`: A company name.
+- `params...`: Additional keyword query params.
 
 See [Name-Search]\
 (https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
@@ -50,13 +51,14 @@ fmp = FMP()
 data = search_name(fmp, "Meta", limit = 10, exchange = "NASDAQ")
 ```
 """
-function search_name(fmp::FMP, name::String; params...)
+function search_name(fmp::FMP; name::String, params...)
     endpoint = "search-name"
     url, query = Client.make_url_v3(fmp, endpoint; query = name, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+search_name(fmp::FMP, name::String; params...) = search_name(fmp; name, params...)
 
 """
     stock_screener(fmp, params...)
@@ -64,8 +66,8 @@ end
 Returns a list of search results for the specified filters.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Stock-Screener]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
@@ -96,7 +98,7 @@ end
 Returns a JSON array of all available countries in the API.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Stock-Screener]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.

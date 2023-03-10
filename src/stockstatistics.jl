@@ -5,10 +5,10 @@
 Returns a JSON table with the social sentiment type for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 - type::String: One of "trending", or "change".
-- params...: Additional keyword query params.
+- `params...`: Additional keyword query params.
 
 See [Social-Sentiment]\
 (https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) for more details.
@@ -47,9 +47,9 @@ end
 Returns a JSON table of stock grades for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Stock-Grade]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) for more details.
@@ -77,8 +77,8 @@ end
 Returns a JSON table of earnings suprises for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Earnings-Surprises]\
 (https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) for more details.
@@ -106,9 +106,9 @@ end
 Returns a JSON table of analyst estimates for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Analyst-Estimates]\
 (https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) for more details.
@@ -136,8 +136,8 @@ end
 Returns a JSON table containing the mergers and acquisitions feed results.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Mergers-and-Acquisitions-RSS-Feed]\
 (https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
@@ -165,8 +165,8 @@ end
 Returns a JSON table containing mergers and acquisitions search results.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Mergers-and-Acquisitions]\
 (https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.

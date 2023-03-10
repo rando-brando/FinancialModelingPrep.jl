@@ -4,8 +4,8 @@
 Returns a list of fmp articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [FMP-Articles]\
 (https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) for more details.
@@ -33,8 +33,8 @@ end
 Returns a list of stock news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Stock-News]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
@@ -62,8 +62,8 @@ end
 Returns a list of stock news article sentiment.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Stock-Sentiment]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
@@ -91,8 +91,8 @@ end
 Returns a list of crypto news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Crypto-News]\
 (https://site.financialmodelingprep.com/developer/docs/#Crypto-news) for more details.
@@ -120,8 +120,8 @@ end
 Returns a list of forex news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Forex-News]\
 (https://site.financialmodelingprep.com/developer/docs/#Forex-news) for more details.
@@ -149,8 +149,8 @@ end
 Returns a list of general news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [General-News]\
 (https://site.financialmodelingprep.com/developer/docs/#General-news) for more details.
@@ -178,9 +178,9 @@ end
 Returns a list of stock press releases.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Press-Releases]\
 (https://site.financialmodelingprep.com/developer/docs/#Press-Releases) for more details.
@@ -194,10 +194,11 @@ fmp = FMP()
 data = press_releases(fmp, symbol = "AAPL", page = 0)
 ```
 """
-function press_releases(fmp::FMP, symbol::String; params...)
+function press_releases(fmp::FMP; symbol::String, params...)
     endpoint = "press-releases/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+press_releases(fmp::FMP, symbol::String; params...) = press_releases(fmp; symbol, params...)

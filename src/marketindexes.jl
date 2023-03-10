@@ -4,7 +4,7 @@
 Returns a JSON table of all available indexes.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Available-Indexes]\
 (https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) for more details.
@@ -32,7 +32,7 @@ end
 Returns a JSON table of all S&P 500 companies.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
 See [List-of-S&P-500-Companies]\
@@ -63,7 +63,7 @@ end
 Returns a JSON table of all Nasdaq companies.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
 See [List-of-Nasdaq-100-Companies]\
@@ -92,7 +92,7 @@ end
 Returns a JSON table of all Dow Jones companies.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
 See [List-of-Dow-Jones-Companies]\

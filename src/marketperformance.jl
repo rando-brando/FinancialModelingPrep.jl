@@ -4,8 +4,8 @@
 Returns a list of sector pe ratios.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Sectors-PE-Ratio]\
 (https://site.financialmodelingprep.com/developer/docs/#Sectors-PE-Ratio) for more details.
@@ -33,8 +33,8 @@ end
 Returns a list of industry pe ratios.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Industries-PE-Ratio]\
 (https://site.financialmodelingprep.com/developer/docs/#Industries-PE-Ratio) for more details.
@@ -62,7 +62,7 @@ end
 Returns a list of sector performances.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Sectors-Performance]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
@@ -90,8 +90,8 @@ end
 Returns a list of historical sector perfromances.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Sectors-Performance]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
@@ -119,7 +119,7 @@ end
 Returns a list of the biggest gainers.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Most-Gainer]\
 (https://site.financialmodelingprep.com/developer/docs/#Most-Gainer-Stock-Companies) for more details.
@@ -147,7 +147,7 @@ end
 Returns a list of the biggest losers.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Most-Loser]\
 (https://site.financialmodelingprep.com/developer/docs/#Most-Loser-Stock-Companies) for more details.
@@ -175,7 +175,7 @@ end
 Returns a list of the most active symbols.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
+- `fmp::FMP`: A Financial Modeling Prep instance.
 
 See [Most-Active]\
 (https://site.financialmodelingprep.com/developer/docs/#Most-Active-Stock-Companies) for more details.

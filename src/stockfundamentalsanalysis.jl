@@ -4,9 +4,9 @@
 Returns a JSON table of common financial ratios for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Financial-Ratios]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) for more details.
@@ -20,13 +20,14 @@ fmp = FMP()
 data = financial_ratios(fmp, "AAPL", period = "quarter", limit = 30)
 ```
 """
-function financial_ratios(fmp::FMP, symbol::String; params...)
+function financial_ratios(fmp::FMP; symbol::String, params...)
     endpoint = "ratios/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+financial_ratios(fmp::FMP, symbol::String; params...) = financial_ratios(fmp; symbol, params...)
 
 """
     financial_scores(fmp, symbol)
@@ -34,8 +35,8 @@ end
 Returns a JSON table of common financial scores for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Financial-Scores]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
@@ -49,13 +50,14 @@ fmp = FMP()
 data = financial_scores(fmp, "AAPL")
 ```
 """
-function financial_scores(fmp::FMP, symbol::String)
+function financial_scores(fmp::FMP; symbol::String)
     endpoint = "score"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+financial_scores(fmp::FMP, symbol::String) = financial_scores(fmp; symbol)
 
 """
     owners_earnings(fmp, symbol)
@@ -63,8 +65,8 @@ end
 Returns a JSON table of owners earnings for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Owners-Earnings]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
@@ -78,13 +80,14 @@ fmp = FMP()
 data = owners_earnings(fmp, "AAPL")
 ```
 """
-function owners_earnings(fmp::FMP, symbol::String)
+function owners_earnings(fmp::FMP; symbol::String)
     endpoint = "owners-earnings" 
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+owners_earnings(fmp::FMP, symbol::String) = owners_earnings(fmp; symbol)
 
 """
     enterprise_values(fmp, symbol, params...)
@@ -92,9 +95,9 @@ end
 Returns a JSON table of enterprise value components for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Enterprise-Value]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) for more details.
@@ -108,13 +111,14 @@ fmp = FMP()
 data = enterprise_values(fmp, "AAPL", period = "quarter", limit = 30)
 ```
 """
-function enterprise_values(fmp::FMP, symbol::String; params...)
+function enterprise_values(fmp::FMP; symbol::String, params...)
     endpoint = "enterprise-values/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+enterprise_values(fmp::FMP, symbol::String; params...) = enterprise_values(fmp; symbol, params...)
 
 """
     income_statements_growth(fmp, symbol, params...)
@@ -122,9 +126,9 @@ end
 Returns a JSON table of income statements growth for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Income-Statements-Growth]\
 (https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
@@ -138,13 +142,14 @@ fmp = FMP()
 data = income_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
-function income_statements_growth(fmp::FMP, symbol::String; params...)
+function income_statements_growth(fmp::FMP; symbol::String, params...)
     endpoint = "income-statement-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+income_statements_growth(fmp::FMP, symbol::String; params...) = income_statements_growth(fmp; symbol, params...)
 
 """
     balance_sheet_statements_growth(fmp, symbol, params...)
@@ -152,9 +157,9 @@ end
 Returns a JSON table of balance sheet statements growth for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Balance-Sheet-Statements-Growth]\
 (https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
@@ -168,13 +173,14 @@ fmp = FMP()
 data = balance_sheet_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
-function balance_sheet_statements_growth(fmp::FMP, symbol::String; params...)
+function balance_sheet_statements_growth(fmp::FMP; symbol::String, params...)
     endpoint = "balance_sheet_statement_growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+balance_sheet_statements_growth(fmp::FMP, symbol::String; params...) = balance_sheet_statements_growth(fmp; symbol, params...)
 
 """
     cash_flow_statements_growth(fmp, symbol, params...)
@@ -182,9 +188,9 @@ end
 Returns a JSON table of cash flow statements growth for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Cash-Flow-Statements-Growth]\
 (https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
@@ -198,13 +204,14 @@ fmp = FMP()
 data = cash_flow_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
-function cash_flow_statements_growth(fmp::FMP, symbol::String; params...)
+function cash_flow_statements_growth(fmp::FMP; symbol::String, params...)
     endpoint = "cash-flow-statement-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+cash_flow_statements_growth(fmp::FMP, symbol::String; params...) = cash_flow_statements_growth(fmp; symbol, params...)
 
 """
     financial_statements_growth(fmp, symbol, params...)
@@ -212,9 +219,9 @@ end
 Returns a JSON table of financial statements growth for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Financial-Statements-Growth]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) for more details.
@@ -228,24 +235,25 @@ fmp = FMP()
 data = financial_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
-function financial_statements_growth(fmp::FMP, symbol::String; params...)
+function financial_statements_growth(fmp::FMP; symbol::String, params...)
     endpoint = "financial-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+financial_statements_growth(fmp::FMP, symbol::String; params...) = financial_statements_growth(fmp; symbol, params...)
 
 """
-    key_metrics(fmp, symbol, period = REPORTING_PERIODS.ttm, params...)
+    key_metrics(fmp, symbol, period, params...)
 
 Returns a JSON table of key metrics for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- period::String: A `REPORTING_PERIODS` option.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `period::String`: A `REPORTING_PERIODS` option.
+- `params...`: Additional keyword query params.
 
 See [Key-Metrics]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) for more details.
@@ -259,10 +267,10 @@ fmp = FMP()
 data = key_metrics(fmp, "AAPL", period = REPORTING_PERIODS.ttm, limit = 30)
 ```
 """
-function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual, params...)
+function key_metrics(fmp::FMP; symbol::String, period::String = REPORTING_PERIODS.annual, params...)
     endpoint = "key-metrics" * ("-$(period)" ^ (period == REPORTING_PERIODS.ttm)) * "/$(symbol)"
     if period == REPORTING_PERIODS.quarter
-        url, query = Client.make_url_v3(fmp, endpoint; period = period, params...)
+        url, query = Client.make_url_v3(fmp, endpoint; period, params...)
     else
         url, query = Client.make_url_v3(fmp, endpoint; params...)
     end
@@ -270,6 +278,8 @@ function key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIOD
     data = Client.parse_json_table(response)
     return data
 end
+key_metrics(fmp::FMP, symbol::String, period::String; params...) = key_metrics(fmp; symbol, period, params...)
+key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual, params...) = key_metrics(fmp; symbol, period, params...)
 
 """
     company_rating(fmp, symbol)
@@ -277,8 +287,8 @@ end
 Returns a JSON table of ratings for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Company-Rating]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
@@ -292,13 +302,14 @@ fmp = FMP()
 data = company_rating(fmp, "AAPL")
 ```
 """
-function company_rating(fmp::FMP, symbol::String)
+function company_rating(fmp::FMP; symbol::String)
     endpoint = "rating/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+company_rating(fmp::FMP, symbol::String) = company_rating(fmp; symbol)
 
 """
     historical_ratings(fmp, symbol, params...)
@@ -306,9 +317,9 @@ end
 Returns a JSON table of historical ratings for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Historical-Ratings]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
@@ -322,13 +333,14 @@ fmp = FMP()
 data = historical_ratings(fmp, "AAPL", limit = 100)
 ```
 """
-function historical_ratings(fmp::FMP, symbol::String; params...)
+function historical_ratings(fmp::FMP; symbol::String, params...)
     endpoint = "historical-rating/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+historical_ratings(fmp::FMP, symbol::String; params...) = historical_ratings(fmp; symbol, params...)
 
 """
     discounted_cash_flows(fmp, symbol)
@@ -336,8 +348,8 @@ end
 Returns a JSON table of discounted cash flows for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Discounted-Cash-Flow]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
@@ -351,13 +363,14 @@ fmp = FMP()
 data = discounted_cash_flows(fmp, "AAPL")
 ```
 """
-function discounted_cash_flows(fmp::FMP, symbol::String)
+function discounted_cash_flows(fmp::FMP; symbol::String)
     endpoint = "discounted-cash-flow/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+discounted_cash_flows(fmp::FMP, symbol::String) = discounted_cash_flows(fmp; symbol)
 
 """
     advanced_discounted_cash_flows(fmp, symbol, levered = false)
@@ -365,9 +378,9 @@ end
 Returns a JSON table of advaned discounted cash flows for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- levered::Bool: Return the levered dcf with including WACC.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `levered::Bool`: Return the levered dcf with including WACC.
 
 See [Discounted-Cash-Flow]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
@@ -381,17 +394,18 @@ fmp = FMP()
 data = advanced_discounted_cash_flows(fmp, "AAPL", levered = true)
 ```
 """
-function advanced_discounted_cash_flows(fmp::FMP, symbol::String; levered::Bool = false)
+function advanced_discounted_cash_flows(fmp::FMP; symbol::String, levered::Bool = false)
     if levered
         endpoint = "advanced_levered_discounted_cash_flow"
     else
         endpoint = "advanced_discounted_cash_flow"
     end
-    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+advanced_discounted_cash_flows(fmp::FMP, symbol::String; levered::Bool = false) = advanced_discounted_cash_flows(fmp; symbol, levered)
 
 """
     historical_discounted_cash_flows(fmp, symbol, params...)
@@ -399,9 +413,9 @@ end
 Returns a JSON table of historical discounted cash flows for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Historical-Discounted-Cash-Flow]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
@@ -415,10 +429,11 @@ fmp = FMP()
 data = historical_discounted_cash_flows(fmp, "AAPL", period = "quarter", limit = 30)
 ```
 """
-function historical_discounted_cash_flows(fmp::FMP, symbol::String; params...)
+function historical_discounted_cash_flows(fmp::FMP; symbol::String, params...)
     endpoint = "historical-discounted-cash-flow/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
 end
+historical_discounted_cash_flows(fmp::FMP, symbol::String; params...) = historical_discounted_cash_flows(fmp; symbol, params...)

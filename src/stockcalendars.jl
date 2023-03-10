@@ -5,9 +5,9 @@
 Returns a list of earnings calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
 See [Earnings-Calendar]\
 (https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) for more details.
@@ -31,14 +31,14 @@ function earnings_calendar(fmp::FMP; params...)
     data = Client.parse_json_table(response)
     return data
 end
-
-function earnings_calendar(fmp::FMP, symbol::String; params...)
+function earnings_calendar(fmp::FMP; symbol::String; params...)
     endpoint = "historical/earning_calendar/$(symbol)"
-    url, query = Client.make_url_v3(fmp, endpoint, params...)
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+earnings_calendar(fmp::FMP, symbol::String; params...) = earnings_calendar(fmp; symbol, params...)
 
 """
     earnings_calendar_confirmed(fmp, params...)
@@ -46,8 +46,8 @@ end
 Returns a list of the confirmed earnings calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Earnings-Calendar-Confirmed]\
 (https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) for more details.
@@ -75,8 +75,8 @@ end
 Returns a list of the ipo calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [IPO-Calendar]\
 (https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) for more details.
@@ -104,8 +104,8 @@ end
 Returns a list of the ipo calendar events with prospectus.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [IPO-Calendar-with-Prospectus]\
 (https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-with-prospectus) for more details.
@@ -133,8 +133,8 @@ end
 Returns a list of the confirmed ipo calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [IPO-Calendar-Confirmed]\
 (https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-Confirmed) for more details.
@@ -162,8 +162,8 @@ end
 Returns a list of stock split calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Stock-Split-Calendar]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Split-Calendar) for more details.
@@ -191,8 +191,8 @@ end
 Returns a list of dividend calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Dividend-Calendar]\
 (https://site.financialmodelingprep.com/developer/docs/#Dividend-Calendar) for more details.
@@ -220,8 +220,8 @@ end
 Returns a list historical dividends for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Historical-Dividends]\
 (https://site.financialmodelingprep.com/developer/docs/#Historical-Dividends) for more details.
@@ -235,13 +235,14 @@ fmp = FMP()
 data = historical_dividends(fmp, "AAPL")
 ```
 """
-function historical_dividends(fmp::FMP, symbol::String)
+function historical_dividends(fmp::FMP; symbol::String)
     endpoint = "historical-price-full/stock-dividends/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+historical_dividends(fmp::FMP, symbol::String) = historical_dividends(fmp; symbol)
 
 """
     economic_calendar(fmp, params...)
@@ -249,8 +250,8 @@ end
 Returns a list of economic calendar events.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Economic-Calendar]\
 (https://site.financialmodelingprep.com/developer/docs/#Economic-Calendar) for more details.

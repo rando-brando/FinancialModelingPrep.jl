@@ -1,13 +1,32 @@
 """
+    _mutual_fund_portfolio_dates(fmp::FMP; params...)
+
+This is a hidden function that is used internally by `mutual_fund_portfolio_dates`.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
+
+Note: This function is not intended to be called directly by end users.
+"""
+function _mutual_fund_portfolio_dates(fmp::FMP; params...)
+    endpoint = "mutual-fund-holdings/portfolio-date"
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data
+end
+
+"""
     mutual_fund_portfolio_dates(fmp, symbol)
     mutual_fund_portfolio_dates(fmp, cik)
 
 Returns a JSON table of the portfolio dates for the specified mutual fund.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- cik::String: A CIK.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `cik::String`: A CIK.
 
 See [Historical-Mutual-Fund-Holdings-Available-Dates]\
 (https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-available-dates) for more details.
@@ -24,21 +43,28 @@ data = mutual_fund_portfolio_dates(fmp, "VTSAX")
 data = mutual_fund_portfolio_dates(fmp, cik = "0000034066")
 ```
 """
-function mutual_fund_portfolio_dates(fmp::FMP; cik::String)
-    endpoint = "mutual-fund-holdings/portfolio-date"
-    url, query = Client.make_url_v4(fmp, endpoint, cik = cik)
+mutual_fund_portfolio_dates(fmp::FMP, symbol::String) = _mutual_fund_portfolio_dates(fmp; symbol)
+mutual_fund_portfolio_dates(fmp::FMP; symbol::String) = _mutual_fund_portfolio_dates(fmp; symbol)
+mutual_fund_portfolio_dates(fmp::FMP; cik::String) = _mutual_fund_portfolio_dates(fmp; cik)
+
+"""
+    _mutual_fund_portfolio(fmp::FMP; params...)
+
+This is a hidden function that is used internally by `mutual_fund_portfolio_`.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
+
+Note: This function is not intended to be called directly by end users.
+"""
+function _mutual_fund_portfolio(fmp::FMP; params...)
+    endpoint = "mutual-fund-holdings"
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
-function mutual_fund_portfolio_dates(fmp::FMP; symbol::String)
-    endpoint = "mutual-fund-holdings/portfolio-date"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-mutual_fund_portfolio_dates(fmp::FMP, symbol::String) = mutual_fund_portfolio_dates(fmp, symbol = symbol)
 
 """
     mutual_fund_portfolio(fmp, symbol, params...)
@@ -47,10 +73,10 @@ mutual_fund_portfolio_dates(fmp::FMP, symbol::String) = mutual_fund_portfolio_da
 Returns a JSON table of the portfolio for the specified mutual fund.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- cik::String: A CIK.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `cik::String`: A CIK.
+- `params...`: Additional keyword query params.
 
 See [Historical-Mutual-Fund-Holdings-Portfolio]\
 (https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-portfolio) for more details.
@@ -67,21 +93,9 @@ data = mutual_fund_portfolio(fmp, "VTSAX", date = "2021-12-31")
 data = mutual_fund_portfolio(fmp, cik = "0000034066", date = "2021-12-31")
 ```
 """
-function mutual_fund_portfolio(fmp::FMP; cik::String, params...)
-    endpoint = "mutual-fund-holdings"
-    url, query = Client.make_url_v4(fmp, endpoint; cik = cik, params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-function mutual_fund_portfolio(fmp::FMP; symbol::String, params...)
-    endpoint = "mutual-fund-holdings"
-    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-mutual_fund_portfolio(fmp::FMP, symbol::String; params...) = mutual_fund_portfolio(fmp, symbol = symbol, params...)
+mutual_fund_portfolio(fmp::FMP, symbol::String; params...) = _mutual_fund_portfolio(fmp; symbol, params...)
+mutual_fund_portfolio(fmp::FMP; symbol::String, params...) = _mutual_fund_portfolio(fmp; symbol, params...)
+mutual_fund_portfolio(fmp::FMP; cik::String, params...) = _mutual_fund_portfolio(fmp; cik, params...)
 
 """
     mutual_fund_search(fmp, name)
@@ -89,8 +103,8 @@ mutual_fund_portfolio(fmp::FMP, symbol::String; params...) = mutual_fund_portfol
 Returns a JSON table of all mutual funds matching the specified name.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- name::String: An institution name.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `name::String`: An institution name.
 
 See [Mutual-Fund-Holdings-Search]\
 (https://site.financialmodelingprep.com/developer/docs/#Mutual-fund-holdings-search) for more details.
@@ -104,9 +118,29 @@ fmp = FMP()
 data = mutual_fund_search(fmp, "Vanguard")
 ```
 """
-function mutual_fund_search(fmp::FMP, name::String)
+function mutual_fund_search(fmp::FMP; name::String)
     endpoint = "mutual-fund-holdings/name"
-    url, query = Client.make_url_v4(fmp, endpoint, name = name)
+    url, query = Client.make_url_v4(fmp, endpoint; name)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data
+end
+mutual_fund_search(fmp::FMP, name::String) = mutual_fund_search(fmp; name)
+
+"""
+    _etf_portfolio_dates(fmp::FMP; params...)
+
+This is a hidden function that is used internally by `etf_portfolio_dates`.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
+
+Note: This function is not intended to be called directly by end users.
+"""
+function _etf_portfolio_dates(fmp::FMP; params...)
+    endpoint = "etf-holdings/portfolio-date"
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
@@ -119,9 +153,9 @@ end
 Returns a JSON table of the portfolio dates for the specified ETF.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- cik::String: A CIK.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `cik::String`: A CIK.
 
 See [Historical-Mutual-Fund-Holdings-Available-Dates]\
 (https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-available-dates) for more details.
@@ -138,21 +172,28 @@ data = etf_portfolio_dates(fmp, "VOO")
 data = etf_portfolio_dates(fmp, cik = "0000036405")
 ```
 """
-function etf_portfolio_dates(fmp::FMP; cik::String)
-    endpoint = "etf-holdings/portfolio-date"
-    url, query = Client.make_url_v4(fmp, endpoint, cik = cik)
+etf_portfolio_dates(fmp::FMP, symbol::String) = _etf_portfolio_dates(fmp; symbol)
+etf_portfolio_dates(fmp::FMP; symbol::String) = _etf_portfolio_dates(fmp; symbol)
+etf_portfolio_dates(fmp::FMP; cik::String) = _etf_portfolio_dates(fmp; cik)
+
+"""
+    _etf_portfolio(fmp::FMP; params...)
+
+This is a hidden function that is used internally by `etf_portfolio`.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
+
+Note: This function is not intended to be called directly by end users.
+"""
+function _etf_portfolio(fmp::FMP; params...)
+    endpoint = "etf-holdings"
+    url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
-function etf_portfolio_dates(fmp::FMP; symbol::String)
-    endpoint = "etf-holdings/portfolio-date"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-etf_portfolio_dates(fmp::FMP, symbol::String) = etf_portfolio_dates(fmp, symbol = symbol)
 
 """
     etf_portfolio(fmp, symbol, params...)
@@ -161,10 +202,10 @@ etf_portfolio_dates(fmp::FMP, symbol::String) = etf_portfolio_dates(fmp, symbol 
 Returns a JSON table of the portfolio for the specified ETF.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- cik::String: A CIK.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `cik::String`: A CIK.
+- `params...`: Additional keyword query params.
 
 See [Historical-Mutual-Fund-Holdings-Portfolio]\
 (https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-portfolio) for more details.
@@ -181,18 +222,6 @@ data = etf_portfolio(fmp, "VOO", date = "2021-12-31")
 data = etf_portfolio(fmp, cik = "0000036405", date = "2021-12-31")
 ```
 """
-function etf_portfolio(fmp::FMP; cik::String, params...)
-    endpoint = "etf-holdings"
-    url, query = Client.make_url_v4(fmp, endpoint; cik = cik, params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-function etf_portfolio(fmp::FMP; symbol::String, params...)
-    endpoint = "etf-holdings"
-    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-etf_portfolio(fmp::FMP, symbol::String; params...) = etf_portfolio(fmp, symbol = symbol, params...)
+etf_portfolio(fmp::FMP, symbol::String; params...) = _etf_portfolio(fmp; symbol, params...)
+etf_portfolio(fmp::FMP; symbol::String; params...) = _etf_portfolio(fmp; symbol, params...)
+etf_portfolio(fmp::FMP; cik::String; params...) = _etf_portfolio(fmp; cik, params...)

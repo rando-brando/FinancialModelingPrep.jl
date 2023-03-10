@@ -4,8 +4,8 @@
 Returns a JSON table of senate trades for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Senate-Trading]\
 (https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
@@ -19,13 +19,14 @@ fmp = FMP()
 data = senate_trades(fmp, "AAPL")
 ```
 """
-function senate_trades(fmp::FMP, symbol::String)
+function senate_trades(fmp::FMP; symbol::String)
     endpoint = "senate-trading"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+senate_trades(fmp::FMP, symbol::String) = senate_trades(fmp; symbol)
 
 """
     senate_trades_feed(fmp, params...)
@@ -33,8 +34,8 @@ end
 Returns a JSON table of senate trades from the RSS feed.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Senate-Trading-RSS-Feed]\
 (https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
@@ -62,8 +63,8 @@ end
 Returns a JSON table of senate disclosures for the specified symbol.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
 
 See [Senate-Disclosure]\
 (https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
@@ -77,13 +78,14 @@ fmp = FMP()
 data = senate_disclosures(fmp, "AAPL")
 ```
 """
-function senate_disclosures(fmp::FMP, symbol::String)
+function senate_disclosures(fmp::FMP; symbol::String)
     endpoint = "senate-disclosure"
-    url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+senate_disclosures(fmp::FMP, symbol::String) = senate_disclosures(fmp; symbol)
 
 """
     senate_disclosure_feed(fmp, params...)
@@ -91,8 +93,8 @@ end
 Returns a JSON table of senate disclosures from the RSS feed.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
 See [Senate-Disclosure-RSS-Feed]\
 (https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.

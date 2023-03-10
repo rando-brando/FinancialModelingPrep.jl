@@ -1,14 +1,15 @@
 """
     financial_ratios(fmp, symbol, params...)
 
-Returns a vector of common financial ratios for the specified symbol. Each element is a dictionary.
+Returns a JSON table of common financial ratios for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Financial-Ratios](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) for more details.
+See [Financial-Ratios]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Ratios) for more details.
 
 # Examples
 ``` julia
@@ -30,13 +31,14 @@ end
 """
     financial_scores(fmp, symbol)
 
-Returns a vector of common financial scores for the specified symbol. Each element is a dictionary.
+Returns a JSON table of common financial scores for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Financial-Scores](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
+See [Financial-Scores]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
 
 # Examples
 ``` julia
@@ -58,13 +60,14 @@ end
 """
     owners_earnings(fmp, symbol)
 
-Returns a vector of owners earnings for the specified symbol. Each element is a dictionary.
+Returns a JSON table of owners earnings for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Owners-Earnings](https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
+See [Owners-Earnings]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Financial-scores) for more details.
 
 # Examples
 ``` julia
@@ -86,14 +89,15 @@ end
 """
     enterprise_values(fmp, symbol, params...)
 
-Returns a vector of enterprise value components for the specified symbol. Each element is a dictionary.
+Returns a JSON table of enterprise value components for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Enterprise-Value](https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) for more details.
+See [Enterprise-Value]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Enterprise-Value) for more details.
 
 # Examples
 ``` julia
@@ -115,14 +119,15 @@ end
 """
     income_statements_growth(fmp, symbol, params...)
 
-Returns a vector of income statements growth for the specified symbol. Each element is a dictionary.
+Returns a JSON table of income statements growth for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Income-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
+See [Income-Statements-Growth]\
+(https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
 
 # Examples
 ``` julia
@@ -144,14 +149,15 @@ end
 """
     balance_sheet_statements_growth(fmp, symbol, params...)
 
-Returns a vector of balance sheet statements growth for the specified symbol. Each element is a dictionary.
+Returns a JSON table of balance sheet statements growth for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Balance-Sheet-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
+See [Balance-Sheet-Statements-Growth]\
+(https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
 
 # Examples
 ``` julia
@@ -173,14 +179,15 @@ end
 """
     cash_flow_statements_growth(fmp, symbol, params...)
 
-Returns a vector of cash flow statements growth for the specified symbol. Each element is a dictionary.
+Returns a JSON table of cash flow statements growth for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Cash-Flow-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
+See [Cash-Flow-Statements-Growth]\
+(https://site.financialmodelingprep.com/developer/docs/#Financial-Statements-Growth) for more details.
 
 # Examples
 ``` julia
@@ -202,14 +209,15 @@ end
 """
     financial_statements_growth(fmp, symbol, params...)
 
-Returns a vector of financial statements growth for the specified symbol. Each element is a dictionary.
+Returns a JSON table of financial statements growth for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Financial-Statements-Growth](https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) for more details.
+See [Financial-Statements-Growth]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Financial-Growth) for more details.
 
 # Examples
 ``` julia
@@ -231,7 +239,7 @@ end
 """
     key_metrics(fmp, symbol, period = REPORTING_PERIODS.ttm, params...)
 
-Returns a vector of key metrics for the specified symbol. Each element is a dictionary.
+Returns a JSON table of key metrics for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -239,7 +247,8 @@ Returns a vector of key metrics for the specified symbol. Each element is a dict
 - period::String: A `REPORTING_PERIODS` option.
 - params...: Additional keyword query params.
 
-See [Key-Metrics](https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) for more details.
+See [Key-Metrics]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Key-Metrics) for more details.
 
 # Examples
 ``` julia
@@ -265,13 +274,14 @@ end
 """
     company_rating(fmp, symbol)
 
-Returns a vector of ratings for the specified symbol. Each element is a dictionary.
+Returns a JSON table of ratings for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
+See [Company-Rating]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
 
 # Examples
 ``` julia
@@ -293,14 +303,15 @@ end
 """
     historical_ratings(fmp, symbol, params...)
 
-Returns a vector of ratings for the specified symbol. Each element is a dictionary.
+Returns a JSON table of historical ratings for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Historical-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
+See [Historical-Ratings]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Rating) for more details.
 
 # Examples
 ``` julia
@@ -320,34 +331,63 @@ function historical_ratings(fmp::FMP, symbol::String; params...)
 end
 
 """
-    discounted_cash_flows(fmp, symbol, with_wacc = false)
+    discounted_cash_flows(fmp, symbol)
 
-Returns a vector of discounted cash flows for the specified symbol. Each element is a dictionary.
+Returns a JSON table of discounted cash flows for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
-- with_wacc::Bool: Return the version with WACC.
 
-See [Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
+See [Discounted-Cash-Flow]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
-# get the latest dcf for AAPL including WACC
-data = discounted_cash_flows(fmp, "AAPL", with_wacc = true)
+# get the dcf for AAPL
+data = discounted_cash_flows(fmp, "AAPL")
 ```
 """
-function discounted_cash_flows(fmp::FMP, symbol::String; with_wacc::Bool = false)
-    if with_wacc
-        endpoint = "advanced_discounted_cash_flow"
-        url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
+function discounted_cash_flows(fmp::FMP, symbol::String)
+    endpoint = "discounted-cash-flow/$(symbol)"
+    url, query = Client.make_url_v3(fmp, endpoint)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data 
+end
+
+"""
+    advanced_discounted_cash_flows(fmp, symbol, levered = false)
+
+Returns a JSON table of advaned discounted cash flows for the specified symbol.
+
+# Arguments
+- fmp::FMP: A Financial Modeling Prep instance.
+- symbol::String: A stock symbol.
+- levered::Bool: Return the levered dcf with including WACC.
+
+See [Discounted-Cash-Flow]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get the levered dcf for AAPL with WACC
+data = advanced_discounted_cash_flows(fmp, "AAPL", levered = true)
+```
+"""
+function advanced_discounted_cash_flows(fmp::FMP, symbol::String; levered::Bool = false)
+    if levered
+        endpoint = "advanced_levered_discounted_cash_flow"
     else
-        endpoint = "discounted-cash-flow/$(symbol)"
-        url, query = Client.make_url_v3(fmp, endpoint; params...)
+        endpoint = "advanced_discounted_cash_flow"
     end
+    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data 
@@ -356,14 +396,15 @@ end
 """
     historical_discounted_cash_flows(fmp, symbol, params...)
 
-Returns a vector of historical discounted cash flows for the specified symbol. Each element is a dictionary.
+Returns a JSON table of historical discounted cash flows for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Historical-Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
+See [Historical-Discounted-Cash-Flow]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) for more details.
 
 # Examples
 ``` julia

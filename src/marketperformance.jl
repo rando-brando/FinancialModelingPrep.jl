@@ -1,13 +1,14 @@
 """
     sector_pe_ratios(fmp, params...)
 
-Returns a list of sector pe ratios. Each element is a dictionary.
+Returns a list of sector pe ratios.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Sectors-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Sectors-PE-Ratio) for more details.
+See [Sectors-PE-Ratio]\
+(https://site.financialmodelingprep.com/developer/docs/#Sectors-PE-Ratio) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     industry_pe_ratios(fmp, params...)
 
-Returns a list of industry pe ratios. Each element is a dictionary.
+Returns a list of industry pe ratios.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Industries-PE-Ratio](https://site.financialmodelingprep.com/developer/docs/#Industries-PE-Ratio) for more details.
+See [Industries-PE-Ratio]\
+(https://site.financialmodelingprep.com/developer/docs/#Industries-PE-Ratio) for more details.
 
 # Examples
 ``` julia
@@ -57,12 +59,13 @@ end
 """
     sector_performances(fmp)
 
-Returns a list of sector performances. Each element is a dictionary.
+Returns a list of sector performances.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Sectors-Performance](https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
+See [Sectors-Performance]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
 
 # Examples
 ``` julia
@@ -84,13 +87,14 @@ end
 """
     historical_sector_performances(fmp, params...)
 
-Returns a list of historical sector perfromances. Each element is a dictionary.
+Returns a list of historical sector perfromances.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Sectors-Performance](https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
+See [Sectors-Performance]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Market-Sectors-Performance) for more details.
 
 # Examples
 ``` julia
@@ -112,12 +116,13 @@ end
 """
     gainers(fmp)
 
-Returns a list of the biggest gainers. Each element is a dictionary.
+Returns a list of the biggest gainers.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Most-Gainer](https://site.financialmodelingprep.com/developer/docs/#Most-Gainer-Stock-Companies) for more details.
+See [Most-Gainer]\
+(https://site.financialmodelingprep.com/developer/docs/#Most-Gainer-Stock-Companies) for more details.
 
 # Examples
 ``` julia
@@ -139,12 +144,13 @@ end
 """
     losers(fmp)
 
-Returns a list of the biggest losers. Each element is a dictionary.
+Returns a list of the biggest losers.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Most-Loser](https://site.financialmodelingprep.com/developer/docs/#Most-Loser-Stock-Companies) for more details.
+See [Most-Loser]\
+(https://site.financialmodelingprep.com/developer/docs/#Most-Loser-Stock-Companies) for more details.
 
 # Examples
 ``` julia
@@ -166,12 +172,13 @@ end
 """
     most_active(fmp)
 
-Returns a list of the most active symbols. Each element is a dictionary.
+Returns a list of the most active symbols.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Most-Active](https://site.financialmodelingprep.com/developer/docs/#Most-Active-Stock-Companies) for more details.
+See [Most-Active]\
+(https://site.financialmodelingprep.com/developer/docs/#Most-Active-Stock-Companies) for more details.
 
 # Examples
 ``` julia

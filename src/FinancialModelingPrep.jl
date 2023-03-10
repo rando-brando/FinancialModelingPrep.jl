@@ -48,13 +48,35 @@ export
     company_rating,
     historical_ratings,
     discounted_cash_flows,
+    advanced_discounted_cash_flows,
     historical_discounted_cash_flows
+
+# exports from institutionalstockownership.jl
+export
+    institutional_positions,
+    institutional_ownership_percentages,
+    institutional_ownership_weightings,
+    institutional_ownership_feed,
+    institution_search,
+    institution_portfolio_dates,
+    institution_portfolio_summary,
+    institution_portfolio_industry_summary,
+    institution_portfolio_composition
 
 # exports from esgscore.jl
 export
     esg_scores,
     esg_ratings,
     esg_score_benchmarks
+
+# exports from privatecompaniesfundraisingdata.jl
+export
+    crowdfunding_offerings_feed,
+    crowdfunding_offerings_feed,
+    crowdfunding_offerings,
+    equity_offerings_feed,
+    equity_offerings_search,
+    equity_offerings
 
 # exports from pricetarget.jl
 export
@@ -71,6 +93,27 @@ export
     upgrades_and_downgrades_feed,
     upgrades_and_downgrades_consensus,
     upgrades_and_downgrades_by_company
+
+# exports from historicalfundholdings.jl
+export
+    mutual_fund_portfolio_dates,
+    mutual_fund_portfolio,
+    mutual_fund_search,
+    etf_portfolio_dates,
+    etf_portfolio
+
+# exports from historicalemployees
+export
+    historical_employee_counts
+
+# exports from executivecompensation.jl
+export
+    executive_compensation,
+    executive_compensation_benchmark
+
+# exports from individualbeneficialownership.jl
+export
+    beneficial_ownership
 
 # exports from stockcalendars.jl
 export
@@ -135,9 +178,9 @@ export
     insider_trading_types,
     insider_trades,
     insider_trades_feed,
-    cik_list,
-    cik_from_name,
-    cik_from_symbol,
+    insiders_list,
+    cik_from_insider,
+    cik_from_company,
     insider_roster,
     insider_roster_statistics,
     fails_to_deliver
@@ -214,9 +257,15 @@ const TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15m
 include("pricequotes.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
+include("institutionalstockownership.jl")
 include("esgscore.jl")
+include("privatecompaniesfundraisingdata.jl")
 include("pricetarget.jl")
 include("upgradesdowngrades.jl")
+include("historicalfundholdings.jl")
+include("historicalemployees.jl")
+include("executivecompensation.jl")
+include("individualbeneficialownership.jl")
 include("stockcalendars.jl")
 include("stockscreener.jl")
 include("companyinformation.jl")

@@ -2,7 +2,7 @@
     social_sentiment(fmp, symbol, params...)
     social_sentiment(fmp, type = "trending", params...)
 
-Returns a vector with the social sentiment type for the specified symbol. Each element is a dictionary.
+Returns a JSON table with the social sentiment type for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
@@ -10,7 +10,8 @@ Returns a vector with the social sentiment type for the specified symbol. Each e
 - type::String: One of "trending", or "change".
 - params...: Additional keyword query params.
 
-See [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) for more details.
+See [Social-Sentiment]\
+(https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) for more details.
 
 # Examples
 ``` julia
@@ -43,14 +44,15 @@ end
 """
     stock_grades(fmp, symbol, params...)
 
-Returns a vector of stock grades for the specified symbol. Each element is a dictionary.
+Returns a JSON table of stock grades for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Stock-Grade](https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) for more details.
+See [Stock-Grade]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) for more details.
 
 # Examples
 ``` julia
@@ -72,13 +74,14 @@ end
 """
     earnings_surprises(fmp, symbol)
 
-Returns a vector of earnings suprises for the specified symbol. Each element is a dictionary.
+Returns a JSON table of earnings suprises for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Earnings-Surprises](https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) for more details.
+See [Earnings-Surprises]\
+(https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) for more details.
 
 # Examples
 ``` julia
@@ -100,14 +103,15 @@ end
 """
     analyst_estimates(fmp, symbol, params...)
 
-Returns a vector of analyst estimates for the specified symbol. Each element is a dictionary.
+Returns a JSON table of analyst estimates for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Analyst-Estimates](https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) for more details.
+See [Analyst-Estimates]\
+(https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) for more details.
 
 # Examples
 ``` julia
@@ -129,13 +133,14 @@ end
 """
     mergers_and_acquisitions_feed(fmp, params...)
 
-Returns a vector containing the mergers and acquisitions feed results. Each element is a dictionary.
+Returns a JSON table containing the mergers and acquisitions feed results.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Mergers-and-Acquisitions-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
+See [Mergers-and-Acquisitions-RSS-Feed]\
+(https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
 
 # Examples
 ``` julia
@@ -157,13 +162,14 @@ end
 """
     mergers_and_acquisitions_search(fmp, params...)
 
-Returns a vector containing mergers and acquisitions search results. Each element is a dictionary.
+Returns a JSON table containing mergers and acquisitions search results.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Mergers-and-Acquisitions](https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
+See [Mergers-and-Acquisitions]\
+(https://site.financialmodelingprep.com/developer/docs/#MERGER-AND-ACQUISITION) for more details.
 
 # Examples
 ``` julia

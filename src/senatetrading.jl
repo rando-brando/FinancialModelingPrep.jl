@@ -1,13 +1,14 @@
 """
     senate_trades(fmp, symbol)
 
-Returns a vector of senate trades for the specified symbol. Each element is a dictionary.
+Returns a JSON table of senate trades for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Senate-Trading](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
+See [Senate-Trading]\
+(https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     senate_trades_feed(fmp, params...)
 
-Returns a vector of senate trades from the RSS feed. Each element is a dictionary.
+Returns a JSON table of senate trades from the RSS feed.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Senate-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
+See [Senate-Trading-RSS-Feed]\
+(https://site.financialmodelingprep.com/developer/docs/#Senate-trading) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     senate_disclosures(fmp, symbol)
 
-Returns a vector of senate disclosures for the specified symbol. Each element is a dictionary.
+Returns a JSON table of senate disclosures for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Senate-Disclosure](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
+See [Senate-Disclosure]\
+(https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     senate_disclosure_feed(fmp, params...)
 
-Returns a vector of senate disclosures from the RSS feed. Each element is a dictionary.
+Returns a JSON table of senate disclosures from the RSS feed.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Senate-Disclosure-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
+See [Senate-Disclosure-RSS-Feed]\
+(https://site.financialmodelingprep.com/developer/docs/#Senate-disclosure) for more details.
 
 # Examples
 ``` julia

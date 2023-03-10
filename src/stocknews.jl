@@ -1,13 +1,14 @@
 """
     fmp_articles(fmp, params...)
 
-Returns a list of fmp articles. Each element is a dictionary.
+Returns a list of fmp articles.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [FMP-Articles](https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) for more details.
+See [FMP-Articles]\
+(https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     stock_news(fmp, params...)
 
-Returns a list of stock news articles. Each element is a dictionary.
+Returns a list of stock news articles.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
+See [Stock-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     stock_news_sentiment_feed(fmp, params...)
 
-Returns a list of stock news article sentiment. Each element is a dictionary.
+Returns a list of stock news article sentiment.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Stock-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
+See [Stock-Sentiment]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     crypto_news(fmp, params...)
 
-Returns a list of crypto news articles. Each element is a dictionary.
+Returns a list of crypto news articles.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Crypto-News](https://site.financialmodelingprep.com/developer/docs/#Crypto-news) for more details.
+See [Crypto-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Crypto-news) for more details.
 
 # Examples
 ``` julia
@@ -113,13 +117,14 @@ end
 """
     forex_news(fmp, params...)
 
-Returns a list of forex news articles. Each element is a dictionary.
+Returns a list of forex news articles.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Forex-News](https://site.financialmodelingprep.com/developer/docs/#Forex-news) for more details.
+See [Forex-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Forex-news) for more details.
 
 # Examples
 ``` julia
@@ -141,13 +146,14 @@ end
 """
     general_news(fmp, params...)
 
-Returns a list of general news articles. Each element is a dictionary.
+Returns a list of general news articles.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [General-News](https://site.financialmodelingprep.com/developer/docs/#General-news) for more details.
+See [General-News]\
+(https://site.financialmodelingprep.com/developer/docs/#General-news) for more details.
 
 # Examples
 ``` julia
@@ -169,14 +175,15 @@ end
 """
     press_releases(fmp, symbol, params...)
 
-Returns a list of stock press releases. Each element is a dictionary.
+Returns a list of stock press releases.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Press-Releases](https://site.financialmodelingprep.com/developer/docs/#Press-Releases) for more details.
+See [Press-Releases]\
+(https://site.financialmodelingprep.com/developer/docs/#Press-Releases) for more details.
 
 # Examples
 ``` julia

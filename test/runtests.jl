@@ -1,6 +1,10 @@
 using FinancialModelingPrep
 using Test
 import DotEnv
+const PermissionError = FinancialModelingPrep.Client.Exceptions.PermissionError
+const JSONArray = FinancialModelingPrep.Client.JSON3.Array
+const JSONObject = FinancialModelingPrep.Client.JSON3.Object
+const JSONTable = FinancialModelingPrep.Client.JSONTables.Table
 
 # load the envrionment variables
 DotEnv.config("../.env")

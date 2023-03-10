@@ -1,11 +1,11 @@
 @testset "available_symbols" begin
-    @test !isempty(available_symbols(fmp))
+    @test isa(available_symbols(fmp), JSONTable)
 end
 
 @testset "tradeable_symbols" begin
-    @test !isempty(tradeable_symbols(fmp))
+    @test isa(tradeable_symbols(fmp), JSONTable)
 end
 
 @testset "etf_symbols" begin
-    @test !isempty(etf_symbols(fmp))
+    @test isa(etf_symbols(fmp), JSONTable)
 end

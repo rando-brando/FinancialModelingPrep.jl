@@ -1,17 +1,17 @@
 @testset "available_indexes" begin
-    @test !isempty(available_indexes(fmp))
+    @test isa(available_indexes(fmp), JSONTable)
 end
 
 @testset "sp500_companies" begin
-    @test !isempty(sp500_companies(fmp))
-    @test !isempty(sp500_companies(fmp, historical = true))
+    @test isa(sp500_companies(fmp), JSONTable)
+    @test isa(sp500_companies(fmp, historical = true), JSONTable)
 end
 
 @testset "nasdaq_companies" begin
-    @test !isempty(nasdaq_companies(fmp))
+    @test isa(nasdaq_companies(fmp), JSONTable)
 end
 
 @testset "dowjones_companies" begin
-    @test !isempty(dowjones_companies(fmp))
-    @test !isempty(dowjones_companies(fmp, historical = true))
+    @test isa(dowjones_companies(fmp), JSONTable)
+    @test isa(dowjones_companies(fmp, historical = true), JSONTable)
 end

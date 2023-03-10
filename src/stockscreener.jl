@@ -8,7 +8,8 @@ Returns a list of search results for the specified symbol and filters.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
+See [Symbol-Search]\
+(https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
 
 # Examples
 ``` julia
@@ -37,7 +38,8 @@ Returns a list of search results for the specified name and filters.
 - name::String: A company name.
 - params...: Additional keyword query params.
 
-See [Name-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
+See [Name-Search]\
+(https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) for more details.
 
 # Examples
 ``` julia
@@ -65,7 +67,8 @@ Returns a list of search results for the specified filters.
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
+See [Stock-Screener]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
 
 # Examples
 ``` julia
@@ -95,7 +98,8 @@ Returns a JSON array of all available countries in the API.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
+See [Stock-Screener]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) for more details.
 
 # Examples
 ``` julia

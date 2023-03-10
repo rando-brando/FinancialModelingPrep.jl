@@ -1,36 +1,36 @@
 @testset "insider_trading_types" begin
-    @test !isempty(insider_trading_types(fmp))
+    @test isa(insider_trading_types(fmp), JSONTable)
 end
 
 @testset "insider_trades" begin
-    @test !isempty(insider_trades(fmp, transactionType = ["P-Purchase", "S-Sale"], page = 0))
-    @test !isempty(insider_trades(fmp, symbol = "AAPL", page = 0))
+    @test isa(insider_trades(fmp, transactionType = ["P-Purchase", "S-Sale"], page = 0), JSONTable)
+    @test isa(insider_trades(fmp, symbol = "AAPL", page = 0), JSONTable)
 end
 
 @testset "insider_trades_feed" begin
-    @test !isempty(insider_trades_feed(fmp, page = 0))
+    @test isa(insider_trades_feed(fmp, page = 0), JSONTable)
 end
 
 @testset "cik_list" begin
-    @test !isempty(cik_list(fmp, page = 3))
+    @test isa(cik_list(fmp, page = 3), JSONTable)
 end
 
 @testset "cik_from_name" begin
-    @test !isempty(cik_from_name(fmp, name = "zuckerberg%20mark"))
+    @test isa(cik_from_name(fmp, name = "zuckerberg%20mark"), JSONTable)
 end
 
 @testset "insider_trading_types" begin
-    @test !isempty(insider_trading_types(fmp, "AAPL"))
+    @test isa(insider_trading_types(fmp, "AAPL"), JSONTable)
 end
 
 @testset "insider_roster" begin
-    @test !isempty(insider_roster(fmp, "AAPL"))
+    @test isa(insider_roster(fmp, "AAPL"), JSONTable)
 end
 
 @testset "insider_roster_statistics" begin
-    @test !isempty(insider_roster_statistics(fmp, "AAPL"))
+    @test isa(insider_roster_statistics(fmp, "AAPL"), JSONTable)
 end
 
 @testset "fails_to_deliver" begin
-    @test !isempty(fails_to_deliver(fmp, "AAPL", page = 0))
+    @test isa(fails_to_deliver(fmp, "AAPL", page = 0), JSONTable)
 end

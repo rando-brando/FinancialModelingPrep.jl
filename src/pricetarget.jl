@@ -1,13 +1,14 @@
 """
     price_targets(fmp, symbol)
 
-Returns a vector of price targets for the specified symbol. Each element is a dictionary.
+Returns a JSON table of price targets for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Price-Target](https://site.financialmodelingprep.com/developer/docs/#Price-Target) for more details.
+See [Price-Target]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-Target) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     price_targets_by_analyst(fmp, name)
 
-Returns a vector of price targets  from the specified name. Each element is a dictionary.
+Returns a JSON table of price targets  from the specified name.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - name::String: An analyst name.
 
-See [Price-Target-by-Analyst-Name](https://site.financialmodelingprep.com/developer/docs/#Price-Target-By-Analyst-Name) for more details.
+See [Price-Target-by-Analyst-Name]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-Target-By-Analyst-Name) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     price_targets_by_company(fmp, company)
 
-Returns a vector of price targets from the specified company. Each element is a dictionary.
+Returns a JSON table of price targets from the specified company.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - company::String: An analyst company name.
 
-See [Price-Target-by-Analyst-Company](https://site.financialmodelingprep.com/developer/docs/#Price-Target-by-Analyst-Company) for more details.
+See [Price-Target-by-Analyst-Company]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-Target-by-Analyst-Company) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     price_targets_summary(fmp, symbol)
 
-Returns a vector of the price targets summary for the specified symbol. Each element is a dictionary.
+Returns a JSON table of the price targets summary for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Price-Target-Summary](https://site.financialmodelingprep.com/developer/docs/#Price-target-Summary) for more details.
+See [Price-Target-Summary]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-target-Summary) for more details.
 
 # Examples
 ``` julia
@@ -113,13 +117,14 @@ end
 """
     price_targets_consensus(fmp, symbol)
 
-Returns a vector of the price targets consensus for the specified symbol. Each element is a dictionary.
+Returns a JSON table of the price targets consensus for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Price-Target-Consensus](https://site.financialmodelingprep.com/developer/docs/#Price-Target-Consensus) for more details.
+See [Price-Target-Consensus]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-Target-Consensus) for more details.
 
 # Examples
 ``` julia
@@ -141,13 +146,14 @@ end
 """
     price_targets_feed(fmp, params...)
 
-Returns a vector containing the price targets feed results. Each element is a dictionary.
+Returns a JSON table containing the price targets feed results.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Price-Target-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Price-Target-RSS-Feed) for more details.
+See [Price-Target-RSS-Feed]\
+(https://site.financialmodelingprep.com/developer/docs/#Price-Target-RSS-Feed) for more details.
 
 # Examples
 ``` julia

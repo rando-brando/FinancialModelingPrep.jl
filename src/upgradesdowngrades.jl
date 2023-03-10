@@ -1,13 +1,14 @@
 """
     upgrades_and_downgrades(fmp, symbol)
 
-Returns a vector of upgrades and downgrades for the specified symbol. Each element is a dictionary.
+Returns a JSON table of upgrades and downgrades for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Upgrades-&-Downgrades](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades) for more details.
+See [Upgrades-&-Downgrades]\
+(https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     upgrades_and_downgrades_feed(fmp, params...)
 
-Returns a vector of upgrades and downgrades from the rss feed. Each element is a dictionary.
+Returns a JSON table of upgrades and downgrades from the rss feed.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Upgrades-&-Downgrades-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-RSS-Feed) for more details.
+See [Upgrades-&-Downgrades-RSS-Feed]\
+(https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-RSS-Feed) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     upgrades_and_downgrades_consensus(fmp, symbol)
 
-Returns a vector of consensus upgrades and downgrades for the specified symbol. Each element is a dictionary.
+Returns a JSON table of consensus upgrades and downgrades for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Upgrades-&-Downgrades-Consensus](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-Consensus) for more details.
+See [Upgrades-&-Downgrades-Consensus]\
+(https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-Consensus) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     upgrades_and_downgrades_by_company(fmp, company)
 
-Returns a vector of upgrades and downgrades for the specified company. Each element is a dictionary.
+Returns a JSON table of upgrades and downgrades for the specified company.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Upgrades-&-Downgrades-By-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) for more details.
+See [Upgrades-&-Downgrades-By-Company]\
+(https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) for more details.
 
 # Examples
 ``` julia

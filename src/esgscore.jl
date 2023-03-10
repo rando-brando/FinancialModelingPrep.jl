@@ -1,13 +1,14 @@
 """
     esg_scores(fmp, symbol)
 
-Returns a vector with the ESG scores for the specified symbol. Each element is a dictionary.
+Returns a JSON table with the ESG scores for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [ESG-Score](https://site.financialmodelingprep.com/developer/docs/#ESG-SCORE) for more details.
+See [ESG-Score]\
+(https://site.financialmodelingprep.com/developer/docs/#ESG-SCORE) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     esg_ratings(fmp, symbol)
 
-Returns a vector with the ESG ratings for the specified symbol. Each element is a dictionary.
+Returns a JSON table with the ESG ratings for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [ESG-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-ESG-Risk-Ratings) for more details.
+See [ESG-Ratings]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-ESG-Risk-Ratings) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     esg_score_benchmarks(fmp, year)
 
-Returns a vector with the ESG score benchmarks for the specified symbol. Each element is a dictionary.
+Returns a JSON table with the ESG score benchmarks for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - year::Integer: A calendar year.
 
-See [ESG-Benchmarking](https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) for more details.
+See [ESG-Benchmarking]\
+(https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) for more details.
 
 # Examples
 ``` julia

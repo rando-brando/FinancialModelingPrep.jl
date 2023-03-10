@@ -1,15 +1,15 @@
 @testset "upgrades_and_downgrades" begin
-    @test !isempty(upgrades_and_downgrades(fmp, "AAPL"))
+    @test isa(upgrades_and_downgrades(fmp, "AAPL"), JSONTable)
 end
 
 @testset "upgrades_and_downgrades_feed" begin
-    @test !isempty(upgrades_and_downgrades_feed(fmp, page = 0))
+    @test isa(upgrades_and_downgrades_feed(fmp, page = 0), JSONTable)
 end
 
 @testset "upgrades_and_downgrades_consensus" begin
-    @test !isempty(upgrades_and_downgrades_consensus(fmp, "AAPL"))
+    @test isa(upgrades_and_downgrades_consensus(fmp, "AAPL"), JSONTable)
 end
 
 @testset "upgrades_and_downgrades_by_company" begin
-    @test !isempty(upgrades_and_downgrades_by_company(fmp, "Barclays"))
+    @test isa(upgrades_and_downgrades_by_company(fmp, "Barclays"), JSONTable)
 end

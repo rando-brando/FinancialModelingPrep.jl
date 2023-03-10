@@ -1,12 +1,13 @@
 """
     available_crytocurrencies(fmp)
 
-Returns a vector of all available cryptocurrencies in the API. Each element is a dictionary.
+Returns a JSON table of all available cryptocurrencies in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Cryptocurrencies-List](https://site.financialmodelingprep.com/developer/docs/#Historical-Cryptocurrencies-Price) for more details.
+See [Cryptocurrencies-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Historical-Cryptocurrencies-Price) for more details.
 
 # Examples
 ``` julia
@@ -28,12 +29,13 @@ end
 """
     available_forex_pairs(fmp)
 
-Returns a vector of all available forex pairs in the API. Each element is a dictionary.
+Returns a JSON table of all available forex pairs in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Forex-Pairs-List](https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
+See [Forex-Pairs-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Forex-(FX)) for more details.
 
 # Examples
 ``` julia
@@ -56,13 +58,14 @@ end
     exchange_rates(fmp)
     exchange_rates(fmp, symbol)
 
-Returns the commodity quote for the specified symbol(s). Each element is a dictionary.
+Returns the commodity quote for the specified symbol(s).
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A commodity symbol.
 
-See [Crypto-Quote](https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
+See [Crypto-Quote]\
+(https://site.financialmodelingprep.com/developer/docs/#Cryptocurrencies) for more details.
 
 # Examples
 ``` julia
@@ -95,12 +98,13 @@ end
 """
     available_commodities(fmp)
 
-Returns a vector of all available commodities in the API. Each element is a dictionary.
+Returns a JSON table of all available commodities in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Commodities-List](https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
+See [Commodities-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Most-of-the-Major-Commodities-(Gold,-Silver,-Oil)) for more details.
 
 # Examples
 ``` julia

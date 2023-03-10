@@ -1,12 +1,13 @@
 """
     available_indexes(fmp)
 
-Returns a vector of all available indexes. Each element is a dictionary.
+Returns a JSON table of all available indexes.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Available-Indexes](https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) for more details.
+See [Available-Indexes]\
+(https://site.financialmodelingprep.com/developer/docs/#Historical-stock-index-prices) for more details.
 
 # Examples
 ``` julia
@@ -28,14 +29,16 @@ end
 """
     sp500_companies(fmp, historical = false)
 
-Returns a vector of all S&P 500 companies. Each element is a dictionary.
+Returns a JSON table of all S&P 500 companies.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
-See [List-of-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) for more details.\\
-See [Historical-S&P-500-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-S&P-500) for more details.
+See [List-of-S&P-500-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) for more details.\\
+See [Historical-S&P-500-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#Historical-S&P-500) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +60,14 @@ end
 """
     nasdaq_companies(fmp, historical = false)
 
-Returns a vector of all Nasdaq companies. Each element is a dictionary.
+Returns a JSON table of all Nasdaq companies.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
-See [List-of-Nasdaq-100-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Nasdaq-100-companies) for more details.
+See [List-of-Nasdaq-100-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#List-of-Nasdaq-100-companies) for more details.
 
 # Examples
 ``` julia
@@ -85,14 +89,16 @@ end
 """
     dowjones_companies(fmp, historical = false)
 
-Returns a vector of all Dow Jones companies. Each element is a dictionary.
+Returns a JSON table of all Dow Jones companies.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - historical::Bool: Return historical or current companies.
 
-See [List-of-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) for more details.\\
-See [Historical-Dow-Jones-Companies](https://site.financialmodelingprep.com/developer/docs/#Historical-Dow-Jones) for more details.
+See [List-of-Dow-Jones-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) for more details.\\
+See [Historical-Dow-Jones-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#Historical-Dow-Jones) for more details.
 
 # Examples
 ``` julia

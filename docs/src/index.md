@@ -1,7 +1,8 @@
 Financial Modeling Prep API wrapper with Julia.
 
 ## Disclaimer
-Data is provided by [Financial Modeling Prep](https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
+Data is provided by [Financial Modeling Prep]\
+(https://financialmodelingprep.com/developer/docs/) and requires a paid subscription to access some endpoints.
 
 Only endpoints available with a starter plan have been implemented. Function to endpoint mappings are provided below.
 

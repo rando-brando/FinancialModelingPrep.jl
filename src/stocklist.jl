@@ -1,12 +1,13 @@
 """
     available_symbols(fmp)
 
-Returns a vector of all available symbols in the API. Each element is a dictionary.
+Returns a JSON table of all available symbols in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Symbols-List) for more details.
+See [Symbols-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Symbols-List) for more details.
 
 # Examples
 ``` julia
@@ -28,12 +29,13 @@ end
 """
     tradeable_symbols(fmp)
 
-Returns a vector of all tradeable symbols in the API. Each element is a dictionary.
+Returns a JSON table of all tradeable symbols in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Tradeable-Symbols-List](https://site.financialmodelingprep.com/developer/docs/#Tradable-Symbols-List) for more details.
+See [Tradeable-Symbols-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Tradable-Symbols-List) for more details.
 
 # Examples
 ``` julia
@@ -55,12 +57,13 @@ end
 """
     etf_symbols(fmp)
 
-Returns a vector of all tradeable symbols in the API. Each element is a dictionary.
+Returns a JSON table of all tradeable symbols in the API.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [ETF-Symbols](https://site.financialmodelingprep.com/developer/docs/#ETF-List) for more details.
+See [ETF-Symbols]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-List) for more details.
 
 # Examples
 ``` julia

@@ -90,10 +90,21 @@ df[1:5, 1:4]
 | company_rating | [Company-Rating](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
 | historical_ratings | [Historical-Ratings](https://site.financialmodelingprep.com/developer/docs/#Company-Rating) |
 | discounted_cash_flows | [Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
+| advanced_discounted_cash_flows | [Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
 | historical_discounted_cash_flows | [Historical-Discounted-Cash-Flow](https://site.financialmodelingprep.com/developer/docs/#Company-Discounted-cash-flow-value) |
 
 ## Institutional Stock Ownership
-*Skipped: Stock ownership endpoints require an enterprise plan.*
+| Function | Endpoint(s) |
+|----------|-------------|
+| institutional_positions | [Institutional-Stock-Ownership](https://site.financialmodelingprep.com/developer/docs/#Institutional-Stock-Ownership) |
+| institutional_ownership_percentages | [Stock-Ownership-by-Holders](https://site.financialmodelingprep.com/developer/docs/#Stock-Ownership-by-Holders) |
+| institutional_ownership_weightings | [Institutional-Stock-by-Shares-Held-and-Date](https://site.financialmodelingprep.com/developer/docs/#Institutional-Ownership-by-Shares-Held-and-Date) |
+| institutional_ownership_feed | [Institutional-Holder-Rss-Feed](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holder-Rss-Feed) |
+| institution_search | [Institutional-Holders-Search](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders-Search) |
+| institution_portfolio_dates | [Institutional-Holders-Available-Date](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders-Available-Date) |
+| institution_portfolio_summary | [Institutional-Holdings-Portfolio-Positions-Summary](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holdings-Portfolio-Positions-Summary) |
+| institution_portfolio_industry_summary | [Institutional-Holdings-Portfolio-Industry-Summary](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holdings-Portfolio-Industry-Summary) |
+| institution_portfolio_composition | [Institutional-Holdings-Portfolio-Composition](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holdings-Portfolio-composition) |
 
 ## ESG Score
 | Function | Endpoint(s) |
@@ -103,7 +114,14 @@ df[1:5, 1:4]
 | esg_score_benchmarks | [ESG-Benchmarking](https://site.financialmodelingprep.com/developer/docs/#ESG-Benchmarking-By-Sector-and-Year) |
 
 ## Private Companies Fundraising Data
-*Skipped.*
+| Function | Endpoint(s) |
+|----------|-------------|
+| crowdfunding_offerings_feed | [Crowdfunding-Offerings-Rss-Feed](https://site.financialmodelingprep.com/developer/docs/#Crowdfunding-Offerings-Rss-feed) |
+| crowdfunding_offerings_search | [Crowdfunding-Offerings-Company-Search](https://site.financialmodelingprep.com/developer/docs/#Crowdfunding-Offerings-Company-Search) |
+| crowdfunding_offerings | [Crowdfunding-Offerings-by-CIK](https://site.financialmodelingprep.com/developer/docs/#Crowdfunding-Offerings-by-CIK) |
+|  equity_offerings_feed | [Equity-Offerings-Fundraising-Rss-feed](https://site.financialmodelingprep.com/developer/docs/#Equity-offerings-Fundraising-Rss-feed) |
+| equity_offerings_search | [Equity-Offerings-Fundraising-Company-Search](https://site.financialmodelingprep.com/developer/docs/#Equity-offerings-Fundraising-Company-Search) |
+| equity_offerings | [Equity-Offerings-Fundraising-by-CIK](https://site.financialmodelingprep.com/developer/docs/#Equity-offerings-Fundraising-by-CIK) |
 
 ## Price Target
 | Function | Endpoint(s) |
@@ -124,13 +142,28 @@ df[1:5, 1:4]
 | upgrades_and_downgrades_by_company | [Upgrades-&-Downgrades-by-Company](https://site.financialmodelingprep.com/developer/docs/#Upgrades-&-Downgrades-By-Company) |
 
 ## Historical ETF and Mutual Fund Holdings
-*Skipped: Fund holdings endpoints require a professional plan.*
+| Function | Endpoint(s) |
+|----------|-------------|
+| mutual_fund_portfolio_dates | [Historical-Mutual-Fund-Holdings-Available-Dates](https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-available-dates) |
+| mutual_fund_portfolio | [Historical-Mutual-Fund-Holdings-Portfolio](https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-portfolio) |
+| mutual_fund_search | [Mutual-Fund-Holdings-Search](https://site.financialmodelingprep.com/developer/docs/#Mutual-fund-holdings-search) |
+| etf_portfolio_dates | [Historical-Mutual-Fund-Holdings-Available-Dates](https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-available-dates) |
+| etf_portfolio | [Historical-Mutual-Fund-Holdings-Portfolio](https://site.financialmodelingprep.com/developer/docs/#historical-mutual-fund-holdings-portfolio) |
+
+## Historical Number of Employees
+| Function | Endpoint(s) |
+|----------|-------------|
+| historical_employee_counts | [Historical-Number-of-Employees](https://site.financialmodelingprep.com/developer/docs/#Historical-Number-of-Employees) |
 
 ## Executive Compensation
-*Skipped: Fund holdings endpoints require a professional plan.*
+| Function | Endpoint(s) |
+|----------|-------------|
+| executive_compensation | [Executive-Compensation](https://site.financialmodelingprep.com/developer/docs/#Executive-Compensation) |
 
 ## Individual Beneficial Ownership
-*Skipped: Fund holdings endpoints require a professional plan.*
+| Function | Endpoint(s) |
+|----------|-------------|
+| beneficial_ownership | [Individual-Beneficial-Ownership](https://site.financialmodelingprep.com/developer/docs/#Individual-Beneficial-Ownership) |
 
 ## Stock Calendars
 | Function | Endpoint(s) |
@@ -207,8 +240,8 @@ df[1:5, 1:4]
 | insider_trading_types | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades | [Insider-Trading](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_trades_feed | [Insider-Trading-RSS-Feed](https://site.financialmodelingprep.com/developer/docs/#Insider-Trading-RSS-Feed) |
-| cik_list | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
-| cik_from_name | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| insiders_list | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
+| cik_from_insider | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | cik_from_symbol | [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_roster | [Insider-Roster](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |
 | insider_roster_statistics | [Insider-Roster-Statistics](https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) |

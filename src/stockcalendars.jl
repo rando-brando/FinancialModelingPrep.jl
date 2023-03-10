@@ -2,14 +2,15 @@
     earnings_calendar(fmp, params...)
     earnings_calendar(fmp, symbol, params...)
 
-Returns a list of earnings calendar events. Each element is a dictionary.
+Returns a list of earnings calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 - params...: Additional keyword query params.
 
-See [Earnings-Calendar](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) for more details.
+See [Earnings-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) for more details.
 
 # Examples
 ``` julia
@@ -42,13 +43,14 @@ end
 """
     earnings_calendar_confirmed(fmp, params...)
 
-Returns a list of the confirmed earnings calendar events. Each element is a dictionary.
+Returns a list of the confirmed earnings calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Earnings-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) for more details.
+See [Earnings-Calendar-Confirmed]\
+(https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) for more details.
 
 # Examples
 ``` julia
@@ -70,13 +72,14 @@ end
 """
     ipo_calendar(fmp, params...)
 
-Returns a list of the ipo calendar events. Each element is a dictionary.
+Returns a list of the ipo calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [IPO-Calendar](https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) for more details.
+See [IPO-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) for more details.
 
 # Examples
 ``` julia
@@ -98,13 +101,14 @@ end
 """
     ipo_calendar_prospectus(fmp, params...)
 
-Returns a list of the ipo calendar events with prospectus. Each element is a dictionary.
+Returns a list of the ipo calendar events with prospectus.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [IPO-Calendar-with-Prospectus](https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-with-prospectus) for more details.
+See [IPO-Calendar-with-Prospectus]\
+(https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-with-prospectus) for more details.
 
 # Examples
 ``` julia
@@ -126,13 +130,14 @@ end
 """
     ipo_calendar_confirmed(fmp, params...)
 
-Returns a list of the confirmed ipo calendar events. Each element is a dictionary.
+Returns a list of the confirmed ipo calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [IPO-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-Confirmed) for more details.
+See [IPO-Calendar-Confirmed]\
+(https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-Confirmed) for more details.
 
 # Examples
 ``` julia
@@ -154,13 +159,14 @@ end
 """
     stock_split_calendar(fmp, params...)
 
-Returns a list of stock split calendar events. Each element is a dictionary.
+Returns a list of stock split calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Stock-Split-Calendar](https://site.financialmodelingprep.com/developer/docs/#Stock-Split-Calendar) for more details.
+See [Stock-Split-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Split-Calendar) for more details.
 
 # Examples
 ``` julia
@@ -182,13 +188,14 @@ end
 """
     dividend_calendar(fmp, params...)
 
-Returns a list of dividend calendar events. Each element is a dictionary.
+Returns a list of dividend calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Dividend-Calendar](https://site.financialmodelingprep.com/developer/docs/#Dividend-Calendar) for more details.
+See [Dividend-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#Dividend-Calendar) for more details.
 
 # Examples
 ``` julia
@@ -210,13 +217,14 @@ end
 """
     historical_dividends(fmp, symbol)
 
-Returns a list historical dividends for the specified symbol. Each element is a dictionary.
+Returns a list historical dividends for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Historical-Dividends](https://site.financialmodelingprep.com/developer/docs/#Historical-Dividends) for more details.
+See [Historical-Dividends]\
+(https://site.financialmodelingprep.com/developer/docs/#Historical-Dividends) for more details.
 
 # Examples
 ``` julia
@@ -238,13 +246,14 @@ end
 """
     economic_calendar(fmp, params...)
 
-Returns a list of economic calendar events. Each element is a dictionary.
+Returns a list of economic calendar events.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Economic-Calendar](https://site.financialmodelingprep.com/developer/docs/#Economic-Calendar) for more details.
+See [Economic-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#Economic-Calendar) for more details.
 
 # Examples
 ``` julia

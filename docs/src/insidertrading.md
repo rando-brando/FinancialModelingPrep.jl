@@ -13,14 +13,14 @@ insider_trades
 insider_trades_feed
 ```
 
-## cik\_list
+## insiders_list
 ```@docs
-cik_list
+insiders_list
 ```
 
-## cik\_from\_name
+## cik\_from\_insider
 ```@docs
-cik_from_name
+cik_from_insider
 ```
 
 ## cik\_from\_symbol

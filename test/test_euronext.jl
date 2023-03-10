@@ -1,3 +1,3 @@
 @testset "available_euronext" begin
-    @test !isempty(available_euronext(fmp))
+    @test isa(available_euronext(fmp), JSONTable)
 end

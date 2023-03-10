@@ -1,13 +1,14 @@
 """
     company_profile(fmp, symbol)
 
-Returns the company profile for the specified symbol. Each element is a dictionary.
+Returns the company profile for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Company-Profile](https://site.financialmodelingprep.com/developer/docs/#Company-Profile) for more details.
+See [Company-Profile]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Profile) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     key_executives(fmp, symbol)
 
-Returns the key executives for the specified symbol. Each element is a dictionary.
+Returns the key executives for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Key-Executives](https://site.financialmodelingprep.com/developer/docs/#Key-Executives) for more details.
+See [Key-Executives]\
+(https://site.financialmodelingprep.com/developer/docs/#Key-Executives) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     company_outlook(fmp, symbol)
 
-Returns the company outlook for the specified symbol. Each element is a dictionary.
+Returns the company outlook for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Company-Outlook](https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) for more details.
+See [Company-Outlook]\
+(https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     stock_peers(fmp, symbol)
 
-Returns the stock peers for the specified symbol. Each element is a dictionary.
+Returns the stock peers for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) for more details.
+See [Stock-Peers]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) for more details.
 
 # Examples
 ``` julia
@@ -118,7 +122,8 @@ Returns the NYSE schedule including market hours and market holidays.
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [NYSE-Schedule](https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
+See [NYSE-Schedule]\
+(https://site.financialmodelingprep.com/developer/docs/#NYSE-Holidays-and-Trading-Hours) for more details.
 
 # Examples
 ``` julia
@@ -140,13 +145,14 @@ end
 """
     delisted_companies(fmp, params...)
 
-Returns delisted companies. Each element is a dictionary.
+Returns delisted companies.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - params...: Additional keyword query params.
 
-See [Delisted-Companies](https://site.financialmodelingprep.com/developer/docs/#Delisted-Companies) for more details.
+See [Delisted-Companies]\
+(https://site.financialmodelingprep.com/developer/docs/#Delisted-Companies) for more details.
 
 # Examples
 ``` julia
@@ -168,12 +174,13 @@ end
 """
     symbol_changes(fmp)
 
-Returns changed symbols. Each element is a dictionary.
+Returns changed symbols.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Symbol-Change](https://site.financialmodelingprep.com/developer/docs/#Symbol-Change) for more details.
+See [Symbol-Change]\
+(https://site.financialmodelingprep.com/developer/docs/#Symbol-Change) for more details.
 
 # Examples
 ``` julia
@@ -195,13 +202,14 @@ end
 """
     company_information(fmp, symbol)
 
-Returns the company information for the specified symbol. Each element is a dictionary.
+Returns the company information for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Stock-Peers](https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) for more details.
+See [Stock-Peers]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-Peers) for more details.
 
 # Examples
 ``` julia

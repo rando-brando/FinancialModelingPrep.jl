@@ -1,13 +1,14 @@
 """
     etf_holders(fmp, symbol)
 
-Returns the etf holders of a specified symbol. Each element is a dictionary.
+Returns the etf holders of a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: An etf symbol.
 
-See [ETF-Holders](https://site.financialmodelingprep.com/developer/docs/#ETF-Holders) for more details.
+See [ETF-Holders]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-Holders) for more details.
 
 # Examples
 ``` julia
@@ -29,13 +30,14 @@ end
 """
     etf_summary(fmp, symbol)
 
-Returns the etf summary for the specified symbol. Each element is a dictionary.
+Returns the etf summary for the specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [ETF-Info](https://site.financialmodelingprep.com/developer/docs/#ETF-Expense-ratio) for more details.
+See [ETF-Info]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-Expense-ratio) for more details.
 
 # Examples
 ``` julia
@@ -57,13 +59,14 @@ end
 """
     institutional_holders(fmp, symbol)
 
-Returns the institutional holders of a specified symbol. Each element is a dictionary.
+Returns the institutional holders of a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Institutional-Holders](https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders) for more details.
+See [Institutional-Holders]\
+(https://site.financialmodelingprep.com/developer/docs/#Institutional-Holders) for more details.
 
 # Examples
 ``` julia
@@ -85,13 +88,14 @@ end
 """
     mutual_fund_holders(fmp, symbol)
 
-Returns the mutual fund holders of a specified symbol. Each element is a dictionary.
+Returns the mutual fund holders of a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [Mutual-Fund-Holders](https://site.financialmodelingprep.com/developer/docs/#Mutual-Fund-Holders) for more details.
+See [Mutual-Fund-Holders]\
+(https://site.financialmodelingprep.com/developer/docs/#Mutual-Fund-Holders) for more details.
 
 # Examples
 ``` julia
@@ -113,13 +117,14 @@ end
 """
     etf_sector_weightings(fmp, symbol)
 
-Returns the sector weightings of a specified symbol. Each element is a dictionary.
+Returns the sector weightings of a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: An etf symbol.
 
-See [ETF-Sector-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Sector-Weightings) for more details.
+See [ETF-Sector-Weightings]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-Sector-Weightings) for more details.
 
 # Examples
 ``` julia
@@ -141,13 +146,14 @@ end
 """
     etf_country_weightings(fmp, symbol)
 
-Returns the country weightings of a specified symbol. Each element is a dictionary.
+Returns the country weightings of a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: An etf symbol.
 
-See [ETF-Country-Weightings](https://site.financialmodelingprep.com/developer/docs/#ETF-Country-Weightings) for more details.
+See [ETF-Country-Weightings]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-Country-Weightings) for more details.
 
 # Examples
 ``` julia
@@ -169,13 +175,14 @@ end
 """
     etf_exposure(fmp, symbol)
 
-Returns the etf exposure for a specified symbol. Each element is a dictionary.
+Returns the etf exposure for a specified symbol.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - symbol::String: A stock symbol.
 
-See [ETF-Stock-Exposure](https://site.financialmodelingprep.com/developer/docs/#ETF-Stock-Exposure) for more details.
+See [ETF-Stock-Exposure]\
+(https://site.financialmodelingprep.com/developer/docs/#ETF-Stock-Exposure) for more details.
 
 # Examples
 ``` julia
@@ -197,12 +204,13 @@ end
 """
     institutions_list(fmp)
 
-Returns a list of all companies by CIK. Each element is a dictionary.
+Returns a list of all companies by CIK.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 
-See [Institutions-List](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Institutions-List]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -224,13 +232,14 @@ end
 """
     cik_search(fmp, name)
 
-Returns a list of all company CIKs matching the specified name. Each element is a dictionary.
+Returns a JSON table of all CIKs matching the specified name.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
-- name::String: A complete or partial institutional investment manager name.
+- name::String: A complete or partial institution name.
 
-See [Form-13F-Search](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Form-13F-Search]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -252,13 +261,14 @@ end
 """
     company_from_cik(fmp, cik)
 
-Returns a list of all company names matching the specified CIK. Each element is a dictionary.
+Returns a list of all company names matching the specified CIK.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - cik::String: A CIK.
 
-See [CIK-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [CIK-Mapper]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -280,14 +290,15 @@ end
 """
     forms_13f(fmp, cik, date)
 
-Returns a list of all form 13F filing matching the specified CIK and date. Each element is a dictionary.
+Returns a list of all form 13F filing matching the specified CIK and date.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - cik::String: A CIK.
 - date::String: A yyyy-mm-dd formatted date string.
 
-See [Form-13F](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Form-13F]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -309,13 +320,14 @@ end
 """
     filing_dates(fmp, cik)
 
-Returns a list of all form 13F filing dates matching the specified CIK. Each element is a dictionary.
+Returns a list of all form 13F filing dates matching the specified CIK.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - cik::String: A CIK.
 
-See [Form-13F-Filing-Dates](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Form-13F-Filing-Dates]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia
@@ -337,13 +349,14 @@ end
 """
     company_from_cusip(fmp, cusip)
 
-Returns a list of all companies matching the specified cusip. Each element is a dictionary.
+Returns a list of all companies matching the specified cusip.
 
 # Arguments
 - fmp::FMP: A Financial Modeling Prep instance.
 - cusip::String: A cusip.
 
-See [Cusip-Mapper](https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
+See [Cusip-Mapper]\
+(https://site.financialmodelingprep.com/developer/docs/#Form-13F) for more details.
 
 # Examples
 ``` julia

@@ -47,11 +47,14 @@ See [Social-Sentiment]\
 # create a FMP API instance
 fmp = FMP()
 
+# get all social sentiment trends
+data = social_sentiment_trends(fmp)
+
 # get all social sentiment trends from stocktwits with a bearish bias
 data = social_sentiment_trends(fmp, type = "bearish", source = "stocktwits")
 ```
 """
-function social_sentiment_trends(fmp::FMP; type::String = "bullish", source::String = "twitter")
+function social_sentiment_trends(fmp::FMP; type = nothing, source = nothing)
     endpoint = "social-sentiment/trending"
     url, query = Client.make_url_v4(fmp, endpoint; type, source)
     response = Client.make_get_request(url, query)
@@ -77,11 +80,14 @@ See [Social-Sentiment]\
 # create a FMP API instance
 fmp = FMP()
 
+# get all social sentiment changes
+data = social_sentiment_trends(fmp)
+
 # get all social sentiment changes from stocktwits with a bearish bias
 data = social_sentiment_changes(fmp, type = "bearish", source = "stocktwits")
 ```
 """
-function social_sentiment_changes(fmp::FMP; type::String = "bullish", source::String = "twitter")
+function social_sentiment_changes(fmp::FMP; type = nothing, source = nothing)
     endpoint = "social-sentiment/changes"
     url, query = Client.make_url_v4(fmp, endpoint; type, source)
     response = Client.make_get_request(url, query)

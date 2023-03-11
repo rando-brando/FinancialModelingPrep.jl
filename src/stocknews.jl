@@ -1,7 +1,7 @@
 """
     fmp_articles(fmp, params...)
 
-Returns a list of fmp articles.
+Returns a JSON object of fmp articles.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -23,14 +23,14 @@ function fmp_articles(fmp::FMP; params...)
     endpoint = "fmp/articles"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_object(response)
     return data
 end
 
 """
     stock_news(fmp, params...)
 
-Returns a list of stock news articles.
+Returns stock news articles.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -44,8 +44,8 @@ See [Stock-News]\
 # create a FMP API instance
 fmp = FMP()
 
-# get the latest 50 stock news for GOOG and MSFT
-data = stock_news(fmp, ticker = ["GOOG", "MSFT"], limit = 50)
+# get the latest 50 stock news for AAPL and FB
+data = stock_news(fmp, tickers = "AAPL,FB", limit = 50)
 ```
 """
 function stock_news(fmp::FMP; params...)
@@ -59,7 +59,7 @@ end
 """
     stock_news_sentiment_feed(fmp, params...)
 
-Returns a list of stock news article sentiment.
+Returns stock news article sentiment.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -88,7 +88,7 @@ end
 """
     crypto_news(fmp, params...)
 
-Returns a list of crypto news articles.
+Returns crypto news articles.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -117,7 +117,7 @@ end
 """
     forex_news(fmp, params...)
 
-Returns a list of forex news articles.
+Returns forex news articles.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -146,7 +146,7 @@ end
 """
     general_news(fmp, params...)
 
-Returns a list of general news articles.
+Returns general news articles.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -175,7 +175,7 @@ end
 """
     press_releases(fmp, symbol, params...)
 
-Returns a list of stock press releases.
+Returns stock press releases.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

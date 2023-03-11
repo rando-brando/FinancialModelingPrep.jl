@@ -1,7 +1,7 @@
 """
     financial_ratios(fmp, symbol, params...)
 
-Returns a JSON table of common financial ratios for the specified symbol.
+Returns common financial ratios for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -32,7 +32,7 @@ financial_ratios(fmp::FMP, symbol::String; params...) = financial_ratios(fmp; sy
 """
     financial_scores(fmp, symbol)
 
-Returns a JSON table of common financial scores for the specified symbol.
+Returns common financial scores for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -62,7 +62,7 @@ financial_scores(fmp::FMP, symbol::String) = financial_scores(fmp; symbol)
 """
     owners_earnings(fmp, symbol)
 
-Returns a JSON table of owners earnings for the specified symbol.
+Returns owners earnings for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -92,7 +92,7 @@ owners_earnings(fmp::FMP, symbol::String) = owners_earnings(fmp; symbol)
 """
     enterprise_values(fmp, symbol, params...)
 
-Returns a JSON table of enterprise value components for the specified symbol.
+Returns enterprise value components for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -123,7 +123,7 @@ enterprise_values(fmp::FMP, symbol::String; params...) = enterprise_values(fmp; 
 """
     income_statements_growth(fmp, symbol, params...)
 
-Returns a JSON table of income statements growth for the specified symbol.
+Returns income statements growth for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -154,7 +154,7 @@ income_statements_growth(fmp::FMP, symbol::String; params...) = income_statement
 """
     balance_sheet_statements_growth(fmp, symbol, params...)
 
-Returns a JSON table of balance sheet statements growth for the specified symbol.
+Returns balance sheet statements growth for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -185,7 +185,7 @@ balance_sheet_statements_growth(fmp::FMP, symbol::String; params...) = balance_s
 """
     cash_flow_statements_growth(fmp, symbol, params...)
 
-Returns a JSON table of cash flow statements growth for the specified symbol.
+Returns cash flow statements growth for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -216,7 +216,7 @@ cash_flow_statements_growth(fmp::FMP, symbol::String; params...) = cash_flow_sta
 """
     financial_statements_growth(fmp, symbol, params...)
 
-Returns a JSON table of financial statements growth for the specified symbol.
+Returns financial statements growth for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -247,7 +247,7 @@ financial_statements_growth(fmp::FMP, symbol::String; params...) = financial_sta
 """
     key_metrics(fmp, symbol, period, params...)
 
-Returns a JSON table of key metrics for the specified symbol.
+Returns key metrics for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -268,6 +268,9 @@ data = key_metrics(fmp, "AAPL", period = REPORTING_PERIODS.ttm, limit = 30)
 ```
 """
 function key_metrics(fmp::FMP; symbol::String, period::String = REPORTING_PERIODS.annual, params...)
+    if !(period in REPORTING_PERIODS)
+        error("Invalid frequency value. Allowed values are $(REPORTING_PERIODS).")
+    end
     endpoint = "key-metrics" * ("-$(period)" ^ (period == REPORTING_PERIODS.ttm)) * "/$(symbol)"
     if period == REPORTING_PERIODS.quarter
         url, query = Client.make_url_v3(fmp, endpoint; period, params...)
@@ -284,7 +287,7 @@ key_metrics(fmp::FMP, symbol::String; period::String = REPORTING_PERIODS.annual,
 """
     company_rating(fmp, symbol)
 
-Returns a JSON table of ratings for the specified symbol.
+Returns ratings for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -314,7 +317,7 @@ company_rating(fmp::FMP, symbol::String) = company_rating(fmp; symbol)
 """
     historical_ratings(fmp, symbol, params...)
 
-Returns a JSON table of historical ratings for the specified symbol.
+Returns historical ratings for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -345,7 +348,7 @@ historical_ratings(fmp::FMP, symbol::String; params...) = historical_ratings(fmp
 """
     discounted_cash_flows(fmp, symbol)
 
-Returns a JSON table of discounted cash flows for the specified symbol.
+Returns discounted cash flows for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -375,7 +378,7 @@ discounted_cash_flows(fmp::FMP, symbol::String) = discounted_cash_flows(fmp; sym
 """
     advanced_discounted_cash_flows(fmp, symbol, levered = false)
 
-Returns a JSON table of advaned discounted cash flows for the specified symbol.
+Returns advaned discounted cash flows for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -410,7 +413,7 @@ advanced_discounted_cash_flows(fmp::FMP, symbol::String; levered::Bool = false) 
 """
     historical_discounted_cash_flows(fmp, symbol, params...)
 
-Returns a JSON table of historical discounted cash flows for the specified symbol.
+Returns historical discounted cash flows for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

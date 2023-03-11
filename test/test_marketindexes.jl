@@ -3,8 +3,8 @@
 end
 
 @testset "sp500_companies" begin
-    @test isa(sp500_companies(fmp), JSONTable)
-    @test isa(sp500_companies(fmp, historical = true), JSONTable)
+    @test_throws PermissionError isa(sp500_companies(fmp), JSONTable)
+    @test_throws PermissionError isa(sp500_companies(fmp, historical = true), JSONTable)
 end
 
 @testset "nasdaq_companies" begin

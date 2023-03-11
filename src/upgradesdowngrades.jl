@@ -1,7 +1,7 @@
 """
     upgrades_and_downgrades(fmp, symbol)
 
-Returns a JSON table of upgrades and downgrades for the specified symbol.
+Returns upgrades and downgrades for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -31,7 +31,7 @@ upgrades_and_downgrades(fmp::FMP, symbol::String) = upgrades_and_downgrades(fmp;
 """
     upgrades_and_downgrades_feed(fmp, params...)
 
-Returns a JSON table of upgrades and downgrades from the rss feed.
+Returns upgrades and downgrades from the rss feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -60,7 +60,7 @@ end
 """
     upgrades_and_downgrades_consensus(fmp, symbol)
 
-Returns a JSON table of consensus upgrades and downgrades for the specified symbol.
+Returns consensus upgrades and downgrades for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -90,7 +90,7 @@ upgrades_and_downgrades_consensus(fmp::FMP, symbol::String) = upgrades_and_downg
 """
     upgrades_and_downgrades_by_company(fmp, company)
 
-Returns a JSON table of upgrades and downgrades for the specified company.
+Returns upgrades and downgrades for the specified company.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -105,7 +105,7 @@ See [Upgrades-&-Downgrades-By-Company]\
 fmp = FMP()
 
 # get the consensus of upgrades and downgrades for Barclays
-data = upgrades_and_downgrades_by_company(fmp, "Barclays")
+data = upgrades_and_downgrades_by_company(fmp, company = "Barclays")
 ```
 """
 function upgrades_and_downgrades_by_company(fmp::FMP; company::String)

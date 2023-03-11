@@ -1,6 +1,7 @@
 using FinancialModelingPrep
 using Test
 import DotEnv
+
 const PermissionError = FinancialModelingPrep.Client.Exceptions.PermissionError
 const JSONArray = FinancialModelingPrep.Client.JSON3.Array
 const JSONObject = FinancialModelingPrep.Client.JSON3.Object
@@ -18,9 +19,15 @@ fmp = FMP(apikey = FMP_API_KEY)
 include("test_pricequotes.jl")
 include("test_stockfundamentals.jl")
 include("test_stockfundamentalsanalysis.jl")
+include("test_institutionalstockownership.jl")
 include("test_esgscores.jl")
+include("test_privatecompaniesfundraisingdata.jl")
 include("test_pricetarget.jl")
 include("test_upgradesdowngrades.jl")
+include("test_historicalfundholdings.jl")
+include("test_historicalemployees.jl")
+include("test_executivecompensation.jl")
+include("test_individualbeneficialownership.jl")
 include("test_stockcalendars.jl")
 include("test_stockscreener.jl")
 include("test_companyinformation.jl")

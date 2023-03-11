@@ -211,7 +211,7 @@ etf_exposure(fmp::FMP, symbol::String) = etf_exposure(fmp; symbol)
 """
     institutions_list(fmp)
 
-Returns a list of all companies by CIK.
+Returns all companies by CIK.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -239,7 +239,7 @@ end
 """
     cik_search(fmp, name)
 
-Returns a JSON table of all CIKs matching the specified name.
+Returns all CIKs matching the specified name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -254,7 +254,7 @@ See [Form-13F-Search]\
 fmp = FMP()
 
 # get all CIKs matching "Berkshire"
-data = cik_search(fmp, "Berkshire")
+data = cik_search(fmp, name = "Berkshire")
 ```
 """
 function cik_search(fmp::FMP; name::String)
@@ -269,7 +269,7 @@ cik_search(fmp::FMP, name::String) = cik_search(fmp; name)
 """
     company_from_cik(fmp, cik)
 
-Returns a list of all company names matching the specified CIK.
+Returns all company names matching the specified CIK.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -299,7 +299,7 @@ company_from_cik(fmp::FMP, cik::String) = company_from_cik(fmp; cik)
 """
     forms_13f(fmp, cik, date)
 
-Returns a list of all form 13F filing matching the specified CIK and date.
+Returns all form 13F filing matching the specified CIK and date.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -331,7 +331,7 @@ forms_13f(fmp::FMP, cik::String; date::String) = forms_13f(fmp; cik, date)
 """
     filing_dates(fmp, cik)
 
-Returns a list of all form 13F filing dates matching the specified CIK.
+Returns all form 13F filing dates matching the specified CIK.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -353,7 +353,7 @@ function filing_dates(fmp::FMP; cik::String)
     endpoint = "form-thirteen-date/$(cik)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_object(response)
     return data
 end
 filing_dates(fmp::FMP, cik::String) = filing_dates(fmp; cik)
@@ -361,7 +361,7 @@ filing_dates(fmp::FMP, cik::String) = filing_dates(fmp; cik)
 """
     company_from_cusip(fmp, cusip)
 
-Returns a list of all companies matching the specified cusip.
+Returns all companies matching the specified cusip.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -376,7 +376,7 @@ See [Cusip-Mapper]\
 fmp = FMP()
 
 # get all companies matching the cusip
-data = company_from_cusip(fmp, cik = "000360206")
+data = company_from_cusip(fmp, cusip = "000360206")
 ```
 """
 function company_from_cusip(fmp::FMP; cusip::String)

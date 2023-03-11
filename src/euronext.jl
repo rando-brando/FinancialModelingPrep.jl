@@ -1,7 +1,7 @@
 """
     available_euronext(fmp)
 
-Returns a JSON table of all available euronext symbols in the API.
+Returns all available euronext symbols in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

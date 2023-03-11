@@ -1,7 +1,7 @@
 """
     beneficial_ownership(fmp, symbol)
 
-Returns a JSON table of beneficial ownership for the specified symbol.
+Returns beneficial ownership for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

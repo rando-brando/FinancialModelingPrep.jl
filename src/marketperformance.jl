@@ -1,7 +1,7 @@
 """
     sector_pe_ratios(fmp, params...)
 
-Returns a list of sector pe ratios.
+Returns sector pe ratios.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -30,7 +30,7 @@ end
 """
     industry_pe_ratios(fmp, params...)
 
-Returns a list of industry pe ratios.
+Returns industry pe ratios.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -59,7 +59,7 @@ end
 """
     sector_performances(fmp)
 
-Returns a list of sector performances.
+Returns sector performances.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -87,7 +87,7 @@ end
 """
     historical_sector_performances(fmp, params...)
 
-Returns a list of historical sector perfromances.
+Returns historical sector perfromances.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -116,7 +116,7 @@ end
 """
     gainers(fmp)
 
-Returns a list of the biggest gainers.
+Returns the biggest gainers.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -144,7 +144,7 @@ end
 """
     losers(fmp)
 
-Returns a list of the biggest losers.
+Returns the biggest losers.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -172,7 +172,7 @@ end
 """
     most_active(fmp)
 
-Returns a list of the most active symbols.
+Returns the most active symbols.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

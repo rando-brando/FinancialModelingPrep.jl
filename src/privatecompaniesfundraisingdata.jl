@@ -1,7 +1,7 @@
 """
     crowdfunding_offerings_feed(fmp, params...)
 
-Returns a JSON table of crowdfunding offerings from the RSS feed.
+Returns crowdfunding offerings from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -30,7 +30,7 @@ end
 """
     crowdfunding_offerings_search(fmp, name)
 
-Returns a JSON table of crowfunding offering dates for the specified name.
+Returns crowfunding offering dates for the specified name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -45,7 +45,7 @@ See [Crowdfunding-Offerings-Company-Search]\
 fmp = FMP()
 
 # get the crowdfunding offering dates for Enotap
-data = crowdfunding_offerings_search(fmp, "Enotap")
+data = crowdfunding_offerings_search(fmp, name = "Enotap")
 ```
 """
 function crowdfunding_offerings_search(fmp::FMP; name::String)
@@ -60,7 +60,7 @@ crowdfunding_offerings_search(fmp::FMP, name::String) = crowdfunding_offerings_s
 """
     crowdfunding_offerings(fmp, cik)
 
-Returns a JSON table of the crowdfunding offerings for the specified CIK.
+Returns the crowdfunding offerings for the specified CIK.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -75,7 +75,7 @@ See [Crowdfunding-Offerings-by-CIK]\
 fmp = FMP()
 
 # get the crowdfundings offerings for OYO Fitness
-data = crowdfunding_offerings(fmp, "0001067983")
+data = crowdfunding_offerings(fmp, cik = "0001067983")
 ```
 """
 function crowdfunding_offerings(fmp::FMP; cik::String)
@@ -90,7 +90,7 @@ crowdfunding_offerings(fmp::FMP, cik::String) = crowdfunding_offerings(fmp; cik)
 """
     equity_offerings_feed(fmp, params...)
 
-Returns a JSON table of equity offerings from the RSS feed.
+Returns equity offerings from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -119,7 +119,7 @@ end
 """
     equity_offerings_search(fmp, name)
 
-Returns a JSON table of equity offering dates for the specified name.
+Returns equity offering dates for the specified name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -134,7 +134,7 @@ See [Equity-Offerings-Fundraising-Company-Search]\
 fmp = FMP()
 
 # get the equity offering dates for Marinalife
-data = equity_offerings_search(fmp, "Marinalife")
+data = equity_offerings_search(fmp, name = "Marinalife")
 ```
 """
 function equity_offerings_search(fmp::FMP; name::String)
@@ -149,7 +149,7 @@ equity_offerings_search(fmp::FMP, name::String) = equity_offerings_search(fmp; n
 """
     equity_offerings(fmp, cik)
 
-Returns a JSON table of the crowdfunding offerings for the specified CIK.
+Returns the crowdfunding offerings for the specified CIK.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -164,7 +164,7 @@ See [Equity-Offerings-Fundraising-by-CIK]\
 fmp = FMP()
 
 # get the equity offerings for Marinalife
-data = equity_offerings(fmp, "0001067983")
+data = equity_offerings(fmp, cik = "0001067983")
 ```
 """
 function equity_offerings(fmp::FMP; cik::String)

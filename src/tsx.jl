@@ -1,7 +1,7 @@
 """
     available_tsx(fmp)
 
-Returns a JSON table of all available tsx symbols in the API.
+Returns all available tsx symbols in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

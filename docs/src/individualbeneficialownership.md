@@ -1,4 +1,4 @@
-## benefical\_ownership
+## beneficial\_ownership
 ```@docs
-benefical_ownership
+beneficial_ownership
 ```

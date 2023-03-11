@@ -92,7 +92,7 @@ end
 """
     stock_grades(fmp, symbol, params...)
 
-Returns a JSON table of stock grades for the specified symbol.
+Returns stock grades for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -122,7 +122,7 @@ end
 """
     earnings_surprises(fmp, symbol)
 
-Returns a JSON table of earnings suprises for the specified symbol.
+Returns earnings suprises for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -151,7 +151,7 @@ end
 """
     analyst_estimates(fmp, symbol, params...)
 
-Returns a JSON table of analyst estimates for the specified symbol.
+Returns analyst estimates for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

@@ -29,7 +29,7 @@ end
 """
     income_statements(fmp, symbol, reported = false, params...)
 
-Returns a JSON table of income statements for the specified symbol.
+Returns income statements for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -66,7 +66,7 @@ income_statements(fmp::FMP, symbol::String; reported::Bool = false, params...) =
 """
     balance_sheet_statements(fmp, symbol, reported = false, params...)
 
-Returns a JSON table of balance sheet statements for the specified symbol.
+Returns balance sheet statements for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -103,7 +103,7 @@ balance_sheet_statements(fmp::FMP, symbol::String; reported::Bool = false, param
 """
     cash_flow_statements(fmp, symbol, reported = false, params...)
 
-Returns a JSON table of cash flow statements for the specified symbol.
+Returns cash flow statements for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -140,7 +140,7 @@ cash_flow_statements(fmp::FMP, symbol::String; reported::Bool = false, params...
 """
     financial_statements(fmp, symbol, params...)
 
-Returns a JSON table of financial statements as reported for the specified symbol.
+Returns financial statements as reported for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -235,20 +235,23 @@ data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period 
 ```
 """
 function revenue_segments(fmp::FMP; symbol::String, segment::String = REVENUE_SEGMENTS.product, params...)
+    if !(segment in REVENUE_SEGMENTS)
+        error("Invalid frequency value. Allowed values are $(REVENUE_SEGMENTS).")
+    end
     endpoint = "revenue-$(segment)-segmentation"
     url, query = Client.make_url_v4(fmp, endpoint; symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+revenue_segments(fmp::FMP, symbol::String, segment::String; params...) = revenue_segments(fmp; symbol, segment, params...)
 revenue_segments(fmp::FMP, symbol::String; segment::String = REVENUE_SEGMENTS.product, params...) = revenue_segments(fmp; symbol, segment, params...)
-revenue_segments(fmp::FMP, symbol::String, segment::String = REVENUE_SEGMENTS.product; params...) = revenue_segments(fmp; symbol, segment, params...)
 
 """
     shares_float(fmp)
     shares_float(fmp, symbol)
 
-Returns a JSON table of shares float statistics for one or all symbols.
+Returns shares float statistics for one or all symbols.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -269,7 +272,7 @@ data = shares_float(fmp)
 data = shares_float(fmp, "AAPL")
 ```
 """
-function shares_float(fmp::FMP; symbol::String)
+function shares_float(fmp::FMP; symbol::String = "all")
     endpoint = "shares_float"
     if symbol == "all"
         url, query = Client.make_url_v4(fmp, endpoint * "/$(symbol)")
@@ -281,33 +284,13 @@ function shares_float(fmp::FMP; symbol::String)
     return data
 end
 shares_float(fmp::FMP, symbol::String) = shares_float(fmp; symbol)
-shares_float(fmp::FMP) = shares_float(fmp, symbol = "all")
-
-"""
-    _earnings_call_transcripts(fmp::FMP; params...)
-
-This is a hidden function that is used internally by `earnings_call_transcripts`.
-
-# Arguments
-- `fmp::FMP`: A Financial Modeling Prep instance.
-- `params...`: Additional keyword query params.
-
-Note: This function is not intended to be called directly by end users.
-"""
-function _earnings_call_transcripts(fmp::FMP; params...)
-    endpoint = "earning_call_transcript"
-    url, query = Client.make_url_v4(fmp, endpoint; params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
 
 """
     earnings_call_transcripts(fmp, symbol)
     earnings_call_transcripts(fmp, symbol, year)
     earnings_call_transcripts(fmp, symbol, year, quarter)
 
-Returns a JSON table of earnings call transcripts for a specified symbols.
+Returns earnings call transcripts for a specified symbols.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -330,20 +313,21 @@ data = earnings_call_transcripts(fmp, "AAPL")
 data = earnings_call_transcripts(fmp, "AAPL", year = 2022, quarter = 3)
 ```
 """
-earnings_call_transcripts(fmp::FMP, symbol::String) = _earnings_call_transcripts(fmp; symbol)
-earnings_call_transcripts(fmp::FMP; symbol::String) = _earnings_call_transcripts(fmp; symbol)
-earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer) = _earnings_call_transcripts(fmp; symbol, year)
-earnings_call_transcripts(fmp::FMP, symbol::String; year::Integer) = _earnings_call_transcripts(fmp; symbol, year)
-earnings_call_transcripts(fmp::FMP; symbol::String, year::Integer) = _earnings_call_transcripts(fmp; symbol, year)
-earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer, quarter::Integer) = _earnings_call_transcripts(fmp; symbol, year, quarter)
-earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer; quarter::Integer) = _earnings_call_transcripts(fmp; symbol, year, quarter)
-earnings_call_transcripts(fmp::FMP, symbol::String; year::Integer, quarter::Integer) = _earnings_call_transcripts(fmp; symbol, year, quarter)
-earnings_call_transcripts(fmp::FMP; symbol::String, year::Integer, quarter::Integer) = _earnings_call_transcripts(fmp; symbol, year, quarter)
+function earnings_call_transcripts(fmp::FMP; symbol::String, year = nothing, quarter = nothing)
+    endpoint = "earning_call_transcript"
+    url, query = Client.make_url_v4(fmp, endpoint; symbol, year, quarter)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data
+end
+earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer, quarter::Integer) = earnings_call_transcripts(fmp; symbol, year, quarter)
+earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer; quarter = nothing) = earnings_call_transcripts(fmp; symbol, year, quarter)
+earnings_call_transcripts(fmp::FMP, symbol::String; year = nothing, quarter = nothing) = earnings_call_transcripts(fmp; symbol, year, quarter)
 
 """
     sec_filings(fmp, symbol, params...)
 
-Returns a JSON table of sec filings for the specified symbol.
+Returns sec filings for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -374,7 +358,7 @@ sec_filings(fmp::FMP, symbol::String; params...) = sec_filings(fmp; symbol, para
 """
     company_notes(fmp, symbol)
 
-Returns a JSON table of notes due for the specified symbol.
+Returns notes due for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

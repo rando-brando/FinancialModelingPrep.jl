@@ -159,6 +159,7 @@ df[1:5, 1:4]
 | Function | Endpoint(s) |
 |----------|-------------|
 | executive_compensation | [Executive-Compensation](https://site.financialmodelingprep.com/developer/docs/#Executive-Compensation) |
+| executive_compensation_benchmarks | [Executive-Compensation](https://site.financialmodelingprep.com/developer/docs/#Executive-Compensation) |
 
 ## Individual Beneficial Ownership
 | Function | Endpoint(s) |
@@ -186,6 +187,7 @@ df[1:5, 1:4]
 | search_symbol | [Symbol-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
 | search_name | [Name-Search](https://site.financialmodelingprep.com/developer/docs/#Ticker-Search) |
 | stock_screener | [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) |
+| available_countries | [Stock-Screener](https://site.financialmodelingprep.com/developer/docs/#Stock-Screener) |
 
 ## Company Information
 | Function | Endpoint(s) |

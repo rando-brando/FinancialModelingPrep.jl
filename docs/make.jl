@@ -13,8 +13,9 @@ makedocs(
             "Price Quotes" => "pricequotes.md",
             "Stock Fundamentals" => "stockfundamentals.md",
             "Stock Fundamentals Analysis" => "stockfundamentalsanalysis.md",
-            "Institutional Stock Ownership" => "institutionalstockownership.md"
+            "Institutional Stock Ownership" => "institutionalstockownership.md",
             "ESG Score" => "esgscore.md",
+            "Private Companies Fundraising Data" => "privatecompaniesfundraisingdata.md",
             "Price Target" => "pricetarget.md",
             "Upgrades & Downgrades" => "upgradesdowngrades.md",
             "Historical Fund Holdings" => "historicalfundholdings.md",

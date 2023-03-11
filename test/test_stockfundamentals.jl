@@ -38,8 +38,8 @@ end
 
 @testset "earnings_call_transcripts" begin
     @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL"), JSONTable)
-    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", 2022), JSONTable)
-    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", 2022, 3), JSONTable)
+    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", year = 2022), JSONTable)
+    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", 2022, quarter = 3), JSONTable)
 end
 
 @testset "sec_filings" begin

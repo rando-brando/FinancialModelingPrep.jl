@@ -1,7 +1,7 @@
 """
     available_symbols(fmp)
 
-Returns a JSON table of all available symbols in the API.
+Returns all available symbols in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -29,7 +29,7 @@ end
 """
     tradeable_symbols(fmp)
 
-Returns a JSON table of all tradeable symbols in the API.
+Returns all tradeable symbols in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -57,7 +57,7 @@ end
 """
     etf_symbols(fmp)
 
-Returns a JSON table of all tradeable symbols in the API.
+Returns all tradeable symbols in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

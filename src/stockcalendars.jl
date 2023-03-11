@@ -1,7 +1,7 @@
 """
     earnings_calendar(fmp, params...)
 
-Returns a JSON table of earnings calendar events.
+Returns earnings calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -30,7 +30,7 @@ end
 """
     historical_earnings_calendar(fmp, symbol, params...)
 
-Returns a JSON table of historical earnings calendar events.
+Returns historical earnings calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -61,7 +61,7 @@ historical_earnings_calendar(fmp::FMP, symbol::String; params...) = historical_e
 """
     earnings_calendar_confirmed(fmp, params...)
 
-Returns a list of the confirmed earnings calendar events.
+Returns the confirmed earnings calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -90,7 +90,7 @@ end
 """
     ipo_calendar(fmp, params...)
 
-Returns a list of the ipo calendar events.
+Returns the ipo calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -119,7 +119,7 @@ end
 """
     ipo_calendar_prospectus(fmp, params...)
 
-Returns a list of the ipo calendar events with prospectus.
+Returns the ipo calendar events with prospectus.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -148,7 +148,7 @@ end
 """
     ipo_calendar_confirmed(fmp, params...)
 
-Returns a list of the confirmed ipo calendar events.
+Returns the confirmed ipo calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -177,7 +177,7 @@ end
 """
     stock_split_calendar(fmp, params...)
 
-Returns a list of stock split calendar events.
+Returns stock split calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -206,7 +206,7 @@ end
 """
     dividend_calendar(fmp, params...)
 
-Returns a list of dividend calendar events.
+Returns dividend calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -235,7 +235,7 @@ end
 """
     historical_dividends(fmp, symbol)
 
-Returns a list historical dividends for the specified symbol.
+Returns a JSON table historical dividends for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -254,10 +254,10 @@ data = historical_dividends(fmp, "AAPL")
 ```
 """
 function historical_dividends(fmp::FMP; symbol::String)
-    endpoint = "historical-price-full/stock-dividends/$(symbol)"
+    endpoint = "historical-price-full/stock_dividend/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_table(response, :historical)
     return data
 end
 historical_dividends(fmp::FMP, symbol::String) = historical_dividends(fmp; symbol)
@@ -265,7 +265,7 @@ historical_dividends(fmp::FMP, symbol::String) = historical_dividends(fmp; symbo
 """
     economic_calendar(fmp, params...)
 
-Returns a list of economic calendar events.
+Returns economic calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

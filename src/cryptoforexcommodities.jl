@@ -1,7 +1,7 @@
 """
     available_crytocurrencies(fmp)
 
-Returns a JSON table of all available cryptocurrencies in the API.
+Returns all available cryptocurrencies in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -19,7 +19,7 @@ data = available_crytocurrencies(fmp)
 ```
 """
 function available_crytocurrencies(fmp::FMP)
-    endpoint = "available-cryptocurrencies"
+    endpoint = "symbol/available-cryptocurrencies"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
@@ -29,7 +29,7 @@ end
 """
     available_forex_pairs(fmp)
 
-Returns a JSON table of all available forex pairs in the API.
+Returns all available forex pairs in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -47,7 +47,7 @@ data = available_forex_pairs(fmp)
 ```
 """
 function available_forex_pairs(fmp::FMP)
-    endpoint = "available-forex-currency-pairs"
+    endpoint = "symbol/available-forex-currency-pairs"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
@@ -79,15 +79,7 @@ data = commodity_quote(fmp)
 data = commodity_quote(fmp, "EURUSD")
 ```
 """
-function exchange_rates(fmp::FMP)
-    endpoint = "fx"
-    url, query = Client.make_url_v3(fmp, endpoint)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-
-function exchange_rates(fmp::FMP; symbol::String)
+function exchange_rates(fmp::FMP; symbol::String = "")
     endpoint = "fx/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
@@ -99,7 +91,7 @@ exchange_rates(fmp::FMP, symbol::String) = exchange_rates(fmp; symbol)
 """
     available_commodities(fmp)
 
-Returns a JSON table of all available commodities in the API.
+Returns all available commodities in the API.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -117,7 +109,7 @@ data = available_commodities(fmp)
 ```
 """
 function available_commodities(fmp::FMP)
-    endpoint = "available-commodities"
+    endpoint = "symbol/available-commodities"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)

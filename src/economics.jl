@@ -1,7 +1,7 @@
 """
     market_risk_premiums(fmp)
 
-Returns a JSON table of market risk premiums for each country.
+Returns market risk premiums for each country.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -29,7 +29,7 @@ end
 """
     treasury_rates(fmp, params...)
 
-Returns a list of the treasury rates for the specified date range.
+Returns the treasury rates for the specified date range.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -58,7 +58,7 @@ end
 """
     economic_indicator(fmp, name, params...)
 
-Returns a list of the treasury rates for the specified date range.
+Returns the treasury rates for the specified date range.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

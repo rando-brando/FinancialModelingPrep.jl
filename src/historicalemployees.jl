@@ -1,7 +1,7 @@
 """
     historical_employee_counts(fmp, symbol)
 
-Returns a JSON table of historical employee counts for the specified symbol.
+Returns historical employee counts for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

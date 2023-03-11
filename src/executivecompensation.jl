@@ -1,7 +1,7 @@
 """
     executive_compensation(fmp, symbol)
 
-Returns a JSON table of executive compensation for the specified symbol.
+Returns executive compensation for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -29,9 +29,9 @@ end
 executive_compensation(fmp::FMP, symbol::String) = executive_compensation(fmp; symbol)
 
 """
-    executive_compensation_benchmark(fmp, year)
+executive_compensation_benchmarks(fmp, year)
 
-Returns a JSON table of executive compensation for the specified year.
+Returns executive compensation benchmarks for the specified year.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -45,15 +45,15 @@ See [Executive-Compensation]\
 # create a FMP API instance
 fmp = FMP()
 
-# get the excecutive compensation benchmark for 2020
-data = executive_compensation_benchmark(fmp, 2020)
+# get the excecutive compensation benchmarks for 2020
+data = executive_compensation_benchmarks(fmp, year = 2020)
 ```
 """
-function executive_compensation_benchmark(fmp::FMP; year::Integer)
+function executive_compensation_benchmarks(fmp::FMP; year::Integer)
     endpoint = "excecutive-compensation-benchmark"
     url, query = Client.make_url_v4(fmp, endpoint, year = year)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
-executive_compensation_benchmark(fmp::FMP, year::Integer) = executive_compensation_benchmark(fmp; year)
+executive_compensation_benchmarks(fmp::FMP, year::Integer) = executive_compensation_benchmarks(fmp; year)

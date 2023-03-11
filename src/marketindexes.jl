@@ -1,7 +1,7 @@
 """
     available_indexes(fmp)
 
-Returns a JSON table of all available indexes.
+Returns all available indexes.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -19,7 +19,7 @@ data = available_indexes(fmp)
 ```
 """
 function available_indexes(fmp::FMP)
-    endpoint = "symbol/available_indexes"
+    endpoint = "symbol/index"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
@@ -29,11 +29,11 @@ end
 """
     sp500_companies(fmp, historical = false)
 
-Returns a JSON table of all S&P 500 companies.
+Returns all S&P 500 companies.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- historical::Bool: Return historical or current companies.
+- `historical::Bool`: Return historical or current companies.
 
 See [List-of-S&P-500-Companies]\
 (https://site.financialmodelingprep.com/developer/docs/#List-of-S&P-500-companies) for more details.\\
@@ -60,11 +60,11 @@ end
 """
     nasdaq_companies(fmp, historical = false)
 
-Returns a JSON table of all Nasdaq companies.
+Returns all Nasdaq companies.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- historical::Bool: Return historical or current companies.
+- `historical::Bool`: Return historical or current companies.
 
 See [List-of-Nasdaq-100-Companies]\
 (https://site.financialmodelingprep.com/developer/docs/#List-of-Nasdaq-100-companies) for more details.
@@ -89,11 +89,11 @@ end
 """
     dowjones_companies(fmp, historical = false)
 
-Returns a JSON table of all Dow Jones companies.
+Returns all Dow Jones companies.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- historical::Bool: Return historical or current companies.
+- `historical::Bool`: Return historical or current companies.
 
 See [List-of-Dow-Jones-Companies]\
 (https://site.financialmodelingprep.com/developer/docs/#List-of-Dow-Jones-companies) for more details.\\

@@ -1,7 +1,7 @@
 """
     institutional_positions(fmp, symbol, params...)
 
-Returns a JSON table of institutional positions for the specified symbol.
+Returns institutional positions for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -32,7 +32,7 @@ institutional_positions(fmp::FMP, symbol::String; params...) = institutional_pos
 """
     institutional_ownership_percentages(fmp, symbol, params...)
 
-Returns a JSON table of institutional ownership percentages for the specified symbol.
+Returns institutional ownership percentages for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -63,7 +63,7 @@ institutional_ownership_percentages(fmp::FMP, symbol::String; params...) = insti
 """
     institutional_ownership_weightings(fmp, symbol, params...)
 
-Returns a JSON table of institutional ownership weightings for the specified symbol.
+Returns institutional ownership weightings for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -94,7 +94,7 @@ institutional_ownership_weightings(fmp::FMP, symbol::String; params...) = instit
 """
     institutional_ownership_feed(fmp, params...)
 
-Returns a JSON table of institutional ownership from the RSS feed.
+Returns institutional ownership from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -123,7 +123,7 @@ end
 """
     institution_search(fmp, name)
 
-Returns a JSON table of all CIKs matching the specified institution name.
+Returns all CIKs matching the specified institution name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -138,7 +138,7 @@ See [Institutional-Holders-Search]\
 fmp = FMP()
 
 # get the CIKs for Berkshire Hathaway
-data = institution_search(fmp, "Berkshire%20Hathaway%20Inc")
+data = institution_search(fmp, name = "Berkshire%20Hathaway%20Inc")
 ```
 """
 function institution_search(fmp::FMP; name::String)
@@ -153,7 +153,7 @@ institution_search(fmp::FMP, name::String) = institution_search(fmp; name)
 """
     institution_portfolio_dates(fmp, cik)
 
-Returns a JSON table of the portfolio dates for the specified institution.
+Returns the portfolio dates for the specified institution.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -168,7 +168,7 @@ See [Institutional-Holders-Available-Date]\
 fmp = FMP()
 
 # get the portfolio dates for Berkshire Hathaway
-data = institution_portfolio_dates(fmp, "0001067983")
+data = institution_portfolio_dates(fmp, cik = "0001067983")
 ```
 """
 function institution_portfolio_dates(fmp::FMP; cik::String)
@@ -183,7 +183,7 @@ institution_portfolio_dates(fmp::FMP, cik::String) = institution_portfolio_dates
 """
     institution_portfolio_summary(fmp, cik)
 
-Returns a JSON table of the portfolio summary for the specified institution.
+Returns the portfolio summary for the specified institution.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -198,7 +198,7 @@ See [Institutional-Holdings-Portfolio-Positions-Summary]\
 fmp = FMP()
 
 # get the portfolio summary for Berkshire Hathaway
-data = institution_portfolio_summary(fmp, "0001067983")
+data = institution_portfolio_summary(fmp, cik = "0001067983")
 ```
 """
 function institution_portfolio_summary(fmp::FMP; cik::String)
@@ -213,7 +213,7 @@ institution_portfolio_summary(fmp::FMP, cik::String) = institution_portfolio_sum
 """
     institution_portfolio_industry_summary(fmp, cik, params...)
 
-Returns a JSON table of the portfolio industry summary for the specified institution.
+Returns the portfolio industry summary for the specified institution.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -229,7 +229,7 @@ See [Institutional-Holdings-Portfolio-Industry-Summary]\
 fmp = FMP()
 
 # get the portfolio industry summary for Berkshire Hathaway in Q3 of 2021
-data = institution_portfolio_industry_summary(fmp, "0001067983", date = "2021-09-30")
+data = institution_portfolio_industry_summary(fmp, cik = "0001067983", date = "2021-09-30")
 ```
 """
 function institution_portfolio_industry_summary(fmp::FMP; cik::String, params...)
@@ -244,7 +244,7 @@ institution_portfolio_industry_summary(fmp::FMP, cik::String; params...) = insti
 """
     institution_portfolio_composition(fmp, cik, params...)
 
-Returns a JSON table of the portfolio composition for the specified institution.
+Returns the portfolio composition for the specified institution.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -260,7 +260,7 @@ See [Institutional-Holdings-Portfolio-Composition]\
 fmp = FMP()
 
 # get the portfolio composition for Berkshire Hathaway in Q3 of 2021
-data = institution_portfolio_composition(fmp, "0001067983", date = "2021-09-30")
+data = institution_portfolio_composition(fmp, cik = "0001067983", date = "2021-09-30")
 ```
 """
 function institution_portfolio_composition(fmp::FMP; cik::String, params...)

@@ -11,10 +11,10 @@ end
 end
 
 @testset "survivorship_bias" begin
-    @test isa(survivorship_bias(fmp, "AAPL", "2012-01-03"), JSONTable)
+    @test_throws PermissionError isa(survivorship_bias(fmp, "AAPL", "2012-01-03"), JSONObject)
 end
 
 @testset "technical_indicators" begin
-    @test isa(technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "WMA"), JSONTable)
-    @test isa(technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA"), JSONTable)
+    @test isa(technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "wma"), JSONTable)
+    @test isa(technical_indicators(fmp, "AAPL"; frequency = TIME_FREQUENCIES.daily, period = 200, type = "sma"), JSONTable)
 end

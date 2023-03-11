@@ -83,7 +83,7 @@ function historical_splits(fmp::FMP; symbol::String)
     endpoint = "historical-price-full/stock_split/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_table(response, :historical)
     return data
 end
 historical_splits(fmp::FMP, symbol::String) = historical_splits(fmp; symbol)
@@ -91,7 +91,7 @@ historical_splits(fmp::FMP, symbol::String) = historical_splits(fmp; symbol)
 """
     survivorship_bias(fmp, symbol, date)
 
-Returns the survivorship bias for the specified symbol.
+Returns a JSON dictionary of the survivorship bias for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -114,7 +114,7 @@ function survivorship_bias(fmp::FMP; symbol::String, date::String)
     endpoint = "historical-price-full/$(symbol)/$(date)"
     url, query = Client.make_url_v4(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_object(response)
     return data
 end
 survivorship_bias(fmp::FMP, symbol::String, date::String) = survivorship_bias(fmp; symbol, date)
@@ -146,12 +146,12 @@ fmp = FMP()
 data = technical_indicators(fmp, "AAPL", period = 50)
 
 # get the 15m 10 period WMA for AAPL
-data = technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "WMA")
+data = technical_indicators(fmp, "AAPL", TIME_FREQUENCIES.minutes15, period = 10, type = "wma")
 ```
 """
-function technical_indicators(fmp::FMP; symbol::String, frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA")
+function technical_indicators(fmp::FMP; symbol::String, frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "sma")
     if !(frequency in TIME_FREQUENCIES)
-        error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES). Modify TIME_FREQUENCIES to override behavior.")
+        error("Invalid frequency value. Allowed values are $(TIME_FREQUENCIES).")
     end
     endpoint = "technical_indicator/$(frequency)/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; period, type)
@@ -159,5 +159,5 @@ function technical_indicators(fmp::FMP; symbol::String, frequency::String = TIME
     data = Client.parse_json_table(response)
     return data
 end
-technical_indicators(fmp::FMP, symbol::String; frequency::String; period::Integer = 200, type::String = "SMA") = technical_indicators(fmp; symbol, frequency, period, type)
-technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "SMA") = technical_indicators(fmp; symbol, frequency, period, type)
+technical_indicators(fmp::FMP, symbol::String, frequency::String; period::Integer = 200, type::String = "sma") = technical_indicators(fmp; symbol, frequency, period, type)
+technical_indicators(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, period::Integer = 200, type::String = "sma") = technical_indicators(fmp; symbol, frequency, period, type)

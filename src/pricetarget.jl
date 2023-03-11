@@ -1,7 +1,7 @@
 """
     price_targets(fmp, symbol)
 
-Returns a JSON table of price targets for the specified symbol.
+Returns price targets for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -31,7 +31,7 @@ price_targets(fmp::FMP, symbol::String) = price_targets(fmp; symbol)
 """
     price_targets_by_analyst(fmp, name)
 
-Returns a JSON table of price targets  from the specified name.
+Returns price targets  from the specified name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -46,7 +46,7 @@ See [Price-Target-by-Analyst-Name]\
 fmp = FMP()
 
 # get the price targets from Tim Anderson
-data = price_targets_by_analyst(fmp, "Tim%20Anderson")
+data = price_targets_by_analyst(fmp, name = "Tim%20Anderson")
 ```
 """
 function price_targets_by_analyst(fmp::FMP; name::String)
@@ -61,7 +61,7 @@ price_targets_by_analyst(fmp::FMP, name::String) = price_targets_by_analyst(fmp;
 """
     price_targets_by_company(fmp, company)
 
-Returns a JSON table of price targets from the specified company.
+Returns price targets from the specified company.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -76,7 +76,7 @@ See [Price-Target-by-Analyst-Company]\
 fmp = FMP()
 
 # get the price targets from Barclays
-data = price_targets_by_company(fmp, "Barclays")
+data = price_targets_by_company(fmp, company = "Barclays")
 ```
 """
 function price_targets_by_company(fmp::FMP; company::String)
@@ -91,7 +91,7 @@ price_targets_by_company(fmp::FMP, company::String) = price_targets_by_company(f
 """
     price_targets_summary(fmp, symbol)
 
-Returns a JSON table of the price targets summary for the specified symbol.
+Returns the price targets summary for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -121,7 +121,7 @@ price_targets_summary(fmp::FMP, symbol::String) = price_targets_summary(fmp; sym
 """
     price_targets_consensus(fmp, symbol)
 
-Returns a JSON table of the price targets consensus for the specified symbol.
+Returns the price targets consensus for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

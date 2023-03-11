@@ -7,14 +7,14 @@ import Base: @kwdef
 import .Exceptions
 
 """
-FMP(apikey, baseurl, headers)
+    FMP(apikey, baseurl, headers)
 
 Creates a Financial Modeling Prep instance for interacting with the API server endpoints.
 
 # Arguments
-- apikey::String = `"demo"`
-- baseurl::String = `"https://financialmodelingprep.com"`
-- headers::Dict{String, String} = `Dict("Upgrade-Insecure-Requests" => "1")`
+- `apikey::String` = `"demo"`
+- `baseurl::String` = `"https://financialmodelingprep.com"`
+- `headers::Dict{String, String}` = `Dict("Upgrade-Insecure-Requests" => "1")`
 
 # Examples
 ``` julia
@@ -38,7 +38,7 @@ Creates a Financial Modeling Prep API version 3 URL.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- endpoint::String: The api endpoint
+- `endpoint::String`: The api endpoint
 - `params...`: Additional keyword query params.
 """
 function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
@@ -55,7 +55,7 @@ Creates a Financial Modeling Prep API version 4 URL.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- endpoint::String: The api endpoint
+- `endpoint::String`: The api endpoint
 - `params...`: Additional keyword query params.
 """
 function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
@@ -71,9 +71,9 @@ end
 Makes a GET request to the Financial Modeling Prep API server.
 
 # Arguments
-- url::String: A url to make a request to.
-- query::Dict{String, Any}: Additional query parameters for the request.
-- status_exception::Bool = false: throw HTTP.StatusError for response status >= 300.
+- `url::String`: A url to make a request to.
+- `query::Dict{String, Any}`: Additional query parameters for the request.
+- `status_exception::Bool = false`: throw HTTP.StatusError for response status >= 300.
 """
 function make_get_request(url::String, query::Dict{String, Any}; status_exception = false)::HTTP.Messages.Response
     response = HTTP.get(url, query = query, status_exception = status_exception)
@@ -87,8 +87,8 @@ end
 Parses a response from the Financial Modeling Prep API server as a JSON object.
 
 # Arguments
-- response::HTTP.Messages.Response: An HTTP response containing JSON data.
-- accessor: A Symbol or String accessor containing a nested array.
+- `response::HTTP.Messages.Response`: An HTTP response containing JSON data.
+- `accessor::Symbol`: An accessor Symbol which contains a nested array.
 """
 function parse_json_object(response::HTTP.Messages.Response, accessor)::Union{JSON3.Object, JSON3.Array}
     result = JSON3.read(response.body)
@@ -120,8 +120,8 @@ parse_json_object(response::HTTP.Messages.Response) = parse_json_object(response
     Parses a response from the Financial Modeling Prep API server as a JSON table.
 
 # Arguments
-- response::HTTP.Messages.Response: An HTTP response containing JSON data.
-- accessor: A Symbol or String accessor containing a nested array.
+- `response::HTTP.Messages.Response`: An HTTP response containing JSON data.
+- `accessor::Symbol`: An accessor Symbol which contains a nested array.
 """
 function parse_json_table(response::HTTP.Messages.Response, accessor)::JSONTables.Table
     result = parse_json_object(response, accessor)

@@ -59,13 +59,14 @@ end
 key_executives(fmp::FMP, symbol::String) = key_executives(fmp; symbol)
 
 """
-    company_outlook(fmp, symbol)
+    company_outlook(fmp, symbol, accessor)
 
-Returns the company outlook for the specified symbol.
+Returns a JSON table or dictionary of the company outlook for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
 - `symbol::String`: A stock symbol.
+- `accessor::Symbol`: An accessor Symbol which contains a nested array.
 
 See [Company-Outlook]\
 (https://site.financialmodelingprep.com/developer/docs/#Company-Outlook) for more details.
@@ -79,19 +80,23 @@ fmp = FMP()
 data = company_outlook(fmp, "AAPL")
 ```
 """
-function company_outlook(fmp::FMP; symbol::String)
+function company_outlook(fmp::FMP; symbol::String, accessor = nothing)
     endpoint = "company-outlook"
     url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    if isnothing(accessor)
+        data = Client.parse_json_object(response)
+    else
+        data = Client.parse_json_table(response, accessor)
+    end
     return data
 end
-company_outlook(fmp::FMP, symbol::String) = company_outlook(fmp; symbol)
+company_outlook(fmp::FMP, symbol::String; accessor = nothing) = company_outlook(fmp; symbol, accessor)
 
 """
     stock_peers(fmp, symbol)
 
-Returns the stock peers for the specified symbol.
+Returns a JSON array of the stock peers for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -113,7 +118,7 @@ function stock_peers(fmp::FMP; symbol::String)
     endpoint = "stock_peers"
     url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_table(response, :peersList)
     return data
 end
 stock_peers(fmp::FMP, symbol::String) = stock_peers(fmp; symbol)
@@ -121,7 +126,7 @@ stock_peers(fmp::FMP, symbol::String) = stock_peers(fmp; symbol)
 """
     nyse_schedule(fmp)
 
-Returns the NYSE schedule including market hours and market holidays.
+Returns a JSON dictionary of the NYSE schedule including market hours and market holidays.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -135,14 +140,14 @@ See [NYSE-Schedule]\
 fmp = FMP()
 
 # get the NYSE holiday schedule
-data = nyse_schedule(fmp)["stockMarketHolidays"]
+data = nyse_schedule(fmp)[:stockMarketHolidays]
 ```
 """
 function nyse_schedule(fmp::FMP)
     endpoint = "is-the-market-open"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_object(response)
     return data
 end
 
@@ -206,7 +211,7 @@ end
 """
     company_information(fmp, symbol)
 
-Returns the company information for the specified symbol.
+Returns company information for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

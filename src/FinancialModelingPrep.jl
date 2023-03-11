@@ -103,7 +103,7 @@ export
 # exports from executivecompensation.jl
 export
     executive_compensation,
-    executive_compensation_benchmark
+    executive_compensation_benchmarks
 
 # exports from individualbeneficialownership.jl
 export
@@ -126,7 +126,8 @@ export
 export
     search_symbol,
     search_name,
-    stock_screener
+    stock_screener,
+    available_countries
 
 # exports from companyinformation.jl
 export
@@ -177,7 +178,7 @@ export
     insider_trades_feed,
     insiders_list,
     cik_from_insider,
-    cik_from_company,
+    cik_from_symbol,
     insider_roster,
     insider_roster_statistics,
     fails_to_deliver

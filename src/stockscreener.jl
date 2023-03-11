@@ -1,7 +1,7 @@
 """
     search_symbol(fmp, symbol, params...)
 
-Returns a list of search results for the specified symbol and filters.
+Returns search results for the specified symbol and filters.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -32,7 +32,7 @@ search_symbol(fmp::FMP, symbol::String; params...) = search_symbol(fmp; symbol, 
 """
     search_name(fmp, name, params...)
 
-Returns a list of search results for the specified name and filters.
+Returns search results for the specified name and filters.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -63,7 +63,7 @@ search_name(fmp::FMP, name::String; params...) = search_name(fmp; name, params..
 """
     stock_screener(fmp, params...)
 
-Returns a list of search results for the specified filters.
+Returns search results for the specified filters.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

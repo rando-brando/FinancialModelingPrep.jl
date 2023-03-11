@@ -1,7 +1,7 @@
 """
     senate_trades(fmp, symbol)
 
-Returns a JSON table of senate trades for the specified symbol.
+Returns senate trades for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -31,7 +31,7 @@ senate_trades(fmp::FMP, symbol::String) = senate_trades(fmp; symbol)
 """
     senate_trades_feed(fmp, params...)
 
-Returns a JSON table of senate trades from the RSS feed.
+Returns senate trades from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -60,7 +60,7 @@ end
 """
     senate_disclosures(fmp, symbol)
 
-Returns a JSON table of senate disclosures for the specified symbol.
+Returns senate disclosures for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -90,7 +90,7 @@ senate_disclosures(fmp::FMP, symbol::String) = senate_disclosures(fmp; symbol)
 """
     senate_disclosure_feed(fmp, params...)
 
-Returns a JSON table of senate disclosures from the RSS feed.
+Returns senate disclosures from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.

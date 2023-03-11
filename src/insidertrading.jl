@@ -1,7 +1,7 @@
 """
     insider_trading_types(fmp)
 
-Returns a JSON table of insider trading transaction types.
+Returns insider trading transaction types.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -29,7 +29,7 @@ end
 """
     insider_trades(fmp, params...)
 
-Returns a JSON table of insider trades.
+Returns insider trades.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -61,7 +61,7 @@ end
 """
     insider_trades_feed(fmp, params...)
 
-Returns a JSON table of insider trades from the RSS feed.
+Returns insider trades from the RSS feed.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -90,7 +90,7 @@ end
 """
     insiders_list(fmp, params...)
 
-Returns a JSON table of all insider names and their CIKs matching the specified parameters.
+Returns all insider names and their CIKs matching the specified parameters.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -108,7 +108,7 @@ fmp = FMP()
 data = insiders_list(fmp, page = 3)
 ```
 """
-function insiders_list(fmp::FMP, params...)
+function insiders_list(fmp::FMP; params...)
     endpoint = "mapper-cik-name"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
@@ -119,7 +119,7 @@ end
 """
     cik_from_insider(fmp, name)
 
-Returns a JSON table of all CIKs matching the specified insider name.
+Returns all CIKs matching the specified insider name.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -149,11 +149,11 @@ cik_from_insider(fmp::FMP, name::String) = cik_from_insider(fmp; name)
 """
     cik_from_symbol(fmp, symbol)
 
-Returns a list of all CIKs matching the specified symbol.
+Returns all CIKs matching the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- symbol::symbol: A stock symbol.
+- `symbol::String`: A stock symbol.
 
 See [CIK-Mapper]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
@@ -179,11 +179,11 @@ cik_from_symbol(fmp::FMP, symbol::String) = cik_from_symbol(fmp; symbol)
 """
     insider_roster(fmp, symbol)
 
-Returns a list with the insider roster for the specified symbol.
+Returns a JSON table with the insider roster for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- symbol::symbol: A stock symbol.
+- `symbol::String`: A stock symbol.
 
 See [Insider-Roster]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
@@ -199,7 +199,7 @@ data = insider_roster(fmp, "AAPL")
 """
 function insider_roster(fmp::FMP; symbol::String)
     endpoint = "insider-roaster"
-    url, query = Client.make_url_v3(fmp, endpoint; symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
@@ -209,11 +209,11 @@ insider_roster(fmp::FMP, symbol::String) = insider_roster(fmp; symbol)
 """
     insider_roster_statistics(fmp, symbol)
 
-Returns a list of insider roster statistics for the specified symbol.
+Returns insider roster statistics for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- symbol::symbol: A stock symbol.
+- `symbol::String`: A stock symbol.
 
 See [Insider-Roster-Statistics]\
 (https://site.financialmodelingprep.com/developer/docs/#Stock-Insider-Trading) for more details.
@@ -229,7 +229,7 @@ data = insider_roster_statistics(fmp, "AAPL")
 """
 function insider_roster_statistics(fmp::FMP; symbol::String)
     endpoint = "insider-roaster-statistics"
-    url, query = Client.make_url_v3(fmp, endpoint; symbol)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
@@ -239,11 +239,11 @@ insider_roster_statistics(fmp::FMP, symbol::String) = insider_roster_statistics(
 """
     fails_to_deliver(fmp, symbol, params)
 
-Returns a list of fails to deliver for the specified symbol.
+Returns fails to deliver for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
-- symbol::symbol: A stock symbol.
+- `symbol::String`: A stock symbol.
 - `params...`: Additional keyword query params.
 
 See [Fails-to-Deliver]\
@@ -260,7 +260,7 @@ data = fails_to_deliver(fmp, "AAPL", page = 0)
 """
 function fails_to_deliver(fmp::FMP; symbol::String, params...)
     endpoint = "fails_to_deliver"
-    url, query = Client.make_url_v3(fmp, endpoint; symbol, params...)
+    url, query = Client.make_url_v4(fmp, endpoint; symbol, params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data

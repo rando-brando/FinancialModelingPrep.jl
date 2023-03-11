@@ -75,7 +75,7 @@ See [Crowdfunding-Offerings-by-CIK]\
 fmp = FMP()
 
 # get the crowdfundings offerings for OYO Fitness
-data = crowdfunding_offerings(fmp, cik = "0001067983")
+data = crowdfunding_offerings(fmp, cik = "0001916078")
 ```
 """
 function crowdfunding_offerings(fmp::FMP; cik::String)
@@ -164,7 +164,7 @@ See [Equity-Offerings-Fundraising-by-CIK]\
 fmp = FMP()
 
 # get the equity offerings for Marinalife
-data = equity_offerings(fmp, cik = "0001067983")
+data = equity_offerings(fmp, cik = "0001870523")
 ```
 """
 function equity_offerings(fmp::FMP; cik::String)

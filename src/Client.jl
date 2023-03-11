@@ -123,7 +123,7 @@ parse_json_object(response::HTTP.Messages.Response) = parse_json_object(response
 - `response::HTTP.Messages.Response`: An HTTP response containing JSON data.
 - `accessor::Symbol`: An accessor Symbol which contains a nested array.
 """
-function parse_json_table(response::HTTP.Messages.Response, accessor)::JSONTables.Table
+function parse_json_table(response::HTTP.Messages.Response, accessor)::Union{JSONTables.Table, JSON3.Array}
     result = parse_json_object(response, accessor)
     if !isempty(result)
         result = JSONTables.jsontable(result)

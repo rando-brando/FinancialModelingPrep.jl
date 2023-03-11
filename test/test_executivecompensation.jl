@@ -1,7 +1,7 @@
 @testset "executive_compensation" begin
-    @test_throws PermissionError isa(executive_compensation(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError executive_compensation(fmp, "AAPL")
 end
 
-@testset "executive_compensation_benchmark" begin
-    @test_throws PermissionError isa(executive_compensation_benchmark(fmp, year = 2020), JSONTable)
+@testset "executive_compensation_benchmarks" begin
+    @test_throws PermissionError executive_compensation_benchmarks(fmp, year = 2020)
 end

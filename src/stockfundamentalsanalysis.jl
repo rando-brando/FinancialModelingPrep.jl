@@ -174,7 +174,7 @@ data = balance_sheet_statements_growth(fmp, "AAPL", limit = 5)
 ```
 """
 function balance_sheet_statements_growth(fmp::FMP; symbol::String, params...)
-    endpoint = "balance_sheet_statement_growth/$(symbol)"
+    endpoint = "balance-sheet-statement-growth/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)

@@ -1,9 +1,9 @@
 @testset "sector_pe_ratios" begin
-    @test_throws PermissionError isa(sector_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE"), JSONTable)
+    @test_throws PermissionError sector_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE")
 end
 
 @testset "industry_pe_ratios" begin
-    @test_throws PermissionError isa(industry_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE"), JSONTable)
+    @test_throws PermissionError industry_pe_ratios(fmp, date = "2023-01-01", exchange = "NYSE")
 end
 
 @testset "sector_performances" begin

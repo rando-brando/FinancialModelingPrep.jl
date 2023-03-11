@@ -11,7 +11,7 @@ end
 end
 
 @testset "survivorship_bias" begin
-    @test_throws PermissionError isa(survivorship_bias(fmp, "AAPL", "2012-01-03"), JSONObject)
+    @test_throws PermissionError survivorship_bias(fmp, "AAPL", "2012-01-03")
 end
 
 @testset "technical_indicators" begin

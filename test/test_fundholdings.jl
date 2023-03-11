@@ -3,15 +3,15 @@
 end
 
 @testset "etf_summary" begin
-    @test_throws PermissionError isa(etf_summary(fmp, "SPY"), JSONTable)
+    @test_throws PermissionError etf_summary(fmp, "SPY")
 end
 
 @testset "institutional_holders" begin
-    @test_throws PermissionError isa(institutional_holders(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError institutional_holders(fmp, "AAPL")
 end
 
 @testset "mutual_fund_holders" begin
-    @test_throws PermissionError isa(mutual_fund_holders(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError mutual_fund_holders(fmp, "AAPL")
 end
 
 @testset "etf_sector_weightings" begin
@@ -23,7 +23,7 @@ end
 end
 
 @testset "etf_exposure" begin
-    @test_throws PermissionError isa(etf_exposure(fmp, "SPY"), JSONTable)
+    @test_throws PermissionError etf_exposure(fmp, "SPY")
 end
 
 @testset "institutions_list" begin
@@ -39,7 +39,7 @@ end
 end
 
 @testset "forms_13f" begin
-    @test isa(forms_13f(fmp, cik = "0001067983", "2022-06-30"), JSONTable)
+    @test isa(forms_13f(fmp, cik = "0001067983", date = "2022-06-30"), JSONTable)
 end
 
 @testset "filing_dates" begin
@@ -47,5 +47,5 @@ end
 end
 
 @testset "company_from_cusip" begin
-    @test isa(company_from_cusip(fmp, cik = "000360206"), JSONTable)
+    @test isa(company_from_cusip(fmp, cusip = "000360206"), JSONTable)
 end

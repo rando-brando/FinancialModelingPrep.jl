@@ -1,3 +1,3 @@
 @testset "beneficial_ownership" begin
-    @test_throws PermissionError isa(beneficial_ownership(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError beneficial_ownership(fmp, "AAPL")
 end

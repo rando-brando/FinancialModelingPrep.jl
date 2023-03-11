@@ -3,17 +3,17 @@
 end
 
 @testset "key_executives" begin
-    @test_throws PermissionError isa(key_executives(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError key_executives(fmp, "AAPL")
 end
 
 @testset "company_outlook" begin
-    @test_throws PermissionError isa(company_outlook(fmp, "AAPL"), JSONArray)
-    @test_throws PermissionError isa(company_outlook(fmp, "AAPL", :profile), JSONTable)
-    @test_throws PermissionError isa(company_outlook(fmp, "AAPL", :insideTrades), JSONTable)
+    @test_throws PermissionError company_outlook(fmp, "AAPL")
+    @test_throws PermissionError company_outlook(fmp, "AAPL", :profile)
+    @test_throws PermissionError company_outlook(fmp, "AAPL", :insideTrades)
 end
 
 @testset "stock_peers" begin
-    @test_throws PermissionError isa(stock_peers(fmp, "AAPL"), JSONArray)
+    @test_throws PermissionError stock_peers(fmp, "AAPL")
 end
 
 @testset "nyse_schedule" begin
@@ -25,9 +25,9 @@ end
 end
 
 @testset "symbol_changes" begin
-    @test_throws PermissionError isa(symbol_changes(fmp), JSONTable)
+    @test_throws PermissionError symbol_changes(fmp)
 end
 
 @testset "company_information" begin
-    @test_throws PermissionError isa(company_information(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError company_information(fmp, "AAPL")
 end

@@ -91,6 +91,7 @@ function company_outlook(fmp::FMP; symbol::String, accessor = nothing)
     end
     return data
 end
+company_outlook(fmp::FMP, symbol::String, accessor = nothing) = company_outlook(fmp; symbol, accessor)
 company_outlook(fmp::FMP, symbol::String; accessor = nothing) = company_outlook(fmp; symbol, accessor)
 
 """

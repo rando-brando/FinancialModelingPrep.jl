@@ -3,43 +3,43 @@
 end
 
 @testset "income_statements" begin
-    @test_throws PermissionError isa(income_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError income_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)
     @test isa(income_statements(fmp, "AAPL", reported = true, limit = 5), JSONTable)
 end
 
 @testset "balance_sheet_statements" begin
-    @test_throws PermissionError isa(balance_sheet_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError balance_sheet_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)
     @test isa(balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5), JSONTable)
 end
 
 @testset "cash_flow_statements" begin
-    @test_throws PermissionError isa(cash_flow_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError cash_flow_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)
     @test isa(cash_flow_statements(fmp, "AAPL", reported = true, limit = 5), JSONTable)
 end
 
 @testset "financial_statements" begin
     @test isa(financial_statements(fmp, "AAPL", limit = 5), JSONTable)
-    @test_throws PermissionError isa(financial_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 4), JSONTable)
+    @test_throws PermissionError financial_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 4)
 end
 
 @testset "financial_reports" begin
-    @test_throws PermissionError isa(financial_reports(fmp, "AAPL", 2022), JSONTable)
-    @test_throws PermissionError isa(financial_reports(fmp, "AAPL", 2022, period = "Q4"), JSONTable)
+    @test_throws PermissionError financial_reports(fmp, "AAPL", 2022)
+    @test_throws PermissionError financial_reports(fmp, "AAPL", 2022, period = "Q4")
 end
 
 @testset "revenue_segments" begin
-    @test_throws PermissionError isa(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic), JSONTable)
-    @test_throws PermissionError isa(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter), JSONTable)
+    @test_throws PermissionError revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)
+    @test_throws PermissionError revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter)
 end
 
 @testset "shares_float" begin
-    @test_throws PermissionError isa(shares_float(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError shares_float(fmp, "AAPL")
 end
 
 @testset "earnings_call_transcripts" begin
-    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL"), JSONTable)
-    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", year = 2022), JSONTable)
-    @test_throws PermissionError isa(earnings_call_transcripts(fmp, "AAPL", 2022, quarter = 3), JSONTable)
+    @test_throws PermissionError earnings_call_transcripts(fmp, "AAPL")
+    @test_throws PermissionError earnings_call_transcripts(fmp, "AAPL", year = 2022)
+    @test_throws PermissionError earnings_call_transcripts(fmp, "AAPL", 2022, quarter = 3)
 end
 
 @testset "sec_filings" begin
@@ -47,5 +47,5 @@ end
 end
 
 @testset "company_notes" begin
-    @test_throws PermissionError isa(company_notes(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError company_notes(fmp, "AAPL")
 end

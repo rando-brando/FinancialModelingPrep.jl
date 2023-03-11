@@ -1,3 +1,3 @@
 @testset "historical_employee_counts" begin
-    @test_throws PermissionError isa(historical_employee_counts(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError historical_employee_counts(fmp, "AAPL")
 end

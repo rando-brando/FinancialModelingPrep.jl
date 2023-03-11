@@ -31,13 +31,14 @@ fmp = FMP()
 data = price_quote(fmp, "AAPL")
 ```
 """
-function price_quote(fmp::FMP, symbol::String)
+function price_quote(fmp::FMP; symbol::String)
     endpoint = "quote/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+price_quote(fmp::FMP, symbol::String) = price_quote(fmp; symbol)
 
 """
     price_quotes(fmp, market)
@@ -90,13 +91,14 @@ data = price_quote(fmp, "forex")
 data = price_quote(fmp, "commodity")
 ```
 """
-function price_quotes(fmp::FMP, market::String)
+function price_quotes(fmp::FMP; market::String)
     endpoint = "quotes/$(market)"
     url, query = Client.make_url_v3(fmp, endpoint)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
+price_quotes(fmp::FMP, market::String) = price_quotes(fmp; market)
 
 """
     historical_price_quote(fmp, symbol, frequency = TIME_FREQUENCIES.daily, params...)
@@ -139,7 +141,7 @@ data = historical_price_quote(fmp, "BTCUSD", frequency = TIME_FREQUENCIES.hours4
 data = historical_price_quote(fmp, "EURUSD", frequency = TIME_FREQUENCIES.daily, timeseries = 5)
 ```
 """
-function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...)
+function historical_price_quote(fmp::FMP; symbol::String, frequency::String = TIME_FREQUENCIES.daily, params...)
     if frequency == TIME_FREQUENCIES.daily
         endpoint = "historical-price-full/$(symbol)"
     else
@@ -150,3 +152,4 @@ function historical_price_quote(fmp::FMP, symbol::String; frequency::String = TI
     data = Client.parse_json_table(response, :historical)
     return data
 end
+historical_price_quote(fmp::FMP, symbol::String; frequency::String = TIME_FREQUENCIES.daily, params...) = historical_price_quote(fmp; symbol, frequency, params...)

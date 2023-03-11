@@ -20,7 +20,7 @@ data = executive_compensation(fmp, "AAPL")
 ```
 """
 function executive_compensation(fmp::FMP; symbol::String)
-    endpoint = "governance/excecutive_compensation"
+    endpoint = "governance/executive_compensation"
     url, query = Client.make_url_v4(fmp, endpoint, symbol = symbol)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
@@ -50,7 +50,7 @@ data = executive_compensation_benchmarks(fmp, year = 2020)
 ```
 """
 function executive_compensation_benchmarks(fmp::FMP; year::Integer)
-    endpoint = "excecutive-compensation-benchmark"
+    endpoint = "executive-compensation-benchmark"
     url, query = Client.make_url_v4(fmp, endpoint, year = year)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)

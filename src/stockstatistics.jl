@@ -1,13 +1,11 @@
 """
-    social_sentiment(fmp, symbol, params...)
-    social_sentiment(fmp, type = "trending", params...)
+    historical_social_sentiment(fmp, symbol, params...)
 
-Returns a JSON table with the social sentiment type for the specified symbol.
+Returns a JSON table with the historical social sentiment for the specified symbol.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
 - `symbol::String`: A stock symbol.
-- type::String: One of "trending", or "change".
 - `params...`: Additional keyword query params.
 
 See [Social-Sentiment]\
@@ -19,23 +17,73 @@ See [Social-Sentiment]\
 fmp = FMP()
 
 # get the first page of historical social sentiment for AAPL
-data = social_sentiment(fmp, "AAPL", page = 0)
-
-# get all trending social sentiment from stocktwits with a bullish bias
-data = social_sentiment(fmp, type = "trending", type = "bullish", source = "stocktwits")
+data = historical_social_sentiment(fmp, "AAPL", page = 0)
 ```
 """
-function social_sentiment(fmp::FMP; type::String = "trending", params...)
-    endpoint = "social-sentiment/$(type)"
-    url, query = Client.make_url_v4(fmp, endpoint; params...)
+function historical_social_sentiment(fmp::FMP; symbol::String, params...)
+    endpoint = "historical/social-sentiment"
+    url, query = Client.make_url_v4(fmp, endpoint; symbol, params...)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data
+end
+historical_social_sentiment(fmp::FMP, symbol::String; params...) = historical_social_sentiment(fmp; symbol, params...)
+
+"""
+    social_sentiment_trends(fmp, type, source)
+
+Returns a JSON table with the social sentiment trends for the specified symbol.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `type::String:` One of "bullish" or "bearish".
+- `source::String:` One of "twitter" or "stocktwits".
+
+See [Social-Sentiment]\
+(https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get all social sentiment trends from stocktwits with a bearish bias
+data = social_sentiment_trends(fmp, type = "bearish", source = "stocktwits")
+```
+"""
+function social_sentiment_trends(fmp::FMP; type::String = "bullish", source::String = "twitter")
+    endpoint = "social-sentiment/trending"
+    url, query = Client.make_url_v4(fmp, endpoint; type, source)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
 
-function social_sentiment(fmp::FMP, symbol::String; params...)
-    endpoint = "historical/social-sentiment"
-    url, query = Client.make_url_v4(fmp, endpoint; symbol = symbol, params...)
+"""
+    social_sentiment_changes(fmp, type, source)
+
+Returns a JSON table with the social sentiment changes for the specified symbol.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `type::String:` One of "bullish" or "bearish".
+- `source::String:` One of "twitter" or "stocktwits".
+
+See [Social-Sentiment]\
+(https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get all social sentiment changes from stocktwits with a bearish bias
+data = social_sentiment_changes(fmp, type = "bearish", source = "stocktwits")
+```
+"""
+function social_sentiment_changes(fmp::FMP; type::String = "bullish", source::String = "twitter")
+    endpoint = "social-sentiment/changes"
+    url, query = Client.make_url_v4(fmp, endpoint; type, source)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data

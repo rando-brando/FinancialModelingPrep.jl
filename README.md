@@ -227,7 +227,9 @@ df[1:5, 1:4]
 ## Stock Statistics
 | Function | Endpoint(s) |
 |----------|-------------|
-| social_sentiment | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
+| historical_social_sentiment | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
+| social_sentiment_trends | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
+| social_sentiment_changes | [Social-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Social-Sentiment) |
 | stock_grades | [Stock-Grade](https://site.financialmodelingprep.com/developer/docs/#Stock-Grade) |
 | earnings_surprises | [Earnings-Surprises](https://site.financialmodelingprep.com/developer/docs/#Earnings-Surprises) |
 | analyst_estimates | [Analyst-Estimates](https://site.financialmodelingprep.com/developer/docs/#Analyst-Estimates) |

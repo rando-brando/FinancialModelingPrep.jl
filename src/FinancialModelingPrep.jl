@@ -5,12 +5,6 @@ include("Client.jl")
 import .Client
 import .Client.FMP
 
-# export preset variables
-export 
-    REPORTING_PERIODS,
-    REVENUE_SEGMENTS,
-    TIME_FREQUENCIES
-
 # exports from Client module
 export FMP
 
@@ -72,7 +66,7 @@ export
 # exports from privatecompaniesfundraisingdata.jl
 export
     crowdfunding_offerings_feed,
-    crowdfunding_offerings_feed,
+    crowdfunding_offerings_search,
     crowdfunding_offerings,
     equity_offerings_feed,
     equity_offerings_search,
@@ -118,6 +112,7 @@ export
 # exports from stockcalendars.jl
 export
     earnings_calendar,
+    historical_earnings_calendar,
     earnings_calendar_confirmed,
     ipo_calendar,
     ipo_calendar_prospectus,
@@ -166,7 +161,9 @@ export
 
 # exports from stockstatistics.jl
 export
-    social_sentiment,
+    historical_social_sentiment,
+    social_sentiment_trends,
+    social_sentiment_changes,
     stock_grades,
     earnings_surprises,
     analyst_estimates,
@@ -249,6 +246,12 @@ export
     available_forex_pairs,
     exchange_rates,
     available_commodities
+
+# export preset variables
+export 
+    REPORTING_PERIODS,
+    REVENUE_SEGMENTS,
+    TIME_FREQUENCIES
 
 const REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
 const REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options

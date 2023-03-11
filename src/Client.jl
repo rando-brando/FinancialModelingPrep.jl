@@ -42,7 +42,7 @@ Creates a Financial Modeling Prep API version 3 URL.
 - `params...`: Additional keyword query params.
 """
 function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query = Dict{String, Any}(string(k) => v for (k, v) in params if !isnothing(v))
     query["apikey"] = fmp.apikey
     url = "$(fmp.baseurl)/api/v3/$(endpoint)"
     return url, query
@@ -59,7 +59,7 @@ Creates a Financial Modeling Prep API version 4 URL.
 - `params...`: Additional keyword query params.
 """
 function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query = Dict{String, Any}(string(k) => v for (k, v) in params if !isnothing(v))
     query["apikey"] = fmp.apikey
     url = "$(fmp.baseurl)/api/v4/$(endpoint)"
     return url, query

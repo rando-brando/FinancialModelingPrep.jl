@@ -1,9 +1,9 @@
 @testset "fmp_articles" begin
-    @test isa(fmp_articles(fmp, page = 0, size = 5), JSONObject)
+    @test_throws PermissionError fmp_articles(fmp, page = 0, size = 5)
 end
 
 @testset "stock_news" begin
-    @test_throws PermissionError stock_news(fmp, tickers = "AAPL,FB", limit = 50)
+    @test isa(stock_news(fmp, tickers = "AAPL,FB", limit = 50), JSONTable)
 end
 
 @testset "stock_news_sentiment_feed" begin
@@ -11,15 +11,15 @@ end
 end
 
 @testset "crypto_news" begin
-    @test_throws PermissionError crypto_news(fmp, symbol = "BTCUSD", page = 0)
+    @test isa(crypto_news(fmp, symbol = "BTCUSD", page = 0), JSONTable)
 end
 
 @testset "forex_news" begin
-    @test_throws PermissionError forex_news(fmp, symbol = "EURUSD", page = 0)
+    @test isa(forex_news(fmp, symbol = "EURUSD", page = 0), JSONTable)
 end
 
 @testset "general_news" begin
-    @test_throws PermissionError general_news(fmp, page = 0)
+    @test isa(general_news(fmp, page = 0), JSONTable)
 end
 
 @testset "press_releases" begin

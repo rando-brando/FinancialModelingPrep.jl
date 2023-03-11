@@ -3,7 +3,7 @@
 end
 
 @testset "key_executives" begin
-    @test_throws PermissionError key_executives(fmp, "AAPL")
+    @test isa(key_executives(fmp, "AAPL"), JSONTable)
 end
 
 @testset "company_outlook" begin
@@ -29,5 +29,5 @@ end
 end
 
 @testset "company_information" begin
-    @test_throws PermissionError company_information(fmp, "AAPL")
+    @test isa(company_information(fmp, "AAPL"), JSONTable)
 end

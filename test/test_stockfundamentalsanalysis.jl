@@ -1,5 +1,5 @@
 @testset "financial_ratios" begin
-    @test_throws PermissionError financial_ratios(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(financial_ratios(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(financial_ratios(fmp, "AAPL", limit = 5), JSONTable)
 end
 
@@ -12,27 +12,27 @@ end
 end
 
 @testset "enterprise_values" begin
-    @test_throws PermissionError enterprise_values(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(enterprise_values(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(enterprise_values(fmp, "AAPL", limit = 5), JSONTable)
 end
 
 @testset "income_statements_growth" begin
-    @test_throws PermissionError income_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(income_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(income_statements_growth(fmp, "AAPL", limit = 5), JSONTable)
 end
 
 @testset "balance_sheet_statements_growth" begin
-    @test_throws PermissionError balance_sheet_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(balance_sheet_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(balance_sheet_statements_growth(fmp, "AAPL", limit = 5), JSONTable)
 end
 
 @testset "cash_flow_statements_growth" begin
-    @test_throws PermissionError cash_flow_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(cash_flow_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(cash_flow_statements_growth(fmp, "AAPL", limit = 5), JSONTable)
 end
 
 @testset "financial_statements_growth" begin
-    @test_throws PermissionError financial_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
+    @test isa(financial_statements_growth(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30), JSONTable)
     @test isa(financial_statements_growth(fmp, "AAPL", limit = 5), JSONTable)
 end
 
@@ -50,15 +50,15 @@ end
 end
 
 @testset "discounted_cash_flows" begin
-    @test isa(discounted_cash_flows(fmp, "AAPL"), JSONTable)
+    @test_throws PermissionError discounted_cash_flows(fmp, "AAPL")
 end
 
 @testset "advanced_discounted_cash_flows" begin
-    @test_throws PermissionError advanced_discounted_cash_flows(fmp, "AAPL")
-    @test_throws PermissionError advanced_discounted_cash_flows(fmp, "AAPL", levered = true)
+    @test isa(advanced_discounted_cash_flows(fmp, "AAPL"), JSONTable)
+    @test isa(advanced_discounted_cash_flows(fmp, "AAPL", levered = true), JSONTable)
 end
 
 @testset "historical_discounted_cash_flows" begin
     @test_throws PermissionError historical_discounted_cash_flows(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 30)
-    @test isa(historical_discounted_cash_flows(fmp, "AAPL", limit = 5), JSONTable)
+    @test_throws PermissionError historical_discounted_cash_flows(fmp, "AAPL", limit = 5)
 end

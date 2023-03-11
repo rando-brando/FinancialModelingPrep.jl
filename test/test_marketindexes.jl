@@ -8,10 +8,10 @@ end
 end
 
 @testset "nasdaq_companies" begin
-    @test isa(nasdaq_companies(fmp), JSONTable)
+    @test_throws PermissionError nasdaq_companies(fmp)
 end
 
 @testset "dowjones_companies" begin
-    @test isa(dowjones_companies(fmp), JSONTable)
-    @test isa(dowjones_companies(fmp, historical = true), JSONTable)
+    @test_throws PermissionError dowjones_companies(fmp)
+    @test_throws PermissionError dowjones_companies(fmp, historical = true)
 end

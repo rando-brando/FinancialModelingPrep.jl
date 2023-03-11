@@ -228,10 +228,10 @@ See [Revenue-Geographic-by-Segments]\
 fmp = FMP()
 
 # get all yearly geographic revenue segments for AAPL
-data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic, structure = "flat")
 
 # get all quarterly product revenue segments for AAPL
-data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter")
+data = revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = "quarter", structure = "flat")
 ```
 """
 function revenue_segments(fmp::FMP; symbol::String, segment::String = REVENUE_SEGMENTS.product, params...)
@@ -314,10 +314,20 @@ data = earnings_call_transcripts(fmp, "AAPL", year = 2022, quarter = 3)
 ```
 """
 function earnings_call_transcripts(fmp::FMP; symbol::String, year = nothing, quarter = nothing)
-    endpoint = "earning_call_transcript"
-    url, query = Client.make_url_v4(fmp, endpoint; symbol, year, quarter)
+    if isnothing(year) & isnothing(quarter)
+        endpoint = "earning_call_transcript"
+        url, query = Client.make_url_v4(fmp, endpoint; symbol)
+    else
+        if isnothing(quarter)
+            endpoint = "batch_earning_call_transcript/$(symbol)"
+            url, query = Client.make_url_v4(fmp, endpoint; year)
+        else
+            endpoint = "earning_call_transcript/$(symbol)"
+            url, query = Client.make_url_v3(fmp, endpoint; year, quarter)
+        end 
+    end
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
+    data = Client.parse_json_object(response)
     return data
 end
 earnings_call_transcripts(fmp::FMP, symbol::String, year::Integer, quarter::Integer) = earnings_call_transcripts(fmp; symbol, year, quarter)

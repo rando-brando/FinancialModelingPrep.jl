@@ -1,8 +1,36 @@
 """
     earnings_calendar(fmp, params...)
-    earnings_calendar(fmp, symbol, params...)
 
-Returns a list of earnings calendar events.
+Returns a JSON table of earnings calendar events.
+
+# Arguments
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
+
+See [Earnings-Calendar]\
+(https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) for more details.
+
+# Examples
+``` julia
+# create a FMP API instance
+fmp = FMP()
+
+# get the earnings calendar events for Q1 2022
+data = earnings_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
+```
+"""
+function earnings_calendar(fmp::FMP; params...)
+    endpoint = "earning_calendar"
+    url, query = Client.make_url_v3(fmp, endpoint; params...)
+    response = Client.make_get_request(url, query)
+    data = Client.parse_json_table(response)
+    return data
+end
+
+"""
+    historical_earnings_calendar(fmp, symbol, params...)
+
+Returns a JSON table of historical earnings calendar events.
 
 # Arguments
 - `fmp::FMP`: A Financial Modeling Prep instance.
@@ -17,28 +45,18 @@ See [Earnings-Calendar]\
 # create a FMP API instance
 fmp = FMP()
 
-# get the earnings calendar events for Q1 2022
-data = earnings_calendar(fmp, from = "2022-01-01", to = "2022-03-31")
-
 # get the last 50 earnings calendar events for AAPL
-data = earnings_calendar(fmp, "AAPL", limit = 50)
+data = historical_earnings_calendar(fmp, "AAPL", limit = 50)
 ```
 """
-function earnings_calendar(fmp::FMP; params...)
-    endpoint = "earning_calendar"
-    url, query = Client.make_url_v3(fmp, endpoint; params...)
-    response = Client.make_get_request(url, query)
-    data = Client.parse_json_table(response)
-    return data
-end
-function earnings_calendar(fmp::FMP; symbol::String; params...)
+function historical_earnings_calendar(fmp::FMP; symbol::String, params...)
     endpoint = "historical/earning_calendar/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
     data = Client.parse_json_table(response)
     return data
 end
-earnings_calendar(fmp::FMP, symbol::String; params...) = earnings_calendar(fmp; symbol, params...)
+historical_earnings_calendar(fmp::FMP, symbol::String; params...) = historical_earnings_calendar(fmp; symbol, params...)
 
 """
     earnings_calendar_confirmed(fmp, params...)

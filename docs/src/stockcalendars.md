@@ -3,6 +3,11 @@
 earnings_calendar
 ```
 
+## historical\_earnings\_calendar
+```@docs
+historical_earnings_calendar
+```
+
 ## earnings\_calendar\_confirmed
 ```@docs
 earnings_calendar_confirmed

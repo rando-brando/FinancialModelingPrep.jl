@@ -169,6 +169,7 @@ df[1:5, 1:4]
 | Function | Endpoint(s) |
 |----------|-------------|
 | earnings_calendar | [Earnings-Calendar](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) |
+| historical_earnings_calendar | [Earnings-Calendar](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar) |
 | earnings_calendar_confirmed | [Earnings-Calendar-Confirmed](https://site.financialmodelingprep.com/developer/docs/#Earnings-Calendar-Confirmed) |
 | ipo_calendar | [IPO-Calendar](https://site.financialmodelingprep.com/developer/docs/#IPO-Calendar) |
 | ipo_calendar_with_prospectus | [IPO-Calendar-with-Prospectus](https://site.financialmodelingprep.com/developer/docs/#IPO-calendar-with-prospectus) |

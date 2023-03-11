@@ -1,13 +1,14 @@
 """
     fmp_articles(fmp, params...)
 
-Returns a list of fmp articles. Each element is a dictionary.
+Returns a JSON object of fmp articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [FMP-Articles](https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) for more details.
+See [FMP-Articles]\
+(https://site.financialmodelingprep.com/developer/docs/#FMP-Articles) for more details.
 
 # Examples
 ``` julia
@@ -18,52 +19,54 @@ fmp = FMP()
 data = fmp_articles(fmp, page = 0, size = 5)
 ```
 """
-function fmp_articles(fmp::FMP; params...)::Vector{Any}
+function fmp_articles(fmp::FMP; params...)
     endpoint = "fmp/articles"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_object(response)
     return data
 end
 
 """
     stock_news(fmp, params...)
 
-Returns a list of stock news articles. Each element is a dictionary.
+Returns stock news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [Stock-News](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
+See [Stock-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
 
 # Examples
 ``` julia
 # create a FMP API instance
 fmp = FMP()
 
-# get the latest 50 stock news for GOOG and MSFT
-data = stock_news(fmp, ticker = ["GOOG", "MSFT"], limit = 50)
+# get the latest 50 stock news for AAPL and FB
+data = stock_news(fmp, tickers = "AAPL,FB", limit = 50)
 ```
 """
-function stock_news(fmp::FMP; params...)::Vector{Any}
+function stock_news(fmp::FMP; params...)
     endpoint = "stock_news"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
 """
     stock_news_sentiment_feed(fmp, params...)
 
-Returns a list of stock news article sentiment. Each element is a dictionary.
+Returns stock news article sentiment.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [Stock-Sentiment](https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
+See [Stock-Sentiment]\
+(https://site.financialmodelingprep.com/developer/docs/#Stock-News) for more details.
 
 # Examples
 ``` julia
@@ -74,24 +77,25 @@ fmp = FMP()
 data = stock_news_sentiment_feed(fmp, page = 0)
 ```
 """
-function stock_news_sentiment_feed(fmp::FMP; params...)::Vector{Any}
+function stock_news_sentiment_feed(fmp::FMP; params...)
     endpoint = "stock-news-setniments-rss-feed"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
 """
     crypto_news(fmp, params...)
 
-Returns a list of crypto news articles. Each element is a dictionary.
+Returns crypto news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [Crypto-News](https://site.financialmodelingprep.com/developer/docs/#Crypto-news) for more details.
+See [Crypto-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Crypto-news) for more details.
 
 # Examples
 ``` julia
@@ -102,24 +106,25 @@ fmp = FMP()
 data = crypto_news(fmp, symbol = "BTCUSD", page = 0)
 ```
 """
-function crypto_news(fmp::FMP; params...)::Vector{Any}
+function crypto_news(fmp::FMP; params...)
     endpoint = "crypto_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
 """
     forex_news(fmp, params...)
 
-Returns a list of forex news articles. Each element is a dictionary.
+Returns forex news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [Forex-News](https://site.financialmodelingprep.com/developer/docs/#Forex-news) for more details.
+See [Forex-News]\
+(https://site.financialmodelingprep.com/developer/docs/#Forex-news) for more details.
 
 # Examples
 ``` julia
@@ -130,24 +135,25 @@ fmp = FMP()
 data = forex_news(fmp, symbol = "EURUSD", page = 0)
 ```
 """
-function forex_news(fmp::FMP; params...)::Vector{Any}
+function forex_news(fmp::FMP; params...)
     endpoint = "forex_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
 """
     general_news(fmp, params...)
 
-Returns a list of general news articles. Each element is a dictionary.
+Returns general news articles.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `params...`: Additional keyword query params.
 
-See [General-News](https://site.financialmodelingprep.com/developer/docs/#General-news) for more details.
+See [General-News]\
+(https://site.financialmodelingprep.com/developer/docs/#General-news) for more details.
 
 # Examples
 ``` julia
@@ -158,25 +164,26 @@ fmp = FMP()
 data = general_news(fmp, page = 0)
 ```
 """
-function general_news(fmp::FMP; params...)::Vector{Any}
+function general_news(fmp::FMP; params...)
     endpoint = "general_news"
     url, query = Client.make_url_v4(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
 
 """
     press_releases(fmp, symbol, params...)
 
-Returns a list of stock press releases. Each element is a dictionary.
+Returns stock press releases.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- symbol::String: A stock symbol.
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `symbol::String`: A stock symbol.
+- `params...`: Additional keyword query params.
 
-See [Press-Releases](https://site.financialmodelingprep.com/developer/docs/#Press-Releases) for more details.
+See [Press-Releases]\
+(https://site.financialmodelingprep.com/developer/docs/#Press-Releases) for more details.
 
 # Examples
 ``` julia
@@ -187,10 +194,11 @@ fmp = FMP()
 data = press_releases(fmp, symbol = "AAPL", page = 0)
 ```
 """
-function press_releases(fmp::FMP, symbol::String; params...)::Vector{Any}
+function press_releases(fmp::FMP; symbol::String, params...)
     endpoint = "press-releases/$(symbol)"
     url, query = Client.make_url_v3(fmp, endpoint; params...)
     response = Client.make_get_request(url, query)
-    data = Client.parse_json_response(response)
+    data = Client.parse_json_table(response)
     return data
 end
+press_releases(fmp::FMP, symbol::String; params...) = press_releases(fmp; symbol, params...)

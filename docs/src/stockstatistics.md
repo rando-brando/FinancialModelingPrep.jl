@@ -1,6 +1,16 @@
-## social\_sentiment
+## historical\_social\_sentiment
 ```@docs
-social_sentiment
+historical_social_sentiment
+```
+
+## social\_sentiment\_trends
+```@docs
+social_sentiment_trends
+```
+
+## social\_sentiment\_changes
+```@docs
+social_sentiment_changes
 ```
 
 ## stock\_grades

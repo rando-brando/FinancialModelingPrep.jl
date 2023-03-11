@@ -1,50 +1,52 @@
 @testset "symbols_with_financials" begin
-    @test !isempty(symbols_with_financials(fmp))
+    @test isa(symbols_with_financials(fmp), JSONArray)
 end
 
 @testset "income_statements" begin
-    @test !isempty(income_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)[1])
-    @test !isempty(income_statements(fmp, "AAPL", reported = true, limit = 5)[1])
+    @test isa(income_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError income_statements(fmp, "AAPL", reported = true, limit = 5)
 end
 
 @testset "balance_sheet_statements" begin
-    @test !isempty(balance_sheet_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)[1])
-    @test !isempty(balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5)[1])
+    @test isa(balance_sheet_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError balance_sheet_statements(fmp, "AAPL", reported = true, limit = 5)
 end
 
 @testset "cash_flow_statements" begin
-    @test !isempty(cash_flow_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10)[1])
-    @test !isempty(cash_flow_statements(fmp, "AAPL", reported = true, limit = 5)[1])
+    @test isa(cash_flow_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 10), JSONTable)
+    @test_throws PermissionError cash_flow_statements(fmp, "AAPL", reported = true, limit = 5)
 end
 
 @testset "financial_statements" begin
-    @test !isempty(financial_statements(fmp, "AAPL", limit = 5)[1])
-    @test !isempty(financial_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 4)[1])
+    @test_throws PermissionError financial_statements(fmp, "AAPL", limit = 5)
+    @test_throws PermissionError financial_statements(fmp, "AAPL", period = REPORTING_PERIODS.quarter, limit = 4)
 end
 
 @testset "financial_reports" begin
-    @test !isempty(financial_reports(fmp, "AAPL", 2022)[1])
-    @test !isempty(financial_reports(fmp, "AAPL", 2022, period = "Q4")[1])
+    @test_throws PermissionError financial_reports(fmp, "AAPL", 2022)
+    @test_throws PermissionError financial_reports(fmp, "AAPL", 2022, period = "Q4")
 end
 
 @testset "revenue_segments" begin
-    # removed because I don't have the required plan to test it.
-    #@test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)[1])
-    #@test !isempty(revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter)[1])
+    @test_throws PermissionError revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.geographic)
+    @test_throws PermissionError revenue_segments(fmp, "AAPL", segment = REVENUE_SEGMENTS.product, period = REPORTING_PERIODS.quarter)
 end
 
 @testset "shares_float" begin
-    @test !isempty(shares_float(fmp, "AAPL")[1])
+    @test_throws PermissionError shares_float(fmp)
+    @test_throws PermissionError shares_float(fmp, "AAPL")
 end
 
 @testset "earnings_call_transcripts" begin
-    @test !isempty(earnings_call_transcript(fmp, "AAPL", year = 2022, quarter = 3)[1])
+    @test isa(earnings_call_transcripts(fmp, "AAPL"), JSONArray)
+    @test isa(earnings_call_transcripts(fmp, "AAPL", year = 2022), JSONArray)
+    @test isa(earnings_call_transcripts(fmp, "AAPL", year = 2022, quarter = 3), JSONArray)
 end
 
 @testset "sec_filings" begin
-    @test !isempty(sec_filings(fmp, "AAPL", type = "10-K", page = 2)[1])
+    @test isa(sec_filings(fmp, "AAPL", type = "10-K", page = 0), JSONTable)
 end
 
 @testset "company_notes" begin
-    @test !isempty(company_notes(fmp, "AAPL")[1])
+    @test isa(company_notes(fmp, "AAPL"), JSONTable)
 end

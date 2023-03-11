@@ -12,3 +12,8 @@ search_name
 ```@docs
 stock_screener
 ```
+
+## available\_countries
+```@docs
+available_countries
+```

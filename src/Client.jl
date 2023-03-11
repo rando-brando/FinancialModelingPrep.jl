@@ -1,17 +1,20 @@
 module Client
 
-import HTTP, JSON
+include("Exceptions.jl")
+
+import HTTP, JSON3, JSONTables
 import Base: @kwdef
+import .Exceptions
 
 """
-FMP(apikey, baseurl, headers)
+    FMP(apikey, baseurl, headers)
 
 Creates a Financial Modeling Prep instance for interacting with the API server endpoints.
 
 # Arguments
-- apikey::String = `"demo"`
-- baseurl::String = `"https://financialmodelingprep.com"`
-- headers::Dict{String, String} = `Dict("Upgrade-Insecure-Requests" => "1")`
+- `apikey::String` = `"demo"`
+- `baseurl::String` = `"https://financialmodelingprep.com"`
+- `headers::Dict{String, String}` = `Dict("Upgrade-Insecure-Requests" => "1")`
 
 # Examples
 ``` julia
@@ -34,12 +37,12 @@ end
 Creates a Financial Modeling Prep API version 3 URL.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- endpoint::String: The api endpoint
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `endpoint::String`: The api endpoint
+- `params...`: Additional keyword query params.
 """
 function make_url_v3(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query = Dict{String, Any}(string(k) => v for (k, v) in params if !isnothing(v))
     query["apikey"] = fmp.apikey
     url = "$(fmp.baseurl)/api/v3/$(endpoint)"
     return url, query
@@ -51,59 +54,82 @@ end
 Creates a Financial Modeling Prep API version 4 URL.
 
 # Arguments
-- fmp::FMP: A Financial Modeling Prep instance.
-- endpoint::String: The api endpoint
-- params...: Additional keyword query params.
+- `fmp::FMP`: A Financial Modeling Prep instance.
+- `endpoint::String`: The api endpoint
+- `params...`: Additional keyword query params.
 """
 function make_url_v4(fmp::FMP, endpoint::String; params...)::Tuple{String, Dict{String, Any}}
-    query = Dict{String, Any}(string(k) => v for (k, v) in params)
+    query = Dict{String, Any}(string(k) => v for (k, v) in params if !isnothing(v))
     query["apikey"] = fmp.apikey
     url = "$(fmp.baseurl)/api/v4/$(endpoint)"
     return url, query
 end
 
 """
-    make_get_request(url, query)
+    make_get_request(url, query, status_exception = false)
 
 Makes a GET request to the Financial Modeling Prep API server.
 
 # Arguments
-- url::String: A url to make a request to.
-- query::Dict{String, Any}: Additional query parameters for the request.
+- `url::String`: A url to make a request to.
+- `query::Dict{String, Any}`: Additional query parameters for the request.
+- `status_exception::Bool = false`: throw HTTP.StatusError for response status >= 300.
 """
-function make_get_request(url::String, query::Dict{String, Any})::HTTP.Messages.Response
-    response = HTTP.get(url, query = query)
-    
-    # only response status 200 contains usable data
-    if response.status != 200
-        error("HTTP request returned status code $(response.status).")
-    end
-    
+function make_get_request(url::String, query::Dict{String, Any}; status_exception = false)::HTTP.Messages.Response
+    response = HTTP.get(url, query = query, status_exception = status_exception)
     return response
 end
 
 """
-    parse_json_response(response)
+    parse_json_object(response)
+    parse_json_object(response, accessor)
 
-Parses a JSON response from the Financial Modeling Prep API server.
+Parses a response from the Financial Modeling Prep API server as a JSON object.
 
 # Arguments
-- response::HTTP.Messages.Response: An HTTP response object.
+- `response::HTTP.Messages.Response`: An HTTP response containing JSON data.
+- `accessor::Symbol`: An accessor Symbol which contains a nested array.
 """
-function parse_json_response(response::HTTP.Messages.Response)::Vector{Any}
-    result = JSON.parse(String(response.body))
-    
+function parse_json_object(response::HTTP.Messages.Response, accessor)::Union{JSON3.Object, JSON3.Array}
+    result = JSON3.read(response.body)
+
     # raise error when the API response does
-    if isa(result, Dict) && haskey(result, "Error Message")
-        error(result["Error Message"])
+    if isa(result, JSON3.Object)
+        if haskey(result, "Error Message")
+            throw(Exceptions.PermissionError(result["Error Message"]))
+        end
+        if response.status != 200
+            status = response.status
+            method = response.request.method
+            target = split(response.request.target, "?")[1]
+            throw(HTTP.Exceptions.StatusError(status, method, target, response))
+        end
+        if haskey(result, accessor)
+            result = result[accessor]
+        end
     end
 
-    # convert all results to a vector
-    if !isa(result, Vector)
-        result = [result]
-    end
-    
     return result
 end
+parse_json_object(response::HTTP.Messages.Response) = parse_json_object(response, nothing)
 
-end # module Handler
+"""
+    parse_json_table(response)
+    parse_json_table(response, accessor)
+
+    Parses a response from the Financial Modeling Prep API server as a JSON table.
+
+# Arguments
+- `response::HTTP.Messages.Response`: An HTTP response containing JSON data.
+- `accessor::Symbol`: An accessor Symbol which contains a nested array.
+"""
+function parse_json_table(response::HTTP.Messages.Response, accessor)::Union{JSONTables.Table, JSON3.Array}
+    result = parse_json_object(response, accessor)
+    if !isempty(result)
+        result = JSONTables.jsontable(result)
+    end
+    return result
+end
+parse_json_table(response::HTTP.Messages.Response) = parse_json_table(response, nothing)
+
+end # module Client

@@ -5,12 +5,6 @@ include("Client.jl")
 import .Client
 import .Client.FMP
 
-# export preset variables
-export 
-    REPORTING_PERIODS,
-    REVENUE_SEGMENTS,
-    TIME_FREQUENCIES
-
 # exports from Client module
 export FMP
 
@@ -48,13 +42,35 @@ export
     company_rating,
     historical_ratings,
     discounted_cash_flows,
+    advanced_discounted_cash_flows,
     historical_discounted_cash_flows
+
+# exports from institutionalstockownership.jl
+export
+    institutional_positions,
+    institutional_ownership_percentages,
+    institutional_ownership_weightings,
+    institutional_ownership_feed,
+    institution_search,
+    institution_portfolio_dates,
+    institution_portfolio_summary,
+    institution_portfolio_industry_summary,
+    institution_portfolio_composition
 
 # exports from esgscore.jl
 export
     esg_scores,
     esg_ratings,
     esg_score_benchmarks
+
+# exports from privatecompaniesfundraisingdata.jl
+export
+    crowdfunding_offerings_feed,
+    crowdfunding_offerings_search,
+    crowdfunding_offerings,
+    equity_offerings_feed,
+    equity_offerings_search,
+    equity_offerings
 
 # exports from pricetarget.jl
 export
@@ -72,9 +88,31 @@ export
     upgrades_and_downgrades_consensus,
     upgrades_and_downgrades_by_company
 
+# exports from historicalfundholdings.jl
+export
+    mutual_fund_portfolio_dates,
+    mutual_fund_portfolio,
+    mutual_fund_search,
+    etf_portfolio_dates,
+    etf_portfolio
+
+# exports from historicalemployees
+export
+    historical_employee_counts
+
+# exports from executivecompensation.jl
+export
+    executive_compensation,
+    executive_compensation_benchmarks
+
+# exports from individualbeneficialownership.jl
+export
+    beneficial_ownership
+
 # exports from stockcalendars.jl
 export
     earnings_calendar,
+    historical_earnings_calendar,
     earnings_calendar_confirmed,
     ipo_calendar,
     ipo_calendar_prospectus,
@@ -88,7 +126,8 @@ export
 export
     search_symbol,
     search_name,
-    stock_screener
+    stock_screener,
+    available_countries
 
 # exports from companyinformation.jl
 export
@@ -123,7 +162,9 @@ export
 
 # exports from stockstatistics.jl
 export
-    social_sentiment,
+    historical_social_sentiment,
+    social_sentiment_trends,
+    social_sentiment_changes,
     stock_grades,
     earnings_surprises,
     analyst_estimates,
@@ -135,8 +176,8 @@ export
     insider_trading_types,
     insider_trades,
     insider_trades_feed,
-    cik_list,
-    cik_from_name,
+    insiders_list,
+    cik_from_insider,
     cik_from_symbol,
     insider_roster,
     insider_roster_statistics,
@@ -207,16 +248,28 @@ export
     exchange_rates,
     available_commodities
 
-REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
-REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
-TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
+# export preset variables
+export 
+    REPORTING_PERIODS,
+    REVENUE_SEGMENTS,
+    TIME_FREQUENCIES
+
+const REPORTING_PERIODS = (annual = "annual", quarter = "quarter", ttm = "ttm") # reporting period options
+const REVENUE_SEGMENTS = (geographic = "geographic", product = "product") # revenue segment options
+const TIME_FREQUENCIES = (minutes1 = "1min", minutes5 = "5min", minutes15 = "15min",  minutes30 = "30min", hours1 = "1hour", hours4 = "4hour", daily = "daily") # time period options
 
 include("pricequotes.jl")
 include("stockfundamentals.jl")
 include("stockfundamentalsanalysis.jl")
+include("institutionalstockownership.jl")
 include("esgscore.jl")
+include("privatecompaniesfundraisingdata.jl")
 include("pricetarget.jl")
 include("upgradesdowngrades.jl")
+include("historicalfundholdings.jl")
+include("historicalemployees.jl")
+include("executivecompensation.jl")
+include("individualbeneficialownership.jl")
 include("stockcalendars.jl")
 include("stockscreener.jl")
 include("companyinformation.jl")

@@ -1,15 +1,15 @@
 @testset "senate_trades" begin
-    @test !isempty(senate_trades(fmp, "AAPL")[1])
+    @test isa(senate_trades(fmp, "AAPL"), JSONTable)
 end
 
 @testset "senate_trades_feed" begin
-    @test !isempty(senate_trades_feed(fmp, page = 0)[1])
+    @test isa(senate_trades_feed(fmp, page = 0), JSONArray)
 end
 
 @testset "senate_disclosures" begin
-    @test !isempty(senate_disclosures(fmp, "AAPL")[1])
+    @test isa(senate_disclosures(fmp, "AAPL"), JSONTable)
 end
 
 @testset "senate_disclosure_feed" begin
-    @test !isempty(senate_disclosure_feed(fmp, page = 0)[1])
+    @test isa(senate_disclosure_feed(fmp, page = 0), JSONArray)
 end
